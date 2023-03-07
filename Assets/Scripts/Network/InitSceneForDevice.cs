@@ -8,7 +8,8 @@ public class InitSceneForDevice : MonoBehaviour
     [SerializeField] private GameObject arSession;
     [SerializeField] private GameObject canvasHol;
     [SerializeField] private GameObject canvasAnd;
-    [SerializeField] private GameObject mainCanvasHol;
+    [SerializeField] private GameObject hololensStuffs;
+    [SerializeField] private GameObject hololensToolkit;
   
 
     // Start is called before the first frame update
@@ -22,15 +23,7 @@ public class InitSceneForDevice : MonoBehaviour
         canvasHol.gameObject.SetActive(!isStudent);
         canvasAnd.gameObject.SetActive(isStudent);
 
-        mainCanvasHol.gameObject.SetActive(!isStudent);  
-
+        hololensStuffs.gameObject.SetActive(!isStudent);  
+        hololensToolkit.gameObject.SetActive(!isStudent);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
 }

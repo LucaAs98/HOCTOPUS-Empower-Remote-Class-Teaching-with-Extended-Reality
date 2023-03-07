@@ -14,6 +14,8 @@ using UnityEngine.UI;
 public class RelayLogic : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI lobbyCodeText;
+    [SerializeField] private GameObject sceneProps;
+    [SerializeField] private Canvas mainCanvas;
 
     private async void Start()
     {
@@ -31,6 +33,7 @@ public class RelayLogic : MonoBehaviour
     {
         try
         {
+            mainCanvas.gameObject.SetActive(true);
             Allocation allocation = await RelayService.Instance.CreateAllocationAsync(5);
             string joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
 
@@ -45,7 +48,8 @@ public class RelayLogic : MonoBehaviour
             );
 
             NetworkManager.Singleton.StartServer();
-            lobbyCodeText.text = "Code: " + joinCode;
+            lobbyCodeText.text = "Codice: " + joinCode;
+            sceneProps.gameObject.SetActive(true);
         }
         catch (RelayServiceException e)
         {
