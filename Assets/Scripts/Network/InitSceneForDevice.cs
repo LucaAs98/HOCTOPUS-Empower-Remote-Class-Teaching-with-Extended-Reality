@@ -8,6 +8,7 @@ public class InitSceneForDevice : MonoBehaviour
     [SerializeField] private GameObject arSession;
     [SerializeField] private GameObject canvasHol;
     [SerializeField] private GameObject canvasAnd;
+    [SerializeField] private GameObject mainCanvasHol;
   
 
     // Start is called before the first frame update
@@ -20,6 +21,8 @@ public class InitSceneForDevice : MonoBehaviour
 
         canvasHol.gameObject.SetActive(!isStudent);
         canvasAnd.gameObject.SetActive(isStudent);
+
+        mainCanvasHol.gameObject.SetActive(false);  
 
     }
 
