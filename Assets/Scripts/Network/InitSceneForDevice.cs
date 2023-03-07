@@ -22,7 +22,7 @@ public class InitSceneForDevice : MonoBehaviour
         canvasHol.gameObject.SetActive(!isStudent);
         canvasAnd.gameObject.SetActive(isStudent);
 
-        mainCanvasHol.gameObject.SetActive(false);  
+        mainCanvasHol.gameObject.SetActive(!isStudent);  
 
     }
 

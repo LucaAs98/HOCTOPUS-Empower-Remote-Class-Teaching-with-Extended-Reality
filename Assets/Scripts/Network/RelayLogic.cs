@@ -13,7 +13,6 @@ using UnityEngine.UI;
 
 public class RelayLogic : MonoBehaviour
 {
-    [SerializeField] private Canvas mainCanvasHol;
     [SerializeField] private TextMeshProUGUI lobbyCodeText;
 
     private async void Start()
@@ -46,7 +45,6 @@ public class RelayLogic : MonoBehaviour
             );
 
             NetworkManager.Singleton.StartServer();
-            mainCanvasHol.gameObject.SetActive(true);
             lobbyCodeText.text = "Code: " + joinCode;
         }
         catch (RelayServiceException e)

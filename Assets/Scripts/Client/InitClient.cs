@@ -9,11 +9,8 @@ public class InitClient : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (!IsOwner) return;
-
-        this.gameObject.GetComponent<Camera>().enabled = true;
-        this.gameObject.GetComponent<AudioListener>().enabled = true;
-        this.gameObject.GetComponent<ARPoseDriver>().enabled = true;
-        this.gameObject.GetComponent<ARCameraBackground>().enabled = true;
+        if (!IsOwner) 
+            this.gameObject.SetActive(false);
+            
     }
 }
