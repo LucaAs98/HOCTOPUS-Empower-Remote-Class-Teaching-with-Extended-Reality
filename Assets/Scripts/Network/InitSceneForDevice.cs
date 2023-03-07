@@ -6,19 +6,20 @@ public class InitSceneForDevice : MonoBehaviour
 {
     [SerializeField] private GameObject camera;
     [SerializeField] private GameObject arSession;
+    [SerializeField] private GameObject canvasHol;
+    [SerializeField] private GameObject canvasAnd;
+  
 
     // Start is called before the first frame update
     void Start()
     {
-        bool isStudent = false;
-
-        if (Application.platform == RuntimePlatform.Android)
-        {
-            isStudent = true;
-        }
+        bool isStudent = Application.platform == RuntimePlatform.Android;
 
         camera.gameObject.SetActive(!isStudent);
         arSession.gameObject.SetActive(isStudent);
+
+        canvasHol.gameObject.SetActive(!isStudent);
+        canvasAnd.gameObject.SetActive(isStudent);
 
     }
 
@@ -27,4 +28,6 @@ public class InitSceneForDevice : MonoBehaviour
     {
         
     }
+
+
 }
