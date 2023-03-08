@@ -1,1 +1,0 @@
-this package contains the free version of hotween. if you want to use it i your own project you can take it in the assetstore.

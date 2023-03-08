@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InitSceneForDevice : MonoBehaviour
 {
-    [SerializeField] private GameObject camera;
+    //[SerializeField] private GameObject camera;
     [SerializeField] private GameObject arSession;
     [SerializeField] private GameObject canvasHol;
     [SerializeField] private GameObject canvasAnd;
@@ -17,7 +17,7 @@ public class InitSceneForDevice : MonoBehaviour
     {
         bool isStudent = Application.platform == RuntimePlatform.Android;
 
-        camera.gameObject.SetActive(!isStudent);
+        //camera.gameObject.SetActive(!isStudent);
         arSession.gameObject.SetActive(isStudent);
 
         canvasHol.gameObject.SetActive(!isStudent);
