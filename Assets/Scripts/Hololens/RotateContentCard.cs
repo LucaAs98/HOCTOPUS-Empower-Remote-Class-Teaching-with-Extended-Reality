@@ -7,12 +7,12 @@ public class RotateContentCard : MonoBehaviour
 {
     [SerializeField] private GameObject objToRotate;
     [SerializeField] private float speed = 100;
+    [SerializeField] public Transform model2Spawn;
 
     void OnEnable()
     {
         foreach (var component in GameObject.FindObjectsOfType<RotateContentCard>())
         {
-            Debug.Log(component + " - " + this.GetComponent<RotateContentCard>());
             if (component != this.GetComponent<RotateContentCard>())
             {
                 component.enabled = false;
