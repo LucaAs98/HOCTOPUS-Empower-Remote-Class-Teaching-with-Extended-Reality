@@ -16,7 +16,7 @@ public class StartLesson : MonoBehaviour
     // Start is called before the first frame update
     public async void CreateClass(Transform model3d)
     {
-
+        sceneProps.gameObject.SetActive(true);
         string joinCode = await NetworkManager.Singleton.GetComponent<RelayLogic>().CreateRelay();
 
         if (joinCode != null) { 
@@ -24,9 +24,13 @@ public class StartLesson : MonoBehaviour
             Quaternion rot = model3d.transform.rotation;
             Transform spawnedModel = Instantiate(model3d, pos, rot, mixedRealitySceneContent);
             spawnedModel.GetComponent<NetworkObject>().Spawn(true);
-            sceneProps.gameObject.SetActive(true);
+            
             lobbyCodeText.text = "Codice: " + joinCode;
             
+        }
+        else
+        {
+            lobbyCodeText.text = "Errore nella creazione del relay";
         }
 
     }

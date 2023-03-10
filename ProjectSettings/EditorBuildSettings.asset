@@ -9,8 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/FirstTryScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 0
-    path: Assets/Scenes/AUXFirstTryScene.unity
+    path: 
     guid: dd220ef9195474c4587ab7f0e6100b7a
+  - enabled: 1
+    path: Assets/Scenes/HandMenu.unity
+    guid: 69f0baba8d06f3a4c8b75ed92b32c6a4
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: c208f5611c687ab4784e76e71c58d1ab, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 59bbac6f8a59f2a438aa94db34ad0e79, type: 2}
