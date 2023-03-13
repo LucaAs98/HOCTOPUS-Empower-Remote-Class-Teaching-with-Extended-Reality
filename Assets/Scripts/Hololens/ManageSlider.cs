@@ -12,16 +12,20 @@ public class ManageSlider : MonoBehaviour
 
     void Start()
     {
-        materialGameObj = objToModify.GetComponentInChildren<Renderer>().material;
-        baseColor = materialGameObj.color;
-        ChangeValue();
+            materialGameObj = objToModify.GetComponentInChildren<Renderer>().material;
+            baseColor = materialGameObj.color;
+            ChangeValue();
     }
 
 
 
     public void ChangeValue()
     {
-        Color newColor = new Color(baseColor.r, baseColor.g, baseColor.b, slider.GetComponent<PinchSlider>().SliderValue);
-        materialGameObj.SetColor("_Color", newColor);
+        if(objToModify != null)
+        {
+            Color newColor = new Color(baseColor.r, baseColor.g, baseColor.b, slider.GetComponent<PinchSlider>().SliderValue);
+            materialGameObj.SetColor("_Color", newColor);
+        }
+        
     }
 }

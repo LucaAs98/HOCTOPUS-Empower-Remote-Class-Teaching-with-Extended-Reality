@@ -10,11 +10,10 @@ Material:
   m_Name: HoloDarkGrey
   m_Shader: {fileID: 4800000, guid: 5bdea20278144b11916d77503ba1467a, type: 3}
   m_ValidKeywords:
-  - _CHANNEL_MAP
   - _DIRECTIONAL_LIGHT
   - _DISABLE_ALBEDO_MAP
   - _HOVER_LIGHT
-  - _REFLECTIONS
+  - _NORMAL_MAP
   - _SPECULAR_HIGHLIGHTS
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -99,11 +98,11 @@ Material:
     - _DirectionalLight: 1
     - _DstBlend: 0
     - _EdgeSmoothingValue: 0.002
-    - _EnableChannelMap: 1
+    - _EnableChannelMap: 0
     - _EnableEmission: 0
     - _EnableHoverColorOverride: 0
     - _EnableLocalSpaceTriplanarMapping: 0
-    - _EnableNormalMap: 0
+    - _EnableNormalMap: 1
     - _EnableProximityLightColorOverride: 0
     - _EnableSSAA: 0
     - _EnableTriplanarMapping: 0
@@ -126,7 +125,7 @@ Material:
     - _IridescenceAngle: -0.78
     - _IridescenceIntensity: 0.5
     - _IridescenceThreshold: 0.05
-    - _Metallic: 0
+    - _Metallic: 1
     - _MipmapBias: -2
     - _Mode: 0
     - _NearLightFade: 0
@@ -137,7 +136,7 @@ Material:
     - _ProximityLight: 0
     - _ProximityLightSubtractive: 0
     - _ProximityLightTwoSided: 0
-    - _Reflections: 1
+    - _Reflections: 0
     - _Refraction: 0
     - _RefractiveIndex: 0
     - _RenderQueueOverride: -1
@@ -167,7 +166,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _ClippingBorderColor: {r: 1, g: 0.19999996, b: 0, a: 1}
-    - _Color: {r: 0.14150941, g: 0.14150941, b: 0.14150941, a: 1}
+    - _Color: {r: 0.14150935, g: 0.14150935, b: 0.14150935, a: 0.33333334}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
     - _EnvironmentColorX: {r: 1, g: 0, b: 0, a: 1}
