@@ -4410,7 +4410,7 @@ GameObject:
   - component: {fileID: 3344118975337501748}
   - component: {fileID: 3344118975337501746}
   m_Layer: 0
-  m_Name: HandMenuAnatomy
+  m_Name: HandMenuAnatomy(NOTUSED)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

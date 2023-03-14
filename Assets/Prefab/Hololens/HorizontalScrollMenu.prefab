@@ -617,7 +617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18a8f84ee58a2b2479973a7d9016e983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuToSpawn: {fileID: 4871556613483611810, guid: 04bb0bfcfaeeade4eb9bb30bdbb989dc, type: 3}
+  menuToSpawn: {fileID: 472681007734666243, guid: b5750f5854485784089787c4b6461c53, type: 3}
 --- !u!114 &7380185217873492121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2039,7 +2039,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objToRotate: {fileID: 3299400060797106092}
   speed: 100
-  model2Spawn: {fileID: 4657388211869853405, guid: a190a3555e2691940b05675a8cfae8c7, type: 3}
+  modelToSpawn: {fileID: 0}
 --- !u!1 &667332661387124946
 GameObject:
   m_ObjectHideFlags: 0
@@ -3935,7 +3935,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objToRotate: {fileID: 5994738183865144538}
   speed: 100
-  model2Spawn: {fileID: 4657388211869853405, guid: a190a3555e2691940b05675a8cfae8c7, type: 3}
+  modelToSpawn: {fileID: 0}
 --- !u!1 &667332661736368372
 GameObject:
   m_ObjectHideFlags: 0
@@ -5255,6 +5255,8 @@ MonoBehaviour:
   - {fileID: 667332662923139769}
   - {fileID: 667332662703722135}
   - {fileID: 667332661484994255}
+  - {fileID: 141740854526374349}
+  - {fileID: 8399066985323285712}
   - {fileID: 667332662614965457}
   - {fileID: 667332661413907055}
   - {fileID: 667332662707982979}
@@ -5286,8 +5288,6 @@ MonoBehaviour:
   - {fileID: 5849854438176713590}
   - {fileID: 5062167282867692357}
   - {fileID: 4644053406803893698}
-  - {fileID: 141740854526374349}
-  - {fileID: 8399066985323285712}
   clippingSide: -1
   useOnPreRender: 1
   applyToSharedMaterial: 0
@@ -8957,7 +8957,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objToRotate: {fileID: 397370464024677684}
   speed: 100
-  model2Spawn: {fileID: 4657388211869853405, guid: a190a3555e2691940b05675a8cfae8c7, type: 3}
+  modelToSpawn: {fileID: 0}
 --- !u!1 &667332662471740944
 GameObject:
   m_ObjectHideFlags: 0
@@ -9546,7 +9546,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objToRotate: {fileID: 3436388982137907279}
   speed: 100
-  model2Spawn: {fileID: 4657388211869853405, guid: a190a3555e2691940b05675a8cfae8c7, type: 3}
+  modelToSpawn: {fileID: 0}
 --- !u!1 &667332662604252134
 GameObject:
   m_ObjectHideFlags: 0
@@ -10267,7 +10267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objToRotate: {fileID: 667332662786193769}
   speed: 100
-  model2Spawn: {fileID: 212903762359572567, guid: d32add9306bd2f54b944093621ad05b5, type: 3}
+  modelToSpawn: {fileID: 212903762359572567, guid: 7e037be6a6e537e4d9f25430371e2144, type: 3}
 --- !u!1 &667332662675232225
 GameObject:
   m_ObjectHideFlags: 0
@@ -14518,7 +14518,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objToRotate: {fileID: 1721955764769101706}
   speed: 100
-  model2Spawn: {fileID: 4657388211869853405, guid: a190a3555e2691940b05675a8cfae8c7, type: 3}
+  modelToSpawn: {fileID: 0}
 --- !u!1 &4398631447795628226
 GameObject:
   m_ObjectHideFlags: 0
@@ -16741,7 +16741,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objToRotate: {fileID: 7464897145371821658}
   speed: 100
-  model2Spawn: {fileID: 4657388211869853405, guid: a190a3555e2691940b05675a8cfae8c7, type: 3}
+  modelToSpawn: {fileID: 0}
 --- !u!1 &8980178183844501068
 GameObject:
   m_ObjectHideFlags: 0
@@ -17378,7 +17378,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objToRotate: {fileID: 7448335955012170902}
   speed: 100
-  model2Spawn: {fileID: 4657388211869853405, guid: a190a3555e2691940b05675a8cfae8c7, type: 3}
+  modelToSpawn: {fileID: 0}
 --- !u!1001 &667332661242589285
 PrefabInstance:
   m_ObjectHideFlags: 0

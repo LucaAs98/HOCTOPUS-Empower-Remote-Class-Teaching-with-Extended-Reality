@@ -1,31 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using Microsoft.MixedReality.Toolkit.UI;
+using Unity.Netcode;
 using UnityEngine;
 
-public class ManageSlider : MonoBehaviour
+public class ManageSlider : NetworkBehaviour
 {
-    [SerializeField] private GameObject objToModify;
+    //Similar to ManageToggle, but in this case we have already the interrested objects in the serialized fields
+    [SerializeField] private Material material;
     [SerializeField] private GameObject slider;
-    private Material materialGameObj;
     private Color baseColor;
 
-    void Start()
+    void Awake()
     {
-            materialGameObj = objToModify.GetComponentInChildren<Renderer>().material;
-            baseColor = materialGameObj.color;
-            ChangeValue();
+        baseColor = material.color;
+        ChangeColor();
     }
 
-
-
-    public void ChangeValue()
+    //Called every time we change the slider value
+    public void ChangeColor()
     {
-        if(objToModify != null)
-        {
-            Color newColor = new Color(baseColor.r, baseColor.g, baseColor.b, slider.GetComponent<PinchSlider>().SliderValue);
-            materialGameObj.SetColor("_Color", newColor);
-        }
-        
+        float alpha = slider.GetComponent<PinchSlider>().SliderValue;
+        SetNewAlpha(alpha);
+        ChangeColorClientRpc(alpha);
+    }
+
+    [ClientRpc]
+    public void ChangeColorClientRpc(float alpha)
+    {
+        SetNewAlpha(alpha);
+    }
+
+    //Base function called from the server and also from the clients
+    private void SetNewAlpha(float alpha)
+    {
+        Color newColor = new Color(baseColor.r, baseColor.g, baseColor.b, alpha);
+        material.SetColor("_Color", newColor);
     }
 }

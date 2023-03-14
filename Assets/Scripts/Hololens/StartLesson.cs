@@ -1,37 +1,45 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using Unity.Netcode;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class StartLesson : MonoBehaviour
 {
-    public Transform mixedRealitySceneContent;
-    [SerializeField] private TextMeshProUGUI lobbyCodeText;
-    [SerializeField] private GameObject sceneProps;
+    [SerializeField] public Transform mixedRealitySC; //Parent where we spawn the objects to manipulate and share
+    [SerializeField] public GameObject hololensCanvas; //Canvas where we display the lobby code
+    [SerializeField] private TextMeshProUGUI lobbyCodeText; //LobbyCode we get from Relay
     [SerializeField] private Camera hololensCamera;
-    float distance = 2.0f;
-    // Start is called before the first frame update
-    public async void CreateClass(Transform model3d)
+    float distance = 2.0f; //Distance between the holo camera and the model
+
+    // Function where we spawn the object that corresponds to the selected card 
+    public async void CreateClass(Transform modelToSpawn)
     {
-        sceneProps.gameObject.SetActive(true);
+        //We activate the canvas where we display the lobby code
+        hololensCanvas.gameObject.SetActive(true);
+
+        //Getting the lobbycode
         string joinCode = await NetworkManager.Singleton.GetComponent<RelayLogic>().CreateRelay();
 
-        if (joinCode != null) { 
-            Vector3 pos = hololensCamera.transform.position + hololensCamera.transform.forward * distance;
-            Quaternion rot = model3d.transform.rotation;
-            Transform spawnedModel = Instantiate(model3d, pos, rot, mixedRealitySceneContent);
-            spawnedModel.GetComponent<NetworkObject>().Spawn(true);
-            
+        //If the connection is ok we spawn the interested model
+        if (joinCode != null)
+        {
+            SpawnObject(modelToSpawn);
             lobbyCodeText.text = "Codice: " + joinCode;
-            
         }
         else
         {
             lobbyCodeText.text = "Errore nella creazione del relay";
         }
+    }
 
+
+    //Spawns the object in front of the hololens camera position
+    public void SpawnObject(Transform model)
+    {
+        Vector3 pos = hololensCamera.transform.position + hololensCamera.transform.forward * distance;
+        Quaternion rot = model.transform.rotation;
+
+        //We spawn the obj in the scene, but we need to spawn it also for the network
+        Transform spawnedModel = Instantiate(model, pos, rot, mixedRealitySC);
+        spawnedModel.GetComponent<NetworkObject>().Spawn(true);
     }
 }

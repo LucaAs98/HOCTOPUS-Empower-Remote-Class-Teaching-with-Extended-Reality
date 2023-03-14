@@ -939,7 +939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 224005418473288314, guid: 9ed2a051c32b4fe47a5e4fb95c20b03f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0.96943974
       objectReference: {fileID: 0}
     - target: {fileID: 224005418473288314, guid: 9ed2a051c32b4fe47a5e4fb95c20b03f, type: 3}
       propertyPath: m_AnchorMin.y
@@ -971,7 +971,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 224130951485110974, guid: 9ed2a051c32b4fe47a5e4fb95c20b03f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000061035156
+      value: -0.000030517578
       objectReference: {fileID: 0}
     - target: {fileID: 224166536479716514, guid: 9ed2a051c32b4fe47a5e4fb95c20b03f, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2233,7 +2233,12 @@ MonoBehaviour:
       SourceHashToOverride: 0
       OverridingTargetPrefab: {fileID: 0}
     - Override: 0
-      Prefab: {fileID: 702476280804213485, guid: 31a92a6aca51b4c469b601c0a1e398a2, type: 3}
+      Prefab: {fileID: 702476280804213485, guid: d32add9306bd2f54b944093621ad05b5, type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 702476280804213485, guid: 7e037be6a6e537e4d9f25430371e2144, type: 3}
       SourcePrefabToOverride: {fileID: 0}
       SourceHashToOverride: 0
       OverridingTargetPrefab: {fileID: 0}
@@ -2308,9 +2313,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8479c7c9c19f3ac4d8ace6f2f0d2154c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixedRealitySceneContent: {fileID: 765461514}
+  mixedRealitySC: {fileID: 765461514}
+  hololensCanvas: {fileID: 1114040580}
   lobbyCodeText: {fileID: 1182645416}
-  sceneProps: {fileID: 1114040580}
   hololensCamera: {fileID: 1472036067}
 --- !u!1 &1582838699
 GameObject:

@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: -230168557594557562}
   - component: {fileID: -4065610439292754124}
   m_Layer: 0
-  m_Name: FullBody
+  m_Name: FullBodyOLD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

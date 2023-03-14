@@ -7,7 +7,7 @@ public class RotateContentCard : MonoBehaviour
 {
     [SerializeField] private GameObject objToRotate;
     [SerializeField] private float speed = 100;
-    [SerializeField] public Transform model2Spawn;
+    [SerializeField] public Transform modelToSpawn;
 
     void OnEnable()
     {
