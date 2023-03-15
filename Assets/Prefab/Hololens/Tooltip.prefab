@@ -41,7 +41,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9055181782003901267}
   - component: {fileID: 9055181782003901264}
-  - component: {fileID: 9055181782003901265}
   - component: {fileID: 9055181782003901266}
   m_Layer: 0
   m_Name: Label
@@ -112,14 +111,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!222 &9055181782003901265
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9055181782003901268}
-  m_CullTransparentMesh: 0
 --- !u!114 &9055181782003901266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,7 +427,7 @@ MonoBehaviour:
     position: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 1}
   endPoint:
-    position: {x: 0.5, y: -3.6259537, z: 0}
+    position: {x: 0.5, y: -125.62595, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!114 &9055181783160938958
 MonoBehaviour:
@@ -587,7 +578,7 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
-  - {x: 1, y: -7.2519073, z: 0}
+  - {x: 1, y: -251.2519, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.01
@@ -749,7 +740,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ec72a3a105768f746b556a8dfdae61a8, type: 2}
+  - {fileID: 2100000, guid: 0cf8a73779f20fd45923912849c198cc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -5,24 +5,36 @@ using UnityEngine;
 
 public class OnlyOneLabelToggle : MonoBehaviour
 {
-    [SerializeField] private List<Interactable> toggleList;
-
-    public void CheckToggle()
+    [SerializeField] public List<Interactable> toggleList;
+    private Interactable previousToggle = null;
+    private int nToggleActivated = 0;
+    public void CheckToggle(bool wasActive)
     {
-        bool isSomeoneActive = false;
-        foreach (var toggle in toggleList)
+        //If we disable the last one
+        if (wasActive)
         {
-            if (toggle.IsToggled)
+            previousToggle = null;
+            nToggleActivated = 0;
+        }
+        else //Check if there are others toggle activated
+        {
+            nToggleActivated++;
+
+            if (nToggleActivated > 1)
             {
-                isSomeoneActive = true;
-                DisableOtherToggle(toggle);
+                previousToggle.IsToggled = false;
+                nToggleActivated--;
+            }
+
+            foreach (var toggle in toggleList)
+            {
+                if (toggle.IsToggled)
+                {
+                    previousToggle = toggle;
+                }
             }
         }
-
-        if (!isSomeoneActive)
-        {
-            EnableAllToggle();
-        }
+        
     }
 
     private void DisableOtherToggle(Interactable toggleActivated)
@@ -31,16 +43,8 @@ public class OnlyOneLabelToggle : MonoBehaviour
         {
             if (toggle != toggleActivated)
             {
-                toggle.enabled = false;
+                toggle.IsToggled = false;
             }
-        }
-    }
-
-    private void EnableAllToggle()
-    {
-        foreach (var toggle in toggleList)
-        {
-            toggle.enabled = true;
         }
     }
 }

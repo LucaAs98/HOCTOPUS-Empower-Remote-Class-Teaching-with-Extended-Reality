@@ -16,7 +16,9 @@ using static UnityEditor.PlayerSettings;
 
 public class CreateLabels : MonoBehaviour
 {
-    [SerializeField] Transform center; 
+    [SerializeField] Transform center;
+    [SerializeField] GameObject containerTooltips;
+
     private List<Transform> objlabelleft;
     private List<Transform> objlabelright;
     private bool right = true;
@@ -27,30 +29,33 @@ public class CreateLabels : MonoBehaviour
     private float step;
     private float initY;
 
+
+    void Start()
+    {
+        Labelling();
+    }
+
     public void Labelling()
     {
         List<Transform> obj = GetChildrens(this.transform);
         obj.Sort(YPositionComparison);
         int nlabel = (int)System.Math.Ceiling(obj.Count / 2.0f);
-        
-        step = 1.3f /nlabel;
+
+        step = 1.3f / nlabel;
         float yCenter = center.transform.position.y;
-        initY = yCenter - (((int) System.Math.Ceiling(nlabel/2.0f)) * step);
+        initY = yCenter - (((int)System.Math.Ceiling(nlabel / 2.0f)) * step);
 
         objlabelleft = new List<Transform>();
         objlabelright = new List<Transform>();
 
-        foreach (Transform child in obj) {
+        foreach (Transform child in obj)
+        {
             CreateLabel(child);
         }
-
-
     }
 
-    private void CreateLabel(Transform child) {
-
-        //TextMesh golab = new GameObject("Lab_"+child.name).AddComponent<TextMesh>();
-
+    private void CreateLabel(Transform child)
+    {
         Vector3 rl;
 
         if (right)
@@ -63,15 +68,16 @@ public class CreateLabels : MonoBehaviour
 
         pos = CheckPosition(pos);
 
-        Transform spawnedModel = Instantiate(label, pos, rot, child);
+        Transform spawnedModel = Instantiate(label, pos, rot, containerTooltips.transform);
 
         ToolTip labeltext = spawnedModel.GetComponent<ToolTip>();
         labeltext.ToolTipText = child.name;
+
         Transform anchor = spawnedModel.GetChild(0);
         anchor.position = child.position;
 
         //CheckPosition(spawnedModel);
-        if(right)
+        if (right)
             objlabelright.Add(spawnedModel);
         else
             objlabelleft.Add(spawnedModel);
@@ -79,7 +85,8 @@ public class CreateLabels : MonoBehaviour
         right = !right;
     }
 
-    private Vector3 CheckPosition(Vector3 poslabel) {
+    private Vector3 CheckPosition(Vector3 poslabel)
+    {
         List<Transform> objlabel;
 
         if (right)
@@ -96,14 +103,15 @@ public class CreateLabels : MonoBehaviour
             {
                 yposition.Add(i.position.y);
             }
+
             poslabel.y = yposition.Max() + step;
         }
-        else {
+        else
+        {
             poslabel.y = initY;
         }
 
         return poslabel;
-
     }
 
     private float SearchArray(float inValToSearch_, List<float> inArr_)
@@ -121,19 +129,24 @@ public class CreateLabels : MonoBehaviour
         return inArr_.OrderBy(item => System.Math.Abs(inValToSearch_ - item)).First();
     }
 
-    private List<Transform> GetChildrens(Transform parent) {
-
+    private List<Transform> GetChildrens(Transform parent)
+    {
         List<Transform> aux = new List<Transform>();
 
-        foreach (Transform child in parent) {
-            aux.Add(child);
-            if (recursive && child.childCount > 0) {
-                List<Transform> grandchilds = GetChildrens(child);
-                aux.AddRange(grandchilds); 
+        foreach (Transform child in parent)
+        {
+            if (!child.name.Equals("Tooltips"))
+            {
+                aux.Add(child);
+                if (recursive && child.childCount > 0)
+                {
+                    List<Transform> grandchilds = GetChildrens(child);
+                    aux.AddRange(grandchilds);
+                }
             }
         }
 
-        return aux;    
+        return aux;
     }
 
     private int YPositionComparison(Transform a, Transform b)
@@ -146,5 +159,4 @@ public class CreateLabels : MonoBehaviour
         var yb = b.transform.position.y;
         return ya.CompareTo(yb); //here I use the default comparison of floats
     }
-
 }

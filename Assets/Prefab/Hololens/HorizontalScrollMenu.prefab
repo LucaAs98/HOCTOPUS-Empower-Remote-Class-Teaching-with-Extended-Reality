@@ -10267,7 +10267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objToRotate: {fileID: 667332662786193769}
   speed: 100
-  modelToSpawn: {fileID: 212903762359572567, guid: 39b2ddd134d4de74cbeb302923137c3f, type: 3}
+  modelToSpawn: {fileID: 212903762359572567, guid: 82cd4168ac445a24caef0ecac88aa81f, type: 3}
 --- !u!1 &667332662675232225
 GameObject:
   m_ObjectHideFlags: 0
