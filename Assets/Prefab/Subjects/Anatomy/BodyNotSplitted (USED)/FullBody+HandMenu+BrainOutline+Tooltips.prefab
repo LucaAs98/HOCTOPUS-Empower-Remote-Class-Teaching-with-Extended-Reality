@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 702476280804213485}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.098, y: -1.025, z: 2.682}
+  m_LocalPosition: {x: -0.098, y: -2, z: 2.682}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -111,6 +111,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48b10a844a39fd041b816ae002a0a798, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  listOfObjToActivate:
+  - {fileID: 1931289922270778314}
+  - {fileID: 6542486707830336395}
+  - {fileID: 7020170901400230518}
+  - {fileID: 7020170901400230478}
 --- !u!114 &2997967753187338194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,6 +128,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ddda819e38a9c449a274e1c078c771d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactableObj:
+  - {fileID: 6542486707830336393}
+  - {fileID: 6542486707830336397}
+  - {fileID: 6542486707830336385}
+  - {fileID: 6542486707830336387}
+  - {fileID: 6542486707830336389}
+  - {fileID: 6542486707830336391}
+  - {fileID: 6542486707830336409}
+  - {fileID: 6542486707830336411}
+  - {fileID: 6542486707830336413}
+  - {fileID: 6542486707830336415}
+  - {fileID: 6542486707830336401}
+  - {fileID: 6542486707830336403}
+  - {fileID: 6542486707830336493}
+  - {fileID: 6542486707830336495}
+  - {fileID: 1375752558895860861}
 --- !u!114 &8755067688435625607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,6 +157,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   containerTooltipsToggle: {fileID: 1343318452013907181}
+  listOfObjWithTooltips:
+  - {fileID: 6542486707830336395}
+  - {fileID: 7020170901400230518}
+  - {fileID: 7020170901400230478}
 --- !u!1 &2013471451529058339
 GameObject:
   m_ObjectHideFlags: 0

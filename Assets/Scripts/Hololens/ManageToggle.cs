@@ -6,12 +6,8 @@ using UnityEngine;
 
 public class ManageToggle : NetworkBehaviour
 {
-    private GameObject[] listOfObjToActivate;
+    [SerializeField] private List<GameObject> listOfObjToActivate;
 
-    void Start()
-    {
-        listOfObjToActivate = GameObject.FindGameObjectsWithTag("Layer");
-    }
     //Called by server in ActivateToggle, we dont call it in client
     public void ActiveDeactivateObj(bool isToggle, GameObject objToActivate)
     {
@@ -44,7 +40,7 @@ public class ManageToggle : NetworkBehaviour
     //Simple functions for taking the index of the obj from the list and viceversa
     private int GetIndexFromObj(GameObject obj)
     {
-        return Array.IndexOf(listOfObjToActivate, obj);
+        return listOfObjToActivate.IndexOf(obj);
     }
 
     private GameObject GetObjFromIndex(int index)

@@ -6,12 +6,7 @@ using UnityEngine;
 
 public class ManageOutline : NetworkBehaviour
 {
-    private GameObject[] interactableObj;
-
-    void Start()
-    {
-        interactableObj = GameObject.FindGameObjectsWithTag("Interactable");
-    }
+    [SerializeField] private List<GameObject> interactableObj;
 
     public void EnableDisableComponent(GameObject objToOutline)
     {
@@ -36,12 +31,11 @@ public class ManageOutline : NetworkBehaviour
     //Simple functions for taking the index of the obj from the list and viceversa
     private int GetIndexFromObj(GameObject obj)
     {
-        return Array.IndexOf(interactableObj, obj);
+        return interactableObj.IndexOf(obj);
     }
 
     private GameObject GetObjFromIndex(int index)
     {
         return interactableObj[index];
     }
-
 }
