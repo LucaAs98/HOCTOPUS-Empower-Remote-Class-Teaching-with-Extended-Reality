@@ -5,10 +5,12 @@ using Mono.CSharp;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Xml.Linq;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 
 public class CreateLabels : MonoBehaviour
@@ -36,11 +38,16 @@ public class CreateLabels : MonoBehaviour
     {   
         List<Transform> childrens = GetChildrens(this.transform);
 
-        //
+        //Sorting of children according to their y position in the scene
         childrens.Sort(YPositionComparison);
+
+        //Number of maximum labels placed on both the left and right sides of the model
         int nlabel = (int)System.Math.Ceiling(childrens.Count / 2.0f);
 
+        //Value indicating how often to place a label
         step = 1.3f / nlabel;
+
+        //Calculation of the initial position of the first label
         float yCenter = center.transform.position.y;
         initY = yCenter - (((int)System.Math.Ceiling(nlabel / 2.0f)) * step);
 
@@ -53,29 +60,31 @@ public class CreateLabels : MonoBehaviour
         }
     }
 
+    //Instantiation of a label
     private void CreateLabel(Transform child)
     {
         Vector3 rl;
 
+        // if to decide whether the label will be placed to the right or left
         if (right)
             rl = this.transform.right;
         else
             rl = -(this.transform.right);
 
+        //Calculation of label position and rotation
         Vector3 pos = child.transform.position + rl * distance;
         Quaternion rot = label.transform.rotation;
 
+        //We fix the position on the y-axis
         pos = CheckPosition(pos);
 
+        //Let's install the label and assign data related to it
         Transform spawnedModel = Instantiate(label, pos, rot, containerTooltips.transform);
-
         ToolTip labeltext = spawnedModel.GetComponent<ToolTip>();
         labeltext.ToolTipText = child.name;
-
         Transform anchor = spawnedModel.GetChild(0);
         anchor.position = child.position;
 
-        //CheckPosition(spawnedModel);
         if (right)
             objlabelright.Add(spawnedModel);
         else
@@ -83,7 +92,7 @@ public class CreateLabels : MonoBehaviour
 
         right = !right;
     }
-
+    //Function to fix the position in the y-axis of the object
     private Vector3 CheckPosition(Vector3 poslabel)
     {
         List<Transform> objlabel;
@@ -93,7 +102,8 @@ public class CreateLabels : MonoBehaviour
         else
             objlabel = objlabelleft;
 
-
+        //If there are already other labels, the position of the next
+        //one depends on the y-axis of the last positioned + step
         if (objlabel.Count > 0)
         {
             List<float> yposition = new List<float>();
@@ -105,27 +115,12 @@ public class CreateLabels : MonoBehaviour
 
             poslabel.y = yposition.Max() + step;
         }
-        else
+        else //First label in the list, starts from the initial position calculated first
         {
             poslabel.y = initY;
         }
 
         return poslabel;
-    }
-
-    private float SearchArray(float inValToSearch_, List<float> inArr_)
-    {
-        if (inArr_ == null || inArr_.Count == 0)
-            return 0;
-        for (int i = 0; i < inArr_.Count - 1; i++)
-        {
-            if (inArr_[i] < inValToSearch_ && inArr_[i + 1] > inValToSearch_)
-            {
-                return inValToSearch_ - inArr_[i] < inArr_[i + 1] - inValToSearch_ ? inArr_[i] : inArr_[i + 1];
-            }
-        }
-
-        return inArr_.OrderBy(item => System.Math.Abs(inValToSearch_ - item)).First();
     }
 
     //Function to retrieve children's transforms
