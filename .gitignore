@@ -73,3 +73,5 @@ crashlytics-build.properties
 
 # APK Builds
 /AndroidBuild
+/HololensBuilds
+/HololensBuilds_BurstDebugInformation_DoNotShip

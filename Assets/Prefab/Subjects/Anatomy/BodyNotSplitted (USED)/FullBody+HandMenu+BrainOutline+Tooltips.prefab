@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8755067688435625607}
   m_Layer: 0
   m_Name: FullBody+HandMenu+BrainOutline+Tooltips
-  m_TagString: Untagged
+  m_TagString: SpawnedModel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

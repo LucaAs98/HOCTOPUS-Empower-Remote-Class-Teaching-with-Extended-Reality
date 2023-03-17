@@ -5,11 +5,14 @@ using Mono.CSharp;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Linq;
+using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 
 public class CreateLabels : MonoBehaviour
-{
+{   
     [SerializeField] Transform center;
     [SerializeField] GameObject containerTooltips;
 
@@ -17,7 +20,6 @@ public class CreateLabels : MonoBehaviour
     private List<Transform> objlabelright;
     private bool right = true;
     [SerializeField] public bool recursive = false;
-
     [SerializeField] private Transform label;
     private float distance = 0.5f;
     private float step;
@@ -29,11 +31,14 @@ public class CreateLabels : MonoBehaviour
         Labelling();
     }
 
+    //Function to instantiate the labels (tooltips) of the 3d model
     public void Labelling()
-    {
-        List<Transform> obj = GetChildrens(this.transform);
-        obj.Sort(YPositionComparison);
-        int nlabel = (int)System.Math.Ceiling(obj.Count / 2.0f);
+    {   
+        List<Transform> childrens = GetChildrens(this.transform);
+
+        //
+        childrens.Sort(YPositionComparison);
+        int nlabel = (int)System.Math.Ceiling(childrens.Count / 2.0f);
 
         step = 1.3f / nlabel;
         float yCenter = center.transform.position.y;
@@ -42,7 +47,7 @@ public class CreateLabels : MonoBehaviour
         objlabelleft = new List<Transform>();
         objlabelright = new List<Transform>();
 
-        foreach (Transform child in obj)
+        foreach (Transform child in childrens)
         {
             CreateLabel(child);
         }
@@ -123,8 +128,10 @@ public class CreateLabels : MonoBehaviour
         return inArr_.OrderBy(item => System.Math.Abs(inValToSearch_ - item)).First();
     }
 
+    //Function to retrieve children's transforms
     private List<Transform> GetChildrens(Transform parent)
     {
+        //Auxiliary list where children are stored
         List<Transform> aux = new List<Transform>();
 
         foreach (Transform child in parent)
@@ -132,6 +139,7 @@ public class CreateLabels : MonoBehaviour
             if (!child.name.Equals("Tooltips"))
             {
                 aux.Add(child);
+                //If we need to recursively enter children's children, recursive will be True
                 if (recursive && child.childCount > 0)
                 {
                     List<Transform> grandchilds = GetChildrens(child);
@@ -139,10 +147,10 @@ public class CreateLabels : MonoBehaviour
                 }
             }
         }
-
         return aux;
     }
 
+    // Comparison method to compare the height of the elements to which we will assign labels/
     private int YPositionComparison(Transform a, Transform b)
     {
         //null check, I consider nulls to be less than non-null
