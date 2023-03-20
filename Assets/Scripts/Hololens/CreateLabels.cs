@@ -1,20 +1,11 @@
-using IKVM.Reflection.Emit;
-using Microsoft.MixedReality.Toolkit;
 using Microsoft.MixedReality.Toolkit.UI;
-using Mono.CSharp;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Emit;
-using System.Xml.Linq;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 
 public class CreateLabels : MonoBehaviour
-{   
+{
     [SerializeField] Transform center;
     [SerializeField] GameObject containerTooltips;
 
@@ -35,7 +26,7 @@ public class CreateLabels : MonoBehaviour
 
     //Function to instantiate the labels (tooltips) of the 3d model
     public void Labelling()
-    {   
+    {
         List<Transform> childrens = GetChildrens(this.transform);
 
         //Sorting of children according to their y position in the scene
@@ -92,6 +83,7 @@ public class CreateLabels : MonoBehaviour
 
         right = !right;
     }
+
     //Function to fix the position in the y-axis of the object
     private Vector3 CheckPosition(Vector3 poslabel)
     {
@@ -142,6 +134,7 @@ public class CreateLabels : MonoBehaviour
                 }
             }
         }
+
         return aux;
     }
 
