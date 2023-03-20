@@ -11,6 +11,9 @@ public class InitClient : NetworkBehaviour
     {
         if (!IsOwner) 
             this.gameObject.SetActive(false);
-            
+
+        // if (!IsOwner)
+        //     this.gameObject.GetComponentInChildren<Camera>().enabled = false;
+
     }
 }
