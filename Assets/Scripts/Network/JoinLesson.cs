@@ -11,15 +11,12 @@ public class JoinLesson : MonoBehaviour
     [SerializeField] private GameObject errorImage;
     [SerializeField] private TextMeshProUGUI placeholder;
     [SerializeField] private TMP_InputField name;
-   
-    // Start is called before the first frame update
 
-
-    async public void Join() {
-        
+    async public void Join()
+    {
         GameObject playerPrefab = NetworkManager.Singleton.NetworkConfig.PlayerPrefab;
         playerPrefab.GetComponent<InitClient>().playerName = name.text;
-        
+
         bool flag = await NetworkManager.Singleton.GetComponent<RelayLogic>().JoinRelay(code.text);
 
         if (flag)
@@ -32,8 +29,5 @@ public class JoinLesson : MonoBehaviour
             placeholder.text = "Codice errato";
             code.text = "";
         }
-            
-        
     }
-    
 }

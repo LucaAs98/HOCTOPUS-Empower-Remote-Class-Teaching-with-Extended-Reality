@@ -27,4 +27,9 @@ public class InitClient : NetworkBehaviour
     {
         NetworkManager.Singleton.GetComponent<StartLesson>().AddUser(studentName);
     }
+
+    public string GetPlayerName()
+    {
+        return playerName;
+    }
 }

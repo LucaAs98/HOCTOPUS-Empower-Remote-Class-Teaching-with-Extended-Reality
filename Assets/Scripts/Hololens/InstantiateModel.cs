@@ -16,9 +16,10 @@ public class InstantiateModel : MonoBehaviour
             if (component.enabled)
             {
                 Camera cam = Camera.main;
-
                 Vector3 pos = cam.transform.position + cam.transform.forward;
+
                 this.gameObject.SetActive(false);
+
                 Transform newLoadingObj = Instantiate(loadingBalls, pos, Quaternion.identity);
                 newLoadingObj.GetComponent<ProgressIndicatorOrbsRotator>().OpenAsync();
 
