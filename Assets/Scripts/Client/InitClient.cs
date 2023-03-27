@@ -17,7 +17,6 @@ public class InitClient : NetworkBehaviour
         }
         else
         {
-            playerName = "Pippo";
             CallAddUserServerRpc(playerName);
         }
     }
