@@ -8,6 +8,8 @@ public class JoinLesson : MonoBehaviour
 {
     [SerializeField] private Canvas canvasAnd;
     [SerializeField] private TMP_InputField code;
+    [SerializeField] private GameObject errorImage;
+    [SerializeField] private TextMeshProUGUI placeholder;
     [SerializeField] private TMP_InputField name;
    
     // Start is called before the first frame update
@@ -23,6 +25,12 @@ public class JoinLesson : MonoBehaviour
         if (flag)
         {
             canvasAnd.gameObject.SetActive(false);
+        }
+        else
+        {
+            errorImage.SetActive(true);
+            placeholder.text = "Codice errato";
+            code.text = "";
         }
             
         
