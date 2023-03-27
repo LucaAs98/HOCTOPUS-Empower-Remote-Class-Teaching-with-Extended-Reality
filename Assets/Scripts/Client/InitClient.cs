@@ -6,14 +6,26 @@ using UnityEngine.XR.ARFoundation;
 
 public class InitClient : NetworkBehaviour
 {
+    public string playerName;
+
     // Start is called before the first frame update
     void Start()
     {
-        if (!IsOwner) 
+        if (!IsOwner)
+        {
             this.gameObject.SetActive(false);
+        }
+        else
+        {
+            playerName = "Pippo";
+            CallAddUserServerRpc(playerName);
+        }
+    }
 
-        // if (!IsOwner)
-        //     this.gameObject.GetComponentInChildren<Camera>().enabled = false;
 
+    [ServerRpc]
+    private void CallAddUserServerRpc(string studentName)
+    {
+        NetworkManager.Singleton.GetComponent<StartLesson>().AddUser(studentName);
     }
 }
