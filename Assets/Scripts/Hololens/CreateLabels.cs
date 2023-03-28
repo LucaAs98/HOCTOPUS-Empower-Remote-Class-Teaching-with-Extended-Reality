@@ -123,7 +123,7 @@ public class CreateLabels : MonoBehaviour
 
         foreach (Transform child in parent)
         {
-            if (!child.name.Equals("Tooltips"))
+            if (!child.name.Equals("Tooltips") && !child.name.Equals("Useless"))
             {
                 aux.Add(child);
                 //If we need to recursively enter children's children, recursive will be True

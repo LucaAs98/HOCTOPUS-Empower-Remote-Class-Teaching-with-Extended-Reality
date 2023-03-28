@@ -808,7 +808,6 @@ GameObject:
   m_Component:
   - component: {fileID: 667251661869676613}
   - component: {fileID: 7478500097242441141}
-  - component: {fileID: 2985124258528545290}
   - component: {fileID: 6906143045900827456}
   m_Layer: 0
   m_Name: Code
@@ -879,14 +878,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!222 &2985124258528545290
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2856738599321272045}
-  m_CullTransparentMesh: 0
 --- !u!114 &6906143045900827456
 MonoBehaviour:
   m_ObjectHideFlags: 0

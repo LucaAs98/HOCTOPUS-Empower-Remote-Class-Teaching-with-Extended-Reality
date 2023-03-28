@@ -46,7 +46,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8734354346695738568}
   - component: {fileID: 4529132495102412343}
-  - component: {fileID: 5472103852932455108}
   - component: {fileID: 6022457717609776793}
   m_Layer: 5
   m_Name: MessageText
@@ -117,14 +116,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!222 &5472103852932455108
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 587985513463863032}
-  m_CullTransparentMesh: 0
 --- !u!114 &6022457717609776793
 MonoBehaviour:
   m_ObjectHideFlags: 0
