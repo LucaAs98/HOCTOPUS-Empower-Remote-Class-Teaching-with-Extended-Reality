@@ -14,5 +14,6 @@ public class InitModelPosition : NetworkBehaviour
         model.transform.position = new Vector3(model.transform.position.x, model.transform.position.y - 0.2f,
             model.transform.position.z);
         model.transform.LookAt(cameraClient.transform);
+        model.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f); //Reset zoom
     }
 }
