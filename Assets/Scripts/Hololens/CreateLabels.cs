@@ -1,17 +1,20 @@
 using Microsoft.MixedReality.Toolkit.UI;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-
+using UnityEngine.UIElements;
 
 public class CreateLabels : MonoBehaviour
 {
     [SerializeField] Transform center;
     [SerializeField] GameObject containerTooltips;
 
+    private List<Transform> childsLeft;
+    private List<Transform> childsRight;
+
     private List<Transform> objlabelleft;
     private List<Transform> objlabelright;
-    private bool right = true;
     [SerializeField] public bool recursive = false;
     [SerializeField] private Transform label;
     private float distance = 0.5f;
@@ -29,8 +32,12 @@ public class CreateLabels : MonoBehaviour
     {
         List<Transform> childrens = GetChildrens(this.transform);
 
+        LeftRightChild(childrens);
+
         //Sorting of children according to their y position in the scene
-        childrens.Sort(YPositionComparison);
+        //childrens.Sort(YPositionComparison);
+        childsRight.Sort(YPositionComparison);
+        childsLeft.Sort(YPositionComparison);
 
         //Number of maximum labels placed on both the left and right sides of the model
         int nlabel = (int)System.Math.Ceiling(childrens.Count / 2.0f);
@@ -45,14 +52,89 @@ public class CreateLabels : MonoBehaviour
         objlabelleft = new List<Transform>();
         objlabelright = new List<Transform>();
 
-        foreach (Transform child in childrens)
+        InstantiateLabels(childsRight, true);
+        InstantiateLabels(childsLeft, false);
+
+    }
+
+    private void InstantiateLabels(List<Transform> listChilds, bool right) {
+        
+        foreach (Transform child in listChilds)
         {
-            CreateLabel(child);
+            CreateLabel(child, right);
+        }
+    }
+
+    private void LeftRightChild(List<Transform> childrens) {
+
+        childsLeft = new List<Transform> ();
+        childsRight = new List<Transform>();
+
+        if (!recursive)
+        {
+
+            foreach (Transform child in childrens)
+            {
+
+                if (child.localPosition.x >= 0)
+                {
+                    childsRight.Add(child);
+                }
+                else
+                {
+                    childsLeft.Add(child);
+                }
+            }
+
+            int dif = Mathf.Abs(childsRight.Count - childsLeft.Count);
+
+            if (dif > 1)
+            {
+                Debug.Log(childsRight.Count);
+                Debug.Log(childsLeft.Count);
+                List<Transform> auxMax = childsRight.Count > childsLeft.Count ? childsRight : childsLeft;
+                List<Transform> auxMin = childsRight.Count < childsLeft.Count ? childsRight : childsLeft;
+                FixChildsList(auxMax, auxMin, dif / 2);
+                Debug.Log(childsRight.Count);
+                Debug.Log(childsLeft.Count);
+
+            }
+            childsRight.Sort(YPositionComparison);
+            childsLeft.Sort(YPositionComparison);
+        }
+        else {
+            childrens.Sort(YPositionComparison);
+
+            int aux = 0;
+            foreach (Transform child in childrens) {
+                if(aux % 2 == 0)
+                    childsRight.Add(child);
+                else
+                    childsLeft.Add(child);
+
+                aux++;
+            }
+
+        }
+
+    }
+
+    private void FixChildsList(List<Transform> maxList, List<Transform> minList, int n) {
+        Debug.Log(this.name);
+        var sortedChilds = maxList.OrderBy(t => Mathf.Abs(t.position.x));
+        var selectedChilds = sortedChilds.Take(n);
+
+        // Esegui un'azione su ciascun elemento selezionato
+        foreach (Transform t in selectedChilds)
+        {   
+            Debug.Log(t.name);
+            maxList.Remove(t);
+            minList.Add(t);
         }
     }
 
     //Instantiation of a label
-    private void CreateLabel(Transform child)
+    private void CreateLabel(Transform child, bool right)
     {
         Vector3 rl;
 
@@ -67,7 +149,7 @@ public class CreateLabels : MonoBehaviour
         Quaternion rot = label.transform.rotation;
 
         //We fix the position on the y-axis
-        pos = CheckPosition(pos);
+        pos = CheckPosition(pos, right);
 
         //Let's install the label and assign data related to it
         Transform spawnedModel = Instantiate(label, pos, rot, containerTooltips.transform);
@@ -80,12 +162,10 @@ public class CreateLabels : MonoBehaviour
             objlabelright.Add(spawnedModel);
         else
             objlabelleft.Add(spawnedModel);
-
-        right = !right;
     }
 
     //Function to fix the position in the y-axis of the object
-    private Vector3 CheckPosition(Vector3 poslabel)
+    private Vector3 CheckPosition(Vector3 poslabel, bool right)
     {
         List<Transform> objlabel;
 
