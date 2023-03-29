@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class InstantiateModel : MonoBehaviour
 {
-    [SerializeField] Transform loadingBalls;
+    [SerializeField] Transform floorFinder;
 
     public void InstantiateObject()
     {
@@ -15,15 +15,9 @@ public class InstantiateModel : MonoBehaviour
         {
             if (component.enabled)
             {
-                Camera cam = Camera.main;
-                Vector3 pos = cam.transform.position + cam.transform.forward;
-
                 this.gameObject.SetActive(false);
-
-                Transform newLoadingObj = Instantiate(loadingBalls, pos, Quaternion.identity);
-                newLoadingObj.GetComponent<ProgressIndicatorOrbsRotator>().OpenAsync();
-
-                NetworkManager.Singleton.GetComponent<StartLesson>().CreateClass(component.modelToSpawn, newLoadingObj);
+                Transform ff = Instantiate(floorFinder);
+                ff.GetComponent<PlaceObject>().SetModelToSpawn(component.modelToSpawn);
             }
         }
     }

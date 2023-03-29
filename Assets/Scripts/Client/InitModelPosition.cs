@@ -13,7 +13,11 @@ public class InitModelPosition : NetworkBehaviour
         model.transform.position = cameraClient.transform.position + cameraClient.transform.forward * 2;
         model.transform.position = new Vector3(model.transform.position.x, model.transform.position.y - 0.2f,
             model.transform.position.z);
-        model.transform.LookAt(cameraClient.transform);
-        model.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f); //Reset zoom
+
+        Vector3 relativePos = cameraClient.transform.position - model.transform.position;
+        relativePos.y = 0;
+        // the second argument, upwards, defaults to Vector3.up
+        Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
+        model.transform.rotation = rotation;
     }
 }
