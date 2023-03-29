@@ -16,7 +16,8 @@ public class StartLesson : MonoBehaviour
     private List<string> studentList = new List<string>();
 
     // Function where we spawn the object that corresponds to the selected card 
-    public async void CreateClass(Transform modelToSpawn, Transform loadingBalls, Vector3 position, GameObject floorFinder)
+    public async void CreateClass(Transform modelToSpawn, Transform loadingBalls, Vector3 position,
+        GameObject floorFinder)
     {
         //We activate the canvas where we display the lobby code
         hololensCanvas.gameObject.SetActive(true);
@@ -50,9 +51,8 @@ public class StartLesson : MonoBehaviour
         // the second argument, upwards, defaults to Vector3.up
         Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
         //We spawn the obj in the scene, but we need to spawn it also for the network
-        Transform spawnedModel = Instantiate(model, pos +  new Vector3(0, 0.988f, 0), rotation, mixedRealitySC);
+        Transform spawnedModel = Instantiate(model, pos + new Vector3(0, 0.988f, 0), rotation, mixedRealitySC);
         spawnedModel.GetComponent<NetworkObject>().Spawn(true);
-       
     }
 
 

@@ -53,14 +53,14 @@ MonoBehaviour:
       axisConstraint: 0
   - localizationKey: 
     keyword: Yes
-    keyCode: 257
+    keyCode: 49
     action:
       id: 3
       description: Grip Pose
       axisConstraint: 7
   - localizationKey: 
     keyword: No
-    keyCode: 256
+    keyCode: 48
     action:
       id: 4
       description: Pointer Pose

@@ -1,6 +1,7 @@
 ﻿// Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 
+using TMPro;
 using UnityEngine.UI;
 
 #if !UNITY_2019_3_OR_NEWER
@@ -15,7 +16,7 @@ namespace Microsoft.MixedReality.Toolkit.Experimental.UI
     /// <remarks>
     /// <para>If using Unity 2019 or 2020, make sure the version >= 2019.4.25 or 2020.3.2 to ensure the latest fixes for Unity keyboard bugs are present.</para>
     /// </remarks>
-    public class MRTKUGUIInputField : InputField
+    public class MRTKUGUIInputField : TMP_InputField
     {
 #if !UNITY_2019_3_OR_NEWER
         public int SelectionPosition
