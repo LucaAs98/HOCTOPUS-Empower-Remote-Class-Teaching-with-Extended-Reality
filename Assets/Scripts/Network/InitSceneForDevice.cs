@@ -10,7 +10,7 @@ public class InitSceneForDevice : MonoBehaviour
     [SerializeField] private GameObject canvasAnd;
     [SerializeField] private GameObject hololensStuffs;
     [SerializeField] private GameObject hololensToolkit;
-  
+
 
     // Start is called before the first frame update
     void Start()
@@ -20,27 +20,34 @@ public class InitSceneForDevice : MonoBehaviour
         if (!isStudent)
         {
             SpawnStartMenu(startMenuHol, true);
-            hololensStuffs.gameObject.SetActive(!isStudent);
-            hololensToolkit.gameObject.SetActive(!isStudent);
         }
-        else {
+        else
+        {
             SpawnStartMenu(canvasAnd, false);
-            arSession.gameObject.SetActive(isStudent);
         }
+
+        arSession.gameObject.SetActive(isStudent);
+        hololensStuffs.gameObject.SetActive(!isStudent);
+        hololensToolkit.gameObject.SetActive(!isStudent);
     }
 
-    private void SpawnStartMenu(GameObject menuToSpawn, bool flag) {
+    private void SpawnStartMenu(GameObject menuToSpawn, bool flag)
+    {
         Transform parentTransform;
 
-        if (flag) {
+        if (flag)
+        {
             parentTransform = FindParentTransform("UIHololens");
         }
-        else {
+        else
+        {
             parentTransform = FindParentTransform("Canvas");
         }
+
         GameObject menu = Instantiate(menuToSpawn, parentTransform);
 
-        if (flag) {
+        if (flag)
+        {
             Transform tranCam = Camera.main.transform;
             menu.transform.position = tranCam.position + tranCam.forward;
             menu.transform.LookAt(tranCam);
@@ -48,7 +55,8 @@ public class InitSceneForDevice : MonoBehaviour
         }
     }
 
-    private Transform FindParentTransform(string name) {
+    private Transform FindParentTransform(string name)
+    {
         return GameObject.Find(name).transform;
     }
 }
