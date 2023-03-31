@@ -49,7 +49,7 @@ public class InitSceneForDevice : MonoBehaviour
         if (flag)
         {
             Transform tranCam = Camera.main.transform;
-            menu.transform.position = tranCam.position + tranCam.forward;
+            menu.transform.position = tranCam.position + tranCam.forward/2;
             menu.transform.LookAt(tranCam);
             menu.transform.RotateAround(menu.transform.position, menu.transform.up, 180f);
         }

@@ -2146,7 +2146,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1605379592773316024}
   - component: {fileID: 3641138877310457669}
-  - component: {fileID: 4809580710225338926}
   - component: {fileID: 8818966814225628641}
   m_Layer: 0
   m_Name: TextMeshPro
@@ -2217,14 +2216,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!222 &4809580710225338926
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4345233428186563330}
-  m_CullTransparentMesh: 0
 --- !u!114 &8818966814225628641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2903,7 +2894,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18a8f84ee58a2b2479973a7d9016e983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuToSpawn: {fileID: 667332661068042732, guid: ad1d15377c808ae408c2ab23afec192b, type: 3}
 --- !u!1 &4985192763649644769
 GameObject:
   m_ObjectHideFlags: 0
@@ -3565,7 +3555,6 @@ GameObject:
   - component: {fileID: 6859810661903678436}
   - component: {fileID: 2938370148448091409}
   - component: {fileID: 4372418614526116986}
-  - component: {fileID: 5328982093556203616}
   - component: {fileID: 1132542167248199105}
   m_Layer: 0
   m_Name: UIButtonCharIcon
@@ -3644,14 +3633,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5626387777630064450}
   m_Mesh: {fileID: 0}
---- !u!222 &5328982093556203616
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5626387777630064450}
-  m_CullTransparentMesh: 0
 --- !u!114 &1132542167248199105
 MonoBehaviour:
   m_ObjectHideFlags: 0

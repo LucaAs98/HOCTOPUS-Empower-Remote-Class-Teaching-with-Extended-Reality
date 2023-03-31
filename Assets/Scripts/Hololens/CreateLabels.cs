@@ -90,14 +90,9 @@ public class CreateLabels : MonoBehaviour
 
             if (dif > 1)
             {
-                Debug.Log(childsRight.Count);
-                Debug.Log(childsLeft.Count);
                 List<Transform> auxMax = childsRight.Count > childsLeft.Count ? childsRight : childsLeft;
                 List<Transform> auxMin = childsRight.Count < childsLeft.Count ? childsRight : childsLeft;
                 FixChildsList(auxMax, auxMin, dif / 2);
-                Debug.Log(childsRight.Count);
-                Debug.Log(childsLeft.Count);
-
             }
             childsRight.Sort(YPositionComparison);
             childsLeft.Sort(YPositionComparison);
@@ -114,20 +109,16 @@ public class CreateLabels : MonoBehaviour
 
                 aux++;
             }
-
         }
-
     }
 
     private void FixChildsList(List<Transform> maxList, List<Transform> minList, int n) {
-        Debug.Log(this.name);
         var sortedChilds = maxList.OrderBy(t => Mathf.Abs(t.position.x));
         var selectedChilds = sortedChilds.Take(n);
 
         // Esegui un'azione su ciascun elemento selezionato
         foreach (Transform t in selectedChilds)
-        {   
-            Debug.Log(t.name);
+        {
             maxList.Remove(t);
             minList.Add(t);
         }
