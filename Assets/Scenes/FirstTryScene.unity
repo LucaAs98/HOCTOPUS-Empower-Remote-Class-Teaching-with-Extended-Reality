@@ -1949,6 +1949,11 @@ MonoBehaviour:
       SourcePrefabToOverride: {fileID: 0}
       SourceHashToOverride: 0
       OverridingTargetPrefab: {fileID: 0}
+    - Override: 0
+      Prefab: {fileID: 2680061765043983910, guid: 78eafb145f42832438f4415a604a0c68, type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
     TickRate: 30
     ClientConnectionBufferTimeout: 10
     ConnectionApproval: 0
@@ -2090,6 +2095,10 @@ PrefabInstance:
       propertyPath: codeObj
       value: 
       objectReference: {fileID: 372268309}
+    - target: {fileID: 2526663846126519429, guid: fea29284483e06a478e3d3c6d789d688, type: 3}
+      propertyPath: studentPrefab
+      value: 
+      objectReference: {fileID: 2680061765043983910, guid: 78eafb145f42832438f4415a604a0c68, type: 3}
     - target: {fileID: 3612007273986234064, guid: fea29284483e06a478e3d3c6d789d688, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1

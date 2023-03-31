@@ -9,5 +9,6 @@ public class DisableHololensMainStuffFromClient : MonoBehaviour
     void Start()
     {
         GameObject.Find("NotificationGroup").SetActive(false);
+        //GameObject.Find("HandMenuInfo").SetActive(false);
     }
 }

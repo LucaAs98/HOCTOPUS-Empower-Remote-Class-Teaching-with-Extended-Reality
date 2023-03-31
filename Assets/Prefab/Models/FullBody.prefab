@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 5793531437781686859}
   - component: {fileID: 2069401845062498869}
   - component: {fileID: 552306221458915909}
+  - component: {fileID: 472402111003276919}
   m_Layer: 0
   m_Name: FullBody
   m_TagString: SpawnedModel
@@ -248,6 +249,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.6, y: 2, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &472402111003276919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702476280804213485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af1bca3021ba4034992936261235afac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handMenuToggles: {fileID: 6742734412108592975}
 --- !u!1 &2013471451529058339
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,6 +910,11 @@ MonoBehaviour:
 --- !u!4 &6742734412108592972 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8236754791431211628, guid: ca22e83c25dfc6246b9c557dada2788d, type: 3}
+  m_PrefabInstance: {fileID: 3449148110461861152}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6742734412108592975 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8236754791431211631, guid: ca22e83c25dfc6246b9c557dada2788d, type: 3}
   m_PrefabInstance: {fileID: 3449148110461861152}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &7132325416623057716 stripped

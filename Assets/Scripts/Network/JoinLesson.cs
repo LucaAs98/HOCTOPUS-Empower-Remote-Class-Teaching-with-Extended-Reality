@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class JoinLesson : MonoBehaviour
 {
-    [SerializeField] private Canvas canvasAnd;
+    [SerializeField] private Canvas canvas;
     [SerializeField] private TMP_InputField code;
     [SerializeField] private GameObject errorImage;
     [SerializeField] private TextMeshProUGUI placeholder;
@@ -22,7 +22,7 @@ public class JoinLesson : MonoBehaviour
 
         if (flag)
         {
-            canvasAnd.gameObject.SetActive(false);
+            canvas.gameObject.SetActive(false);
         }
         else
         {

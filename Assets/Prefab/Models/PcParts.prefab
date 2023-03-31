@@ -45716,6 +45716,7 @@ GameObject:
   - component: {fileID: 8366892440751496404}
   - component: {fileID: 2144651274145236381}
   - component: {fileID: 4281271861943033576}
+  - component: {fileID: 7510530228311631136}
   m_Layer: 0
   m_Name: PcParts
   m_TagString: SpawnedModel
@@ -45872,6 +45873,19 @@ MonoBehaviour:
   listOfObjWithTooltips:
   - {fileID: 8694016324389245938}
   - {fileID: 6807993150031481209}
+--- !u!114 &7510530228311631136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4541483489563993829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af1bca3021ba4034992936261235afac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handMenuToggles: {fileID: 8668686556302459057}
 --- !u!1 &4556581716997550780
 GameObject:
   m_ObjectHideFlags: 0
@@ -93022,6 +93036,11 @@ PrefabInstance:
 --- !u!1 &3997560689765911315 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4429775037839294925, guid: f6754983fbb70694d97ac3dd8feac931, type: 3}
+  m_PrefabInstance: {fileID: 721570625761430238}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8668686556302459057 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8236754791431211631, guid: f6754983fbb70694d97ac3dd8feac931, type: 3}
   m_PrefabInstance: {fileID: 721570625761430238}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &8668686556302459058 stripped
