@@ -67,6 +67,36 @@ public class StartLesson : MonoBehaviour
         }
     }
 
+    public void RemoveUser(string studentName)
+    {
+        Debug.Log("2. RemoveUser");
+        Debug.Log("3. FullList: " + studentList);
+
+        foreach (var x in studentList)
+        {
+            Debug.Log("Print della lista prima della remove");
+            Debug.Log(x.ToString());
+        }
+
+        Debug.Log("studentName: " + studentName);
+        bool removedOK = studentList.Remove(studentName);
+
+
+        foreach (var x in studentList)
+        {
+            Debug.Log("Print della lista dopo la remove");
+            Debug.Log(x.ToString());
+        }
+        Debug.Log("4. RemovedOK " + removedOK);
+
+        GameObject studentListObj = GameObject.Find("StudentList(Clone)");
+        if (studentListObj != null)
+        {
+            Debug.Log("5. Entrato nell'if ");
+            studentListObj.GetComponent<ManageStudentList>().RemoveStudentSpecific(studentName);
+        }
+    }
+
     public List<string> GetStudentList()
     {
         return studentList;

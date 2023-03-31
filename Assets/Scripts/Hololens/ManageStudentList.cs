@@ -14,7 +14,6 @@ public class ManageStudentList : MonoBehaviour
 
     public void UpdateStudentList()
     {
-        Debug.Log("UpdateStudentList()");
         List<string> studentList = NetworkManager.Singleton.GetComponent<StartLesson>().GetStudentList();
 
         DeleteStudentList();
@@ -47,5 +46,21 @@ public class ManageStudentList : MonoBehaviour
         }
 
         Debug.Log("DeleteStudentList() " + studentListInMenu.childCount);
+    }
+
+    public void RemoveStudentSpecific(string studentName)
+    {
+        Debug.Log("5. Start RemoveStudentSpecific: " + studentListInMenu);
+        foreach (Transform student in studentListInMenu)
+        {
+            if (student.gameObject.GetComponent<TextMeshPro>().text.Equals(studentName))
+            {
+                Destroy(student.gameObject);
+                studentCounter--;
+                studentCounterLabel.text = "Studenti collegati: " + studentCounter;
+            }
+        }
+        studentListInMenu.GetComponent<GridObjectCollection>().UpdateCollection();
+        Debug.Log("6. Finish RemoveStudentSpecific: " + studentListInMenu);
     }
 }
