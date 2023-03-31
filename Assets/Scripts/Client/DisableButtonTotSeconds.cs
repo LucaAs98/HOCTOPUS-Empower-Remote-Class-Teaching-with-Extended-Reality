@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Microsoft.MixedReality.Toolkit.Input;
 using Microsoft.MixedReality.Toolkit.UI;
 using UnityEngine;
 using UnityEngine.InputSystem.HID;
@@ -16,6 +17,7 @@ public class DisableButtonTotSeconds : MonoBehaviour
     [SerializeField] private Devices device;
 
     private Button button;
+
     private Interactable interactableBtn;
 
     public void StartTimer() //Call this from OnClick
@@ -23,14 +25,13 @@ public class DisableButtonTotSeconds : MonoBehaviour
         if (device == Devices.Android)
         {
             button = this.GetComponent<Button>();
-        button.interactable = false;
+            button.interactable = false;
         }
         else
         {
-            interactableBtn = this.GetComponent<Interactable>();
-            interactableBtn.enabled = false;
+            //Disattiva hololens button
         }
-        
+
         Invoke("EndTimer", 5f);
     }
 
@@ -42,7 +43,7 @@ public class DisableButtonTotSeconds : MonoBehaviour
         }
         else
         {
-            interactableBtn.enabled = true;
+            //Attiva hololens button
         }
     }
 }
