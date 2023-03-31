@@ -1,16 +1,13 @@
-using System.Collections.Generic;
 using Microsoft.MixedReality.Toolkit.UI;
-using Microsoft.MixedReality.Toolkit.Utilities;
-using TMPro;
-using Unity.Netcode;
-using Unity.VisualScripting;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class InstantiateStudentList : MonoBehaviour
+public class HandMenuInfoHandler : MonoBehaviour
 {
     [SerializeField] private GameObject objToActivate;
     [SerializeField] private GameObject toggle;
-
+    [SerializeField] private GameObject menuModels;
     private Transform objSpawned = null;
 
     // Call the true function in the root-->manageToggle
@@ -35,6 +32,22 @@ public class InstantiateStudentList : MonoBehaviour
         }
 
         objSpawned.gameObject.SetActive(isToggle);
+
+    }
+
+    public void ChooseOtherModel() {
+
+        GameObject spawnedModel = GameObject.FindGameObjectsWithTag("SpawnedModel")[0];
+        Destroy(spawnedModel);
         
+        if(objSpawned!= null)
+            Destroy(objSpawned);
+
+        GameObject menu = Instantiate(menuModels);
+        Transform tranCam = Camera.main.transform;
+        menu.transform.position = tranCam.position + tranCam.forward;
+        menu.transform.LookAt(tranCam);
+        menu.transform.RotateAround(menu.transform.position, menu.transform.up, 180f);
+        Destroy(gameObject);
     }
 }

@@ -18,6 +18,7 @@ public class InstantiateModel : MonoBehaviour
                 this.gameObject.SetActive(false);
                 Transform ff = Instantiate(floorFinder);
                 ff.GetComponent<PlaceObject>().SetModelToSpawn(component.modelToSpawn);
+                Destroy(gameObject);
             }
         }
     }
