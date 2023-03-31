@@ -617,7 +617,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18a8f84ee58a2b2479973a7d9016e983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuToSpawn: {fileID: 472681007734666243, guid: b5750f5854485784089787c4b6461c53, type: 3}
 --- !u!114 &7380185217873492121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5966,22 +5965,10 @@ MonoBehaviour:
       - m_Target: {fileID: 4463093152492179620}
         m_TargetAssemblyTypeName: ChangeMenu, Assembly-CSharp
         m_MethodName: GoToMenu
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ChangeMenu, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgument: {fileID: 9020968307839637577, guid: 60c9bd1847d12d0418227a4c90dc3b4d, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

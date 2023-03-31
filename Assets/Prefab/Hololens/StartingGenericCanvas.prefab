@@ -428,12 +428,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4838002727547708647}
-        m_TargetAssemblyTypeName: HomeToMenu, Assembly-CSharp
+        m_TargetAssemblyTypeName: ChangeMenu, Assembly-CSharp
         m_MethodName: GoToMenu
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 667332661068042732, guid: ad1d15377c808ae408c2ab23afec192b, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2229,7 +2229,19 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 087b16002c2b0b445baa3ed3beae44a9, type: 2}
   OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4838002727547708647}
+        m_TargetAssemblyTypeName: ChangeMenu, Assembly-CSharp
+        m_MethodName: GoToMenu
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 4863519666390800422, guid: fea29284483e06a478e3d3c6d789d688, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   Events:
   - Event:
       m_PersistentCalls:
@@ -8332,7 +8344,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18a8f84ee58a2b2479973a7d9016e983, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuToSpawn: {fileID: 667332661068042732, guid: ad1d15377c808ae408c2ab23afec192b, type: 3}
 --- !u!114 &8458540462215917484
 MonoBehaviour:
   m_ObjectHideFlags: 0

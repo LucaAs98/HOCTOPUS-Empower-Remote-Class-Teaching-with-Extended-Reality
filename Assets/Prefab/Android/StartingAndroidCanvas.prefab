@@ -1928,8 +1928,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce0453ba6218f348a902a6efdc9ecc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasAnd: {fileID: 4579287304573392235}
+  canvas: {fileID: 4579287304573392235}
   code: {fileID: 4579287304906213801}
   errorImage: {fileID: 4579287304495085811}
   placeholder: {fileID: 4579287304746152912}
   name: {fileID: 4579287304887266418}
+  studentPrefab: {fileID: 2708028759898558109, guid: 76e400a870acd0e4e95e09e39f5f9cbf, type: 3}

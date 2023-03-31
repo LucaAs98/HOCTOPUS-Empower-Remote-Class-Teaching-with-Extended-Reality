@@ -41,13 +41,8 @@ public class HandMenuInfoHandler : MonoBehaviour
         Destroy(spawnedModel);
         
         if(objSpawned!= null)
-            Destroy(objSpawned);
+            Destroy(objSpawned.gameObject);
 
-        GameObject menu = Instantiate(menuModels);
-        Transform tranCam = Camera.main.transform;
-        menu.transform.position = tranCam.position + tranCam.forward;
-        menu.transform.LookAt(tranCam);
-        menu.transform.RotateAround(menu.transform.position, menu.transform.up, 180f);
-        Destroy(gameObject);
+        this.GetComponent<ChangeMenu>().GoToMenu(menuModels);
     }
 }

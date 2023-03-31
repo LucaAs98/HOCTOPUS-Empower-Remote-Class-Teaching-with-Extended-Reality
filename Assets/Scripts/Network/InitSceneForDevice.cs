@@ -6,7 +6,7 @@ public class InitSceneForDevice : MonoBehaviour
 {
     //[SerializeField] private GameObject camera;
     [SerializeField] private GameObject arSession;
-    [SerializeField] private GameObject canvasHol;
+    [SerializeField] private GameObject startMenuHol;
     [SerializeField] private GameObject canvasAnd;
     [SerializeField] private GameObject hololensStuffs;
     [SerializeField] private GameObject hololensToolkit;
@@ -17,13 +17,38 @@ public class InitSceneForDevice : MonoBehaviour
     {
         bool isStudent = Application.platform == RuntimePlatform.Android;
 
-        //camera.gameObject.SetActive(!isStudent);
-        arSession.gameObject.SetActive(isStudent);
+        if (!isStudent)
+        {
+            SpawnStartMenu(startMenuHol, true);
+            hololensStuffs.gameObject.SetActive(!isStudent);
+            hololensToolkit.gameObject.SetActive(!isStudent);
+        }
+        else {
+            SpawnStartMenu(canvasAnd, false);
+            arSession.gameObject.SetActive(isStudent);
+        }
+    }
 
-        canvasHol.gameObject.SetActive(!isStudent);
-        canvasAnd.gameObject.SetActive(isStudent);
+    private void SpawnStartMenu(GameObject menuToSpawn, bool flag) {
+        Transform parentTransform;
 
-        hololensStuffs.gameObject.SetActive(!isStudent);  
-        hololensToolkit.gameObject.SetActive(!isStudent);
+        if (flag) {
+            parentTransform = FindParentTransform("UIHololens");
+        }
+        else {
+            parentTransform = FindParentTransform("Canvas");
+        }
+        GameObject menu = Instantiate(menuToSpawn, parentTransform);
+
+        if (flag) {
+            Transform tranCam = Camera.main.transform;
+            menu.transform.position = tranCam.position + tranCam.forward;
+            menu.transform.LookAt(tranCam);
+            menu.transform.RotateAround(menu.transform.position, menu.transform.up, 180f);
+        }
+    }
+
+    private Transform FindParentTransform(string name) {
+        return GameObject.Find(name).transform;
     }
 }
