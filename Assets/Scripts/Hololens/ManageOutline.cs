@@ -8,23 +8,22 @@ public class ManageOutline : NetworkBehaviour
 {
     [SerializeField] private List<GameObject> interactableObj;
 
-    public void EnableDisableComponent(GameObject objToOutline)
+    private void EnableDisableComponent(GameObject objToOutline, bool activate)
     {
         int index = GetIndexFromObj(objToOutline);
-        EnableDisableBase(index);
-        EnableDisableClientRpc(index);
+        EnableDisableBase(index, activate);
+        EnableDisableClientRpc(index, activate);
     }
 
     [ClientRpc]
-    private void EnableDisableClientRpc(int index)
+    private void EnableDisableClientRpc(int index, bool activate)
     {
-        EnableDisableBase(index);
+        EnableDisableBase(index, activate);
     }
 
-    private void EnableDisableBase(int index)
+    private void EnableDisableBase(int index, bool activate)
     {
-        MonoBehaviour objOutline = GetObjFromIndex(index).GetComponent<Outline>();
-        objOutline.enabled = !objOutline.enabled;
+        GetObjFromIndex(index).GetComponent<Outline>().enabled = activate;
     }
 
 
@@ -37,5 +36,16 @@ public class ManageOutline : NetworkBehaviour
     private GameObject GetObjFromIndex(int index)
     {
         return interactableObj[index];
+    }
+
+
+    public void RemoveOutline(GameObject obj)
+    {
+        EnableDisableComponent(obj, false);
+    }
+
+    public void AddOutline(GameObject obj)
+    {
+        EnableDisableComponent(obj, true);
     }
 }
