@@ -75,3 +75,4 @@ crashlytics-build.properties
 /AndroidBuild
 /HololensBuilds
 /HololensBuilds_BurstDebugInformation_DoNotShip
+ProjectSettings/ProjectSettings.asset
