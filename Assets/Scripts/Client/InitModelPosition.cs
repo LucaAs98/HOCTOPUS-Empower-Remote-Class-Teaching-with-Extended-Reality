@@ -6,16 +6,18 @@ public class InitModelPosition : NetworkBehaviour
 {
     private GameObject model;
     private Camera camera;
-
+    private Vector3 startingModelScale;
 
     void Start()
     {
         camera = Camera.main;
+        model = GameObject.FindGameObjectWithTag("SpawnedModel");
+        startingModelScale = model.transform.localScale;
     }
 
     public void RepositionModel()
     {
-        model = GameObject.FindGameObjectWithTag("SpawnedModel");
+        model.transform.localScale = startingModelScale;
         model.transform.position = camera.transform.position + camera.transform.forward * 2;
         model.transform.position = new Vector3(model.transform.position.x, model.transform.position.y - 0.2f,
             model.transform.position.z);
