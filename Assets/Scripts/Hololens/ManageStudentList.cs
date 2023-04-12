@@ -1,4 +1,5 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using Microsoft.MixedReality.Toolkit.Utilities;
 using TMPro;
@@ -14,24 +15,32 @@ public class ManageStudentList : MonoBehaviour
 
     public void UpdateStudentList()
     {
-        List<string> studentList = NetworkManager.Singleton.GetComponent<StartLesson>().GetStudentList();
+        Dictionary<ulong, Tuple<string, bool, bool>> studentList = NetworkManager.Singleton.GetComponent<StartLesson>().GetStudentList();
 
         DeleteStudentList();
 
-        foreach (var studentName in studentList)
+        foreach (var student in studentList)
         {
-            UpdateStudentListSpecific(studentName);
+            UpdateStudentListSpecific(student.Key, student.Value);
         }
     }
 
 
-    public void UpdateStudentListSpecific(string studentName)
+    public void UpdateStudentListSpecific(ulong studentKey, Tuple<string, bool, bool> studentValue)
     {
         studentCounter++;
         studentCounterLabel.text = "Studenti collegati: " + studentCounter;
+        studentNamePrefab.GetComponent<TextMeshPro>().text = studentValue.Item1;
+        Transform obj = Instantiate(studentNamePrefab, studentListInMenu);
+        obj.GetComponent<StudentLabelHandler>().SetClientID(studentKey);
+        if (studentValue.Item2) {
+            obj.GetComponent<StudentLabelHandler>().EnableHandButton();
+        }
 
-        studentNamePrefab.GetComponent<TextMeshPro>().text = studentName;
-        Instantiate(studentNamePrefab, studentListInMenu);
+        if (studentValue.Item3) {
+            obj.GetComponent<StudentLabelHandler>().EnableDisableClientAction(false);
+        }
+
         studentListInMenu.GetComponent<GridObjectCollection>().UpdateCollection();
     }
 
@@ -48,12 +57,11 @@ public class ManageStudentList : MonoBehaviour
         Debug.Log("DeleteStudentList() " + studentListInMenu.childCount);
     }
 
-    public void RemoveStudentSpecific(string studentName)
+    public void RemoveStudentSpecific(ulong clientID)
     {
-        Debug.Log("5. Start RemoveStudentSpecific: " + studentListInMenu);
         foreach (Transform student in studentListInMenu)
         {
-            if (student.gameObject.GetComponent<TextMeshPro>().text.Equals(studentName))
+            if (student.GetComponent<StudentLabelHandler>().GetClientID() == clientID)
             {
                 Destroy(student.gameObject);
                 studentCounter--;
@@ -61,6 +69,16 @@ public class ManageStudentList : MonoBehaviour
             }
         }
         studentListInMenu.GetComponent<GridObjectCollection>().UpdateCollection();
-        Debug.Log("6. Finish RemoveStudentSpecific: " + studentListInMenu);
+    }
+
+    public void UpdateRaiseButton(ulong clientID, bool armRaised) {
+        foreach (Transform student in studentListInMenu) {            
+            if (student.GetComponent<StudentLabelHandler>().GetClientID() == clientID) {
+                if(armRaised)
+                    student.GetComponent<StudentLabelHandler>().EnableHandButton();
+                else
+                    student.GetComponent<StudentLabelHandler>().RemoveNotification(false);
+            }
+        }
     }
 }

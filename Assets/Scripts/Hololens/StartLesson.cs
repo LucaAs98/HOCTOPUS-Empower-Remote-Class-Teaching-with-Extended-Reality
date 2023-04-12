@@ -1,4 +1,5 @@
 using QFSW.QC.Utilities;
+using System;
 using System.Collections.Generic;
 using TMPro;
 using Unity.Netcode;
@@ -10,10 +11,11 @@ public class StartLesson : MonoBehaviour
     [SerializeField] public GameObject hololensCanvas; //Canvas where we display the lobby code
     [SerializeField] private TextMeshProUGUI lobbyCodeText; //LobbyCode we get from Relay
     [SerializeField] private Camera hololensCamera;
-    float distance = 2.0f; //Distance between the holo camera and the model
 
     [SerializeField] private Transform handMenuInfo;
-    private List<string> studentList = new List<string>();
+    
+    //ClientID --> Nome, Ha alzato la mano, Non può più alzare la mano (bloccato)
+    private Dictionary<ulong, Tuple<string, bool, bool>> studentList = new Dictionary<ulong, Tuple<string, bool, bool>>();
 
     // Function where we spawn the object that corresponds to the selected card 
     public async void CreateClass(Transform modelToSpawn, Transform loadingBalls, Vector3 position,
@@ -55,49 +57,51 @@ public class StartLesson : MonoBehaviour
         spawnedModel.GetComponent<NetworkObject>().Spawn(true);
     }
 
-
-    public void AddUser(string studentName)
+    public void AddUser(ulong clientID ,string studentName)
     {
-        studentList.Add(studentName);
+        studentList.Add(clientID, new Tuple<string, bool, bool>(studentName, false, false));
 
         GameObject studentListObj = GameObject.Find("StudentList(Clone)");
         if (studentListObj != null)
         {
-            studentListObj.GetComponent<ManageStudentList>().UpdateStudentListSpecific(studentName);
+            studentListObj.GetComponent<ManageStudentList>().UpdateStudentListSpecific(clientID, studentList[clientID]);
         }
     }
 
-    public void RemoveUser(string studentName)
+    public void RemoveUser(ulong clientID)
     {
-        Debug.Log("2. RemoveUser");
-        Debug.Log("3. FullList: " + studentList);
-
-        foreach (var x in studentList)
-        {
-            Debug.Log("Print della lista prima della remove");
-            Debug.Log(x.ToString());
-        }
-
-        Debug.Log("studentName: " + studentName);
-        bool removedOK = studentList.Remove(studentName);
-
-
-        foreach (var x in studentList)
-        {
-            Debug.Log("Print della lista dopo la remove");
-            Debug.Log(x.ToString());
-        }
-        Debug.Log("4. RemovedOK " + removedOK);
+        bool removedOK = studentList.Remove(clientID);
 
         GameObject studentListObj = GameObject.Find("StudentList(Clone)");
         if (studentListObj != null)
         {
-            Debug.Log("5. Entrato nell'if ");
-            studentListObj.GetComponent<ManageStudentList>().RemoveStudentSpecific(studentName);
+            studentListObj.GetComponent<ManageStudentList>().RemoveStudentSpecific(clientID);
         }
     }
 
-    public List<string> GetStudentList()
+    public void ModifyUserArm(ulong clientID, bool armRaised) {
+
+        string clientName = studentList[clientID].Item1;
+        studentList[clientID] = Tuple.Create(clientName, armRaised, studentList[clientID].Item3);
+        GameObject studentListObj = GameObject.Find("StudentList(Clone)");
+        
+        if (studentListObj != null)
+        {
+            studentListObj.GetComponent<ManageStudentList>().UpdateRaiseButton(clientID, armRaised);   
+        }
+
+        if (armRaised)
+        {
+            this.GetComponent<ManageNotification>().AddNotification(clientName);
+        }
+    }
+
+    public void ModifyUserBlock(ulong clientID)
+    {
+        studentList[clientID] = Tuple.Create(studentList[clientID].Item1, studentList[clientID].Item2, !studentList[clientID].Item3);
+    }
+
+    public Dictionary<ulong, Tuple<string, bool, bool>> GetStudentList()
     {
         return studentList;
     }

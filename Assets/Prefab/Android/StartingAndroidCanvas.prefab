@@ -1932,5 +1932,5 @@ MonoBehaviour:
   code: {fileID: 4579287304906213801}
   errorImage: {fileID: 4579287304495085811}
   placeholder: {fileID: 4579287304746152912}
-  name: {fileID: 4579287304887266418}
+  namePlayer: {fileID: 4579287304887266418}
   studentPrefab: {fileID: 2708028759898558109, guid: 76e400a870acd0e4e95e09e39f5f9cbf, type: 3}

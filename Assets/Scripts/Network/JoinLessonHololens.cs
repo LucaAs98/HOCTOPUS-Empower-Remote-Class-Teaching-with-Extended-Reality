@@ -12,13 +12,13 @@ public class JoinLessonHololens : MonoBehaviour
     [SerializeField] private GameObject codeObj;
     [SerializeField] private GameObject errorImage;
     [SerializeField] private GameObject placeholder;
-    [SerializeField] private GameObject name;
+    [SerializeField] private GameObject namePlayer;
     [SerializeField] private GameObject studentPrefab;
 
     async public void Join()
     {
         GameObject playerPrefab = studentPrefab;
-        playerPrefab.GetComponent<InitClient>().playerName = name.GetComponent<MRTKTMPInputField>().text;
+        playerPrefab.GetComponent<ClientHandler>().playerName = namePlayer.GetComponent<MRTKTMPInputField>().text;
 
         bool flag = await NetworkManager.Singleton.GetComponent<RelayLogic>()
             .JoinRelay(codeObj.GetComponent<MRTKTMPInputField>().text);

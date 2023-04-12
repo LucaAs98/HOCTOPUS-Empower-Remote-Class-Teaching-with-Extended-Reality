@@ -15,6 +15,6 @@ public class ManageNotification : MonoBehaviour
         notificationPrefab.GetComponentInChildren<TextMeshPro>().text = studentName + " vuole fare una domanda!";
         GameObject objSpawned = Instantiate(notificationPrefab, notificationGroup.transform);
         notificationGroup.GetComponent<GridObjectCollection>().UpdateCollection();
-        Destroy(objSpawned.gameObject, 5f);
+        Destroy(objSpawned.gameObject, 5f);      
     }
 }

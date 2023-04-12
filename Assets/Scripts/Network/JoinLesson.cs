@@ -10,13 +10,13 @@ public class JoinLesson : MonoBehaviour
     [SerializeField] private TMP_InputField code;
     [SerializeField] private GameObject errorImage;
     [SerializeField] private TextMeshProUGUI placeholder;
-    [SerializeField] private TMP_InputField name;
+    [SerializeField] private TMP_InputField namePlayer;
     [SerializeField] private GameObject studentPrefab;
 
     async public void Join()
     {
         GameObject playerPrefab = studentPrefab;
-        playerPrefab.GetComponent<InitClient>().playerName = name.text;
+        playerPrefab.GetComponent<ClientHandler>().playerName = namePlayer.text;
 
         bool flag = await NetworkManager.Singleton.GetComponent<RelayLogic>().JoinRelay(code.text);
 
