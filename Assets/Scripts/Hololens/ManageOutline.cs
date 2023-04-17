@@ -1,13 +1,14 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
 public class ManageOutline : NetworkBehaviour
 {
+    //List of GO with an outline script attached
     [SerializeField] private List<GameObject> interactableObj;
 
+
+    //Called from "AddOutline" or from "RemoveOutline"
     private void EnableDisableComponent(GameObject objToOutline, bool activate)
     {
         int index = GetIndexFromObj(objToOutline);
@@ -15,12 +16,14 @@ public class ManageOutline : NetworkBehaviour
         EnableDisableClientRpc(index, activate);
     }
 
+    //We enable and disable the outline for all clients
     [ClientRpc]
     private void EnableDisableClientRpc(int index, bool activate)
     {
         EnableDisableBase(index, activate);
     }
 
+    //Base function for enabling and disabling the outline called from the server and also from the clients
     private void EnableDisableBase(int index, bool activate)
     {
         GetObjFromIndex(index).GetComponent<Outline>().enabled = activate;
@@ -39,11 +42,13 @@ public class ManageOutline : NetworkBehaviour
     }
 
 
+    //Called every time we want to disable the outline
     public void RemoveOutline(GameObject obj)
     {
         EnableDisableComponent(obj, false);
     }
 
+    //Called every time we want to enable the outline
     public void AddOutline(GameObject obj)
     {
         EnableDisableComponent(obj, true);

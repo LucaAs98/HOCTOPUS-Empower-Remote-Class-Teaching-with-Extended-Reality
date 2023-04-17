@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using Microsoft.MixedReality.Toolkit.UI;
 using UnityEngine;
@@ -8,6 +7,7 @@ public class OnlyOneLabelToggle : MonoBehaviour
     [SerializeField] public List<Interactable> toggleList;
     private Interactable previousToggle = null;
     private int nToggleActivated = 0;
+
     public void CheckToggle(bool wasActive)
     {
         //If we disable the last one
@@ -34,7 +34,6 @@ public class OnlyOneLabelToggle : MonoBehaviour
                 }
             }
         }
-        
     }
 
     private void DisableOtherToggle(Interactable toggleActivated)

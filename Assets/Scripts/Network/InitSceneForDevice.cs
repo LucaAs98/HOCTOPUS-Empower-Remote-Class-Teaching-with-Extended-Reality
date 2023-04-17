@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InitSceneForDevice : MonoBehaviour
 {
-    //[SerializeField] private GameObject camera;
     [SerializeField] private GameObject arSession;
     [SerializeField] private GameObject startMenuHol;
     [SerializeField] private GameObject canvasAnd;
@@ -12,12 +9,11 @@ public class InitSceneForDevice : MonoBehaviour
     [SerializeField] private GameObject hololensToolkit;
 
 
-    // Start is called before the first frame update
     void Start()
     {
-        bool isStudent = Application.platform == RuntimePlatform.Android;
+        bool isAndroid = Application.platform == RuntimePlatform.Android;
 
-        if (!isStudent)
+        if (!isAndroid)
         {
             SpawnStartMenu(startMenuHol, true);
         }
@@ -26,9 +22,9 @@ public class InitSceneForDevice : MonoBehaviour
             SpawnStartMenu(canvasAnd, false);
         }
 
-        arSession.gameObject.SetActive(isStudent);
-        hololensStuffs.gameObject.SetActive(!isStudent);
-        hololensToolkit.gameObject.SetActive(!isStudent);
+        arSession.gameObject.SetActive(isAndroid);
+        hololensStuffs.gameObject.SetActive(!isAndroid);
+        hololensToolkit.gameObject.SetActive(!isAndroid);
     }
 
     private void SpawnStartMenu(GameObject menuToSpawn, bool flag)
@@ -49,7 +45,7 @@ public class InitSceneForDevice : MonoBehaviour
         if (flag)
         {
             Transform tranCam = Camera.main.transform;
-            menu.transform.position = tranCam.position + tranCam.forward/2;
+            menu.transform.position = tranCam.position + tranCam.forward / 2;
             menu.transform.LookAt(tranCam);
             menu.transform.RotateAround(menu.transform.position, menu.transform.up, 180f);
         }

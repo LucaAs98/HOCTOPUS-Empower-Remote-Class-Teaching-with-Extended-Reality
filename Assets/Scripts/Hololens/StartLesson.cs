@@ -1,4 +1,3 @@
-using QFSW.QC.Utilities;
 using System;
 using System.Collections.Generic;
 using TMPro;
@@ -13,7 +12,7 @@ public class StartLesson : MonoBehaviour
     [SerializeField] private Camera hololensCamera;
 
     [SerializeField] private Transform handMenuInfo;
-    
+
     //ClientID --> Nome, Ha alzato la mano, Non può più alzare la mano (bloccato)
     private Dictionary<ulong, Tuple<string, bool, bool>> studentList = new Dictionary<ulong, Tuple<string, bool, bool>>();
 
@@ -57,7 +56,7 @@ public class StartLesson : MonoBehaviour
         spawnedModel.GetComponent<NetworkObject>().Spawn(true);
     }
 
-    public void AddUser(ulong clientID ,string studentName)
+    public void AddUser(ulong clientID, string studentName)
     {
         studentList.Add(clientID, new Tuple<string, bool, bool>(studentName, false, false));
 
@@ -79,15 +78,15 @@ public class StartLesson : MonoBehaviour
         }
     }
 
-    public void ModifyUserArm(ulong clientID, bool armRaised) {
-
+    public void ModifyUserArm(ulong clientID, bool armRaised)
+    {
         string clientName = studentList[clientID].Item1;
         studentList[clientID] = Tuple.Create(clientName, armRaised, studentList[clientID].Item3);
         GameObject studentListObj = GameObject.Find("StudentList(Clone)");
-        
+
         if (studentListObj != null)
         {
-            studentListObj.GetComponent<ManageStudentList>().UpdateRaiseButton(clientID, armRaised);   
+            studentListObj.GetComponent<ManageStudentList>().UpdateRaiseButton(clientID, armRaised);
         }
 
         if (armRaised)
@@ -98,7 +97,8 @@ public class StartLesson : MonoBehaviour
 
     public void ModifyUserBlock(ulong clientID)
     {
-        studentList[clientID] = Tuple.Create(studentList[clientID].Item1, studentList[clientID].Item2, !studentList[clientID].Item3);
+        studentList[clientID] = Tuple.Create(studentList[clientID].Item1, studentList[clientID].Item2,
+            !studentList[clientID].Item3);
     }
 
     public Dictionary<ulong, Tuple<string, bool, bool>> GetStudentList()

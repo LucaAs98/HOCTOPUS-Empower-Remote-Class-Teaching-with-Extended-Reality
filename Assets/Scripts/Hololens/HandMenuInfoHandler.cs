@@ -1,6 +1,4 @@
 using Microsoft.MixedReality.Toolkit.UI;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HandMenuInfoHandler : MonoBehaviour
@@ -32,15 +30,14 @@ public class HandMenuInfoHandler : MonoBehaviour
         }
 
         objSpawned.gameObject.SetActive(isToggle);
-
     }
 
-    public void ChooseOtherModel() {
-
+    public void ChooseOtherModel()
+    {
         GameObject spawnedModel = GameObject.FindGameObjectsWithTag("SpawnedModel")[0];
         Destroy(spawnedModel);
-        
-        if(objSpawned!= null)
+
+        if (objSpawned != null)
             Destroy(objSpawned.gameObject);
 
         this.GetComponent<ChangeMenu>().GoToMenu(menuModels);

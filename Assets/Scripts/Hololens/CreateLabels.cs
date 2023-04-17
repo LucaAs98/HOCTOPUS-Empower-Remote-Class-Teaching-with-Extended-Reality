@@ -54,28 +54,25 @@ public class CreateLabels : MonoBehaviour
 
         InstantiateLabels(childsRight, true);
         InstantiateLabels(childsLeft, false);
-
     }
 
-    private void InstantiateLabels(List<Transform> listChilds, bool right) {
-        
+    private void InstantiateLabels(List<Transform> listChilds, bool right)
+    {
         foreach (Transform child in listChilds)
         {
             CreateLabel(child, right);
         }
     }
 
-    private void LeftRightChild(List<Transform> childrens) {
-
-        childsLeft = new List<Transform> ();
+    private void LeftRightChild(List<Transform> childrens)
+    {
+        childsLeft = new List<Transform>();
         childsRight = new List<Transform>();
 
         if (!recursive)
         {
-
             foreach (Transform child in childrens)
             {
-
                 if (child.localPosition.x >= 0)
                 {
                     childsRight.Add(child);
@@ -94,15 +91,18 @@ public class CreateLabels : MonoBehaviour
                 List<Transform> auxMin = childsRight.Count < childsLeft.Count ? childsRight : childsLeft;
                 FixChildsList(auxMax, auxMin, dif / 2);
             }
+
             childsRight.Sort(YPositionComparison);
             childsLeft.Sort(YPositionComparison);
         }
-        else {
+        else
+        {
             childrens.Sort(YPositionComparison);
 
             int aux = 0;
-            foreach (Transform child in childrens) {
-                if(aux % 2 == 0)
+            foreach (Transform child in childrens)
+            {
+                if (aux % 2 == 0)
                     childsRight.Add(child);
                 else
                     childsLeft.Add(child);
@@ -112,7 +112,8 @@ public class CreateLabels : MonoBehaviour
         }
     }
 
-    private void FixChildsList(List<Transform> maxList, List<Transform> minList, int n) {
+    private void FixChildsList(List<Transform> maxList, List<Transform> minList, int n)
+    {
         var sortedChilds = maxList.OrderBy(t => Mathf.Abs(t.position.x));
         var selectedChilds = sortedChilds.Take(n);
 

@@ -1,6 +1,4 @@
 using Microsoft.MixedReality.Toolkit.Utilities;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using MRTKExtensions.Utilities;
@@ -11,24 +9,19 @@ public class FloorFinder : MonoBehaviour
 
     private Vector3? foundPosition = null;
 
-    [SerializeField]
-    [Tooltip("Maximum distance to look for the floor")]
+    [SerializeField] [Tooltip("Maximum distance to look for the floor")]
     private float maxDistance = 3.0f;
 
-    [SerializeField]
-    [Tooltip("Prompt to encourage the user to look at the floor")]
+    [SerializeField] [Tooltip("Prompt to encourage the user to look at the floor")]
     private GameObject lookPrompt;
 
-    [SerializeField]
-    [Tooltip("Prompt to ask the user if this is indeed the floor")]
+    [SerializeField] [Tooltip("Prompt to ask the user if this is indeed the floor")]
     private GameObject confirmPrompt;
 
-    [SerializeField]
-    [Tooltip("Sound that should be played when the conform prompt is displayed")]
+    [SerializeField] [Tooltip("Sound that should be played when the conform prompt is displayed")]
     private AudioSource locationFoundSound;
 
-    [SerializeField]
-    [Tooltip("Triggered once when the location is accepted.")]
+    [SerializeField] [Tooltip("Triggered once when the location is accepted.")]
     private UnityEvent<Vector3> locationFound = new UnityEvent<Vector3>();
 
 

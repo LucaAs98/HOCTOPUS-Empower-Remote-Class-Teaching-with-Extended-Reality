@@ -25,6 +25,7 @@ public class RelayLogic : MonoBehaviour
     {
         try
         {
+            //We take the lesson code
             Allocation allocation = await RelayService.Instance.CreateAllocationAsync(5);
             string joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
 
@@ -38,6 +39,7 @@ public class RelayLogic : MonoBehaviour
                 allocation.ConnectionData
             );
 
+            //We start the server returning the lesson code
             NetworkManager.Singleton.StartServer();
             return joinCode;
         }
@@ -48,7 +50,6 @@ public class RelayLogic : MonoBehaviour
 
         return null;
     }
-
 
     public async Task<bool> JoinRelay(string joinCode)
     {
@@ -72,7 +73,7 @@ public class RelayLogic : MonoBehaviour
         {
             Debug.Log(e);
         }
+
         return false;
     }
-
 }

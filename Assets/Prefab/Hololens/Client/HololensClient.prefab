@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8064285979753642448}
   - component: {fileID: 6897883026084146616}
-  - component: {fileID: 474125287430526930}
   - component: {fileID: 5456961352075118489}
   - component: {fileID: 2831038411455832056}
   m_Layer: 0
@@ -52,18 +51,6 @@ MonoBehaviour:
   AlwaysReplicateAsRoot: 0
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!114 &474125287430526930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2680061765043983910}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4a121617e301694192349cac3d21a2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5456961352075118489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,12 +70,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2680061765043983910}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 21d81603607194b4ab4e8c5c7ac306ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerName: 
+  androidCanvas: {fileID: 0}
+  raiseArmButton: {fileID: 0}
+  device: 1
+  labelButton: {fileID: 0}
 --- !u!1001 &938848934598634606
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -190,7 +181,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6882209146843509860, guid: 34889266f692d264bbbbf2ce9efc2bc9, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6882209146843509860, guid: 34889266f692d264bbbbf2ce9efc2bc9, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -199,7 +190,7 @@ PrefabInstance:
     - target: {fileID: 6882209146843509860, guid: 34889266f692d264bbbbf2ce9efc2bc9, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 474125287430526930}
+      objectReference: {fileID: 0}
     - target: {fileID: 6882209146843509860, guid: 34889266f692d264bbbbf2ce9efc2bc9, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -210,7 +201,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6882209146843509860, guid: 34889266f692d264bbbbf2ce9efc2bc9, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CallRaiseArm
+      value: StartTimer
       objectReference: {fileID: 0}
     - target: {fileID: 6882209146843509860, guid: 34889266f692d264bbbbf2ce9efc2bc9, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -218,7 +209,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6882209146843509860, guid: 34889266f692d264bbbbf2ce9efc2bc9, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: RaiseArm, Assembly-CSharp
+      value: DisableButtonTotSeconds, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6882209146843509860, guid: 34889266f692d264bbbbf2ce9efc2bc9, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -240,28 +231,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1084350350892784748, guid: 34889266f692d264bbbbf2ce9efc2bc9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 34889266f692d264bbbbf2ce9efc2bc9, type: 3}
 --- !u!4 &5913622181045544182 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6851697053149841560, guid: 34889266f692d264bbbbf2ce9efc2bc9, type: 3}
   m_PrefabInstance: {fileID: 938848934598634606}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8364836248993395079 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8724220276399578601, guid: 34889266f692d264bbbbf2ce9efc2bc9, type: 3}
-  m_PrefabInstance: {fileID: 938848934598634606}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3890275736746853560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8364836248993395079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 899116b6eff94e24b95568090f3c0ffd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  disableMaterial: {fileID: 2100000, guid: 7cdc543d1a27aa8498fb0a1845bbf60b, type: 2}

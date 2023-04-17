@@ -1,11 +1,10 @@
-using System;
 using System.Collections.Generic;
-using Microsoft.MixedReality.Toolkit.UI;
 using Unity.Netcode;
 using UnityEngine;
 
 public class ManageToggle : NetworkBehaviour
 {
+    //Objects to enable/disable with toggle
     [SerializeField] private List<GameObject> listOfObjToActivate;
 
     //Called by server in ActivateToggle, we dont call it in client
@@ -14,14 +13,14 @@ public class ManageToggle : NetworkBehaviour
         //We need to take the index because we cant pass the gameobj to the clientrpc function
         int objIndex = GetIndexFromObj(objToActivate);
 
-        //Main function to activate/deactivate the obj
+        //Main function to activate/deactivate the obj. Here we are executing the code in server
         ActivateDeactivate(isToggle, objIndex);
 
-        //We excecute the code in every client
+        //We execute the code in every client
         ActivateToggleClientRpc(isToggle, objIndex);
     }
 
-    //Code excecuted in every client
+    //Code executed in every client
     [ClientRpc]
     private void ActivateToggleClientRpc(bool isToggle, int objIndex)
     {
@@ -29,6 +28,7 @@ public class ManageToggle : NetworkBehaviour
         ActivateDeactivate(isToggle, objIndex);
     }
 
+    //Base function for enabling and disabling the obj called from the server and also from the clients
     private void ActivateDeactivate(bool isToggle, int objIndex)
     {
         //We take the true obj from the serialized list and we activate/deactivate it

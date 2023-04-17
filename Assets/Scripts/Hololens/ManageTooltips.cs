@@ -1,16 +1,17 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
 public class ManageTooltips : NetworkBehaviour
 {
+    //Container of toggles for enable/disable tooltips
     [SerializeField] private GameObject containerTooltipsToggle;
+
+    //Obj with tooltips attached
     [SerializeField] private List<GameObject> listOfObjWithTooltips;
 
 
-    //Called by server in ActivateToggle, we dont call it in client
+    //Called by server in ActivateTooltips, we dont call it in client
     public void ActiveDeactivateTooltips(GameObject objWithTooltips)
     {
         //We need to take the index because we cant pass the gameobj to the clientrpc function
@@ -19,6 +20,7 @@ public class ManageTooltips : NetworkBehaviour
         //Main function to activate/deactivate the obj
         bool wasActive = CheckActive(objIndex);
 
+        //We execute the base function on server
         ActivateDeactivateBase(objIndex, wasActive);
 
         //We excecute the code in every client
@@ -33,21 +35,23 @@ public class ManageTooltips : NetworkBehaviour
         ActivateDeactivateBase(objIndex, wasActive);
     }
 
+    //Check if the tooltips are enabled or not
     private bool CheckActive(int objIndex)
     {
-        //We take the true obj from the serialized list and we activate/deactivate it
         GameObject obj = GetObjFromIndex(objIndex);
         bool wasActive = obj.transform.Find("Tooltips").gameObject.activeSelf;
         containerTooltipsToggle.GetComponent<OnlyOneLabelToggle>().CheckToggle(wasActive);
         return wasActive;
     }
 
+    //Base function for enabling and disabling tooltips, called from the server and also from the clients
     private void ActivateDeactivateBase(int objIndex, bool wasActive)
     {
-        //We take the true obj from the serialized list and we activate/deactivate it
         GameObject obj = GetObjFromIndex(objIndex);
 
         Transform tooltipsContainer = obj.transform.Find("Tooltips");
+
+        //If it was active we need to search the tooltips of our obj and deactivate them
         if (!wasActive)
         {
             foreach (var objWithTooltip in listOfObjWithTooltips)

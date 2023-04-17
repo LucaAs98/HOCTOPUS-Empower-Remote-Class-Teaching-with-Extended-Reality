@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class InstantiateModel : MonoBehaviour
 {
-    [SerializeField] Transform floorFinder;
+    [SerializeField] Transform floorFinderPrefab;
 
     public void InstantiateObject()
     {
@@ -16,8 +16,8 @@ public class InstantiateModel : MonoBehaviour
             if (component.enabled)
             {
                 this.gameObject.SetActive(false);
-                Transform ff = Instantiate(floorFinder);
-                ff.GetComponent<PlaceObject>().SetModelToSpawn(component.modelToSpawn);
+                Transform floorFinder = Instantiate(floorFinderPrefab);
+                floorFinder.GetComponent<PlaceObject>().SetModelToSpawn(component.modelToSpawn);
                 Destroy(gameObject);
             }
         }

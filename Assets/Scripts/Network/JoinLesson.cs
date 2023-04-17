@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using Unity.Netcode;
 using UnityEngine;
@@ -18,9 +16,9 @@ public class JoinLesson : MonoBehaviour
         GameObject playerPrefab = studentPrefab;
         playerPrefab.GetComponent<ClientHandler>().playerName = namePlayer.text;
 
-        bool flag = await NetworkManager.Singleton.GetComponent<RelayLogic>().JoinRelay(code.text);
+        bool connectionOK = await NetworkManager.Singleton.GetComponent<RelayLogic>().JoinRelay(code.text);
 
-        if (flag)
+        if (connectionOK)
         {
             canvas.gameObject.SetActive(false);
         }

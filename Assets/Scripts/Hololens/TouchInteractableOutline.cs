@@ -1,13 +1,10 @@
-// Copyright (c) Microsoft Corporation.
-// Licensed under the MIT License.
-
 using Microsoft.MixedReality.Toolkit.Input;
 using Microsoft.MixedReality.Toolkit.UI;
-using Mono.CSharp;
 using UnityEngine;
 
 
-public class TouchInteractable : MonoBehaviour, IMixedRealityTouchHandler
+//Used for manage the activation of the outline
+public class TouchInteractableOutline : MonoBehaviour, IMixedRealityTouchHandler
 {
     #region Event handlers
 
@@ -17,18 +14,19 @@ public class TouchInteractable : MonoBehaviour, IMixedRealityTouchHandler
 
     #endregion
 
-    
 
     private void Start()
     {
     }
 
+    //We remove the outline when we finish to touch the model
     void IMixedRealityTouchHandler.OnTouchCompleted(HandTrackingInputEventData eventData)
     {
         OnTouchCompleted.Invoke(eventData);
         GameObject.FindGameObjectWithTag("SpawnedModel").GetComponent<ManageOutline>().RemoveOutline(this.gameObject);
     }
 
+    //We add the outline when we start to touch the model
     void IMixedRealityTouchHandler.OnTouchStarted(HandTrackingInputEventData eventData)
     {
         OnTouchStarted.Invoke(eventData);

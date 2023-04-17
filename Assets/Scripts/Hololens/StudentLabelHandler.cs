@@ -1,9 +1,6 @@
 using Microsoft.MixedReality.Toolkit.UI;
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class StudentLabelHandler : MonoBehaviour
 {
@@ -24,7 +21,8 @@ public class StudentLabelHandler : MonoBehaviour
         handButton.GetComponent<Interactable>().IsEnabled = false;
     }
 
-    public void SetClientID(ulong id) { 
+    public void SetClientID(ulong id)
+    {
         clientID = id;
     }
 
@@ -33,17 +31,19 @@ public class StudentLabelHandler : MonoBehaviour
         return clientID;
     }
 
-    public void EnableHandButton() {
+    public void EnableHandButton()
+    {
         handButton.GetComponent<Interactable>().IsEnabled = true;
         iconMeshRendererHand.material = materialYellow;
         backPlateHandButton.material = materialGreen;
     }
 
-    public void RemoveNotification(bool flagSend = true) {
-
+    public void RemoveNotification(bool flagSend = true)
+    {
         handButton.GetComponent<Interactable>().IsEnabled = false;
-        
-        if (flagSend) {
+
+        if (flagSend)
+        {
             NetworkManager.Singleton.GetComponent<StartLesson>().ModifyUserArm(clientID, false);
             GameObject model = GameObject.FindGameObjectsWithTag("SpawnedModel")[0];
             model.GetComponent<SendInfoClient>().RemoveNotificationClientRpc(new ClientRpcParams
@@ -55,14 +55,12 @@ public class StudentLabelHandler : MonoBehaviour
             });
         }
 
-        
         iconMeshRendererHand.material = materialWhite;
         backPlateHandButton.material = materialGrey;
-
     }
 
-    public void EnableDisableClientAction(bool flagSend) {
-
+    public void EnableDisableClientAction(bool flagSend)
+    {
         bool enable = !handButton.activeSelf;
         handButton.SetActive(enable);
 
@@ -81,6 +79,5 @@ public class StudentLabelHandler : MonoBehaviour
                 }
             });
         }
-
     }
 }

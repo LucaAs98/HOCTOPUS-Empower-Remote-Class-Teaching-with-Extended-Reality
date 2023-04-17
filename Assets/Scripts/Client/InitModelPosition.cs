@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class InitModelPosition : NetworkBehaviour
 {
-    private GameObject model;
-    private Camera cameraScene;
-    private Vector3 startingModelScale;
+    private GameObject model;                   //Contains the model to observe in scene
+    private Camera cameraScene;                 //Client's main camera
+    private Vector3 startingModelScale;         //Starting scale of the model, we save it for reset when needed
 
     void Start()
     {
@@ -15,6 +15,7 @@ public class InitModelPosition : NetworkBehaviour
         startingModelScale = model.transform.localScale;
     }
 
+    //Reset position and scale of the model. We put it in front of the client's camera, looking at him. 
     public void RepositionModel()
     {
         model.transform.localScale = startingModelScale;

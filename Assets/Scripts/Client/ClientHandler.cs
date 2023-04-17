@@ -1,30 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
-using UnityEngine.XR.ARFoundation;
-using Microsoft.MixedReality.Toolkit.UI;
-using UnityEngine.InputSystem.HID;
 using UnityEngine.UI;
-using Unity.VisualScripting;
 using TMPro;
 
 public class ClientHandler : NetworkBehaviour
 {
+    //Supported devices for client
     private enum Devices
     {
         Android,
         Hololens
     }
 
-    public string playerName;
-    [SerializeField] private GameObject androidCanvas;
-    [SerializeField] private GameObject raiseArmButton;
-    [SerializeField] private Devices device;
-    [SerializeField] private TextMeshProUGUI labelButton;
-    private bool raisedArm;
+    public string playerName; //Client's name
+    [SerializeField] private GameObject androidCanvas; //Android canvas we want to instantiate when user disconnects 
+    [SerializeField] private GameObject raiseArmButton; //Button that client uses for making a question
+    [SerializeField] private Devices device; //Client device
+    [SerializeField] private TextMeshProUGUI labelButton; //Content text of raiseArmButton
+    private bool raisedArm; //Check if arm is reised or not
 
-    // Start is called before the first frame update
     void Start()
     {
         if (!IsOwner)
@@ -33,6 +27,7 @@ public class ClientHandler : NetworkBehaviour
         }
         else
         {
+            //On start we want to add user to the "connected user list" in server side
             CallAddUserServerRpc(OwnerClientId, playerName);
             raiseArmButton.GetComponent<Image>().color = new Color32(43, 180, 45, 255);
             raisedArm = false;
@@ -42,10 +37,11 @@ public class ClientHandler : NetworkBehaviour
     public void CallRaiseArm(bool flagCall = true)
     {
         raisedArm = !raisedArm;
-        
+
         if (device == Devices.Android)
         {
-            if (raisedArm) { 
+            if (raisedArm)
+            {
                 raiseArmButton.GetComponent<Image>().color = new Color32(227, 224, 50, 255);
                 labelButton.text = "Ritira";
             }
@@ -57,16 +53,16 @@ public class ClientHandler : NetworkBehaviour
         }
         else
         {
-            //Disattiva hololens button
+            //Disattiva hololens button -------------------------------------- TO_DO ------------------------------------
         }
 
-        if(flagCall)
+        if (flagCall)
             RaiseArmServerRpc(OwnerClientId, raisedArm);
     }
-    public void EnableDisableNotificationButton(bool enable) {
 
+    public void EnableDisableNotificationButton(bool enable)
+    {
         raiseArmButton.gameObject.SetActive(enable);
-    
     }
 
     public string GetPlayerName()
@@ -74,9 +70,13 @@ public class ClientHandler : NetworkBehaviour
         return playerName;
     }
 
+    //Disconnect client ------------------------ TO_DO FOR HOLOLENS -----------------------------------------------
     public void Exit()
     {
+        //We delete the user from server "connected user list" and we disconnect it
         DeleteStudentServerRpc(OwnerClientId);
+
+        //Then we instantiate again the canvas of the client. Now is ready to put again the name and the lesson code
         Instantiate(androidCanvas);
     }
 

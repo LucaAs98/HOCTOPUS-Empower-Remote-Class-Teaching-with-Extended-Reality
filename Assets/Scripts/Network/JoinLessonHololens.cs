@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using Microsoft.MixedReality.Toolkit.Experimental.UI;
 using TMPro;
 using Unity.Netcode;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class JoinLessonHololens : MonoBehaviour
 {
@@ -20,10 +17,10 @@ public class JoinLessonHololens : MonoBehaviour
         GameObject playerPrefab = studentPrefab;
         playerPrefab.GetComponent<ClientHandler>().playerName = namePlayer.GetComponent<MRTKTMPInputField>().text;
 
-        bool flag = await NetworkManager.Singleton.GetComponent<RelayLogic>()
+        bool connectionOK = await NetworkManager.Singleton.GetComponent<RelayLogic>()
             .JoinRelay(codeObj.GetComponent<MRTKTMPInputField>().text);
 
-        if (flag)
+        if (connectionOK)
         {
             canvasHol.gameObject.SetActive(false);
         }

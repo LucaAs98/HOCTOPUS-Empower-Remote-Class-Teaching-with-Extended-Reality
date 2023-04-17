@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using Microsoft.MixedReality.Toolkit.UI;
 using Unity.Netcode;
 using UnityEngine;
 
 public class ManageSlider : NetworkBehaviour
 {
-    //Similar to ManageToggle, but in this case we have already the interrested objects in the serialized fields
+    //Similar to ManageToggle, but in this case we have already the interested objects in the serialized fields
     [SerializeField] private Material material;
     [SerializeField] private GameObject slider;
     private Color baseColor;
@@ -25,13 +23,15 @@ public class ManageSlider : NetworkBehaviour
         ChangeColorClientRpc(alpha);
     }
 
+
+    //We change the color for all clients
     [ClientRpc]
     public void ChangeColorClientRpc(float alpha)
     {
         SetNewAlpha(alpha);
     }
 
-    //Base function called from the server and also from the clients
+    //Base function for changing color called from the server and also from the clients
     private void SetNewAlpha(float alpha)
     {
         Color newColor = new Color(baseColor.r, baseColor.g, baseColor.b, alpha);

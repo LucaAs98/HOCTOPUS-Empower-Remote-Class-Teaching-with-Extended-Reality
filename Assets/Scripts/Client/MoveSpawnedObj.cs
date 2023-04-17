@@ -1,10 +1,18 @@
 using UnityEngine;
 
-public class PinchToZoom : MonoBehaviour
+public class MoveSpawnedObj : MonoBehaviour
 {
+    //Model we want to observe. We change its scale when pinching and we move its position when dragging
+    private GameObject spawnedObject;
+
+    //PinchToZoom variables
     private float initialDistance;
     private Vector3 initialScale;
-    private GameObject spawnedObject;
+
+    //DragToMove variables
+    private Touch touch;
+    private float speedModifier = 0.001f;
+
 
     void Start()
     {
@@ -14,6 +22,13 @@ public class PinchToZoom : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        checkPinchToZoom();
+        checkDragToMove();
+    }
+
+    //Check if the client is pinching. When is pinching we change (only in this client) the scale of the model
+    private void checkPinchToZoom()
     {
         if (Input.touchCount == 2)
         {
@@ -43,8 +58,26 @@ public class PinchToZoom : MonoBehaviour
                 }
 
                 var factor = currentDistance / initialDistance;
-                spawnedObject.transform.localScale =
-                    initialScale * factor; // scale multiplied by the factor we calculated
+
+                // scale multiplied by the factor we calculated
+                spawnedObject.transform.localScale = initialScale * factor;
+            }
+        }
+    }
+
+    //Check if the client is dragging. When is dragging we change (only in this client) the position of the model
+    private void checkDragToMove()
+    {
+        if (Input.touchCount > 0)
+        {
+            touch = Input.GetTouch(0);
+
+            if (touch.phase == TouchPhase.Moved)
+            {
+                spawnedObject.transform.position = new Vector3(
+                    spawnedObject.transform.position.x + touch.deltaPosition.x * speedModifier,
+                    spawnedObject.transform.position.y,
+                    spawnedObject.transform.position.z + touch.deltaPosition.y * speedModifier);
             }
         }
     }

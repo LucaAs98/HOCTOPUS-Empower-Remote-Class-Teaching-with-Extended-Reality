@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
@@ -25,6 +24,5 @@ public class Spawner : NetworkBehaviour
             Debug.Log("Spawna hololens");
             JoinServerRpc(NetworkManager.Singleton.LocalClientId, 1);
         }
-            
     }
 }
