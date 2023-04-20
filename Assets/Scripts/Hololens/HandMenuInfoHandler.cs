@@ -21,13 +21,14 @@ public class HandMenuInfoHandler : MonoBehaviour
 
         if (isToggle)
         {
-            Camera cam = Camera.main;
-            Vector3 pos = cam.transform.position + cam.transform.forward + (cam.transform.right / 2) +
-                          (cam.transform.up / 2);
-            objSpawned.rotation = Quaternion.identity;
+            Transform camTransform = Camera.main.transform;
+            Vector3 pos = camTransform.position + camTransform.forward / 2 + (camTransform.right / 4) +
+                          (camTransform.up / 4);
             objSpawned.position = pos;
+            objSpawned.transform.LookAt(camTransform);
             objSpawned.GetComponent<ManageStudentList>().UpdateStudentList();
-        }
+            objSpawned.transform.RotateAround(objSpawned.transform.position, objSpawned.transform.up, 180f);
+        } 
 
         objSpawned.gameObject.SetActive(isToggle);
     }
@@ -41,5 +42,11 @@ public class HandMenuInfoHandler : MonoBehaviour
             Destroy(objSpawned.gameObject);
 
         this.GetComponent<ChangeMenu>().GoToMenu(menuModels);
+    }
+
+    public void CloseMenuButtonClicked()
+    {
+        toggle.GetComponent<Interactable>().IsToggled = false;
+        ActivateToggleCall();
     }
 }

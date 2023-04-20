@@ -18075,7 +18075,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5972501117175447196
 Transform:
   m_ObjectHideFlags: 0
@@ -18084,7 +18084,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5972501116621273213}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.579, y: 0.436, z: 0}
+  m_LocalPosition: {x: 0.579, y: 0.414, z: 0}
   m_LocalScale: {x: 4, y: 4.571428, z: 29.090914}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -23150,6 +23150,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  closeButton: {fileID: 5972501116621273213}
   facingCameraTrackingThreshold: 75
   requireFlatHand: 0
   flatHandThreshold: 45

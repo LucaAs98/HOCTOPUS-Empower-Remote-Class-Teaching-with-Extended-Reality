@@ -465,7 +465,7 @@ MonoBehaviour:
   codeObj: {fileID: 612353271361669343}
   errorImage: {fileID: 7356377578426441788}
   placeholder: {fileID: 612353271816287118}
-  name: {fileID: 7676484698219415705}
+  namePlayer: {fileID: 0}
   studentPrefab: {fileID: 0}
 --- !u!1 &997029419479477987
 GameObject:
@@ -2445,7 +2445,7 @@ Transform:
   m_GameObject: {fileID: 4863519666390800422}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.165, y: 0.151, z: 0.776}
-  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4461894763437151125}
@@ -4124,7 +4124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 181cd563a8349c34ea8978b0bc8d9c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hostTransform: {fileID: 0}
+  hostTransform: {fileID: 4863519666390800423}
   manipulationType: 3
   twoHandedManipulationType: 7
   allowFarManipulation: 1
@@ -5450,10 +5450,5 @@ PrefabInstance:
 --- !u!224 &7676484698219415704 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2093565322073310842, guid: 4daceed0c4c3c09468897226b8717688, type: 3}
-  m_PrefabInstance: {fileID: 8612444585145568994}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7676484698219415705 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2093565322073310843, guid: 4daceed0c4c3c09468897226b8717688, type: 3}
   m_PrefabInstance: {fileID: 8612444585145568994}
   m_PrefabAsset: {fileID: 0}

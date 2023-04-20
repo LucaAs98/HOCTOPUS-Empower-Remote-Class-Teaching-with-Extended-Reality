@@ -15,6 +15,8 @@ namespace Microsoft.MixedReality.Toolkit.Utilities.Solvers
     [AddComponentMenu("Scripts/MRTK/SDK/HandConstraintPalmUp")]
     public class HandConstraintPalmUp : HandConstraint
     {
+        [SerializeField] private GameObject closeButton;
+
         [Header("Palm Up")]
         [SerializeField]
         [FormerlySerializedAs("facingThreshold")]
@@ -411,6 +413,9 @@ namespace Microsoft.MixedReality.Toolkit.Utilities.Solvers
 
                 yield return null;
             }
+
+            if(closeButton != null)
+                closeButton.gameObject.SetActive(false);
         }
 
 
