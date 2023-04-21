@@ -4,7 +4,7 @@ using UnityEngine;
 public class HandMenuInfoHandler : MonoBehaviour
 {
     [SerializeField] private GameObject objToActivate;
-    [SerializeField] private GameObject toggle;
+    [SerializeField] private GameObject toggleStudentList;
     [SerializeField] private GameObject menuModels;
     private Transform objSpawned = null;
 
@@ -17,7 +17,7 @@ public class HandMenuInfoHandler : MonoBehaviour
         }
 
         //We take the boolean value of the toggle and we pass it to the function with the gameobj to activate/deactivate
-        bool isToggle = toggle.GetComponent<Interactable>().IsToggled;
+        bool isToggle = toggleStudentList.GetComponent<Interactable>().IsToggled;
 
         if (isToggle)
         {
@@ -46,7 +46,7 @@ public class HandMenuInfoHandler : MonoBehaviour
 
     public void CloseMenuButtonClicked()
     {
-        toggle.GetComponent<Interactable>().IsToggled = false;
+        toggleStudentList.GetComponent<Interactable>().IsToggled = false;
         ActivateToggleCall();
     }
 }
