@@ -45872,6 +45872,7 @@ GameObject:
   - component: {fileID: 7875642001828702745}
   - component: {fileID: 2149368254627849131}
   - component: {fileID: -8881502852776319707}
+  - component: {fileID: 8323543350200793281}
   m_Layer: 0
   m_Name: PcParts
   m_TagString: SpawnedModel
@@ -46085,6 +46086,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowTetherWhenManipulating: 0
   IsBoundsHandles: 0
+--- !u!114 &8323543350200793281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4541483489563993829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6e88d833ff3ea440a6e116694888aed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4556581716997550780
 GameObject:
   m_ObjectHideFlags: 0

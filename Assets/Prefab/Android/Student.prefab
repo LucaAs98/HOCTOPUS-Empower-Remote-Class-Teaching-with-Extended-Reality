@@ -627,7 +627,7 @@ GameObject:
   - component: {fileID: 6910402455152752018}
   - component: {fileID: 7717081368207470638}
   - component: {fileID: 4657434000370929163}
-  - component: {fileID: 2605443251582485250}
+  - component: {fileID: 8071466115501501527}
   m_Layer: 0
   m_Name: Student
   m_TagString: Untagged
@@ -742,7 +742,7 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
---- !u!114 &2605443251582485250
+--- !u!114 &8071466115501501527
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -751,7 +751,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2708028759898558109}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70b5711537b332d4fbedff3155a83b6c, type: 3}
+  m_Script: {fileID: 11500000, guid: 8aa5e46eb3c40814ab269368fe604b77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3092605338492627213
@@ -1011,9 +1011,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2605443251582485250}
-        m_TargetAssemblyTypeName: InitModelPosition, Assembly-CSharp
-        m_MethodName: RepositionModel
+      - m_Target: {fileID: 8071466115501501527}
+        m_TargetAssemblyTypeName: FindModelAndReset, Assembly-CSharp
+        m_MethodName: Reset
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
