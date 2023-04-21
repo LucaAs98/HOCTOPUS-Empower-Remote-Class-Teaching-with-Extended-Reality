@@ -816,6 +816,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1386283464346488581}
+        m_TargetAssemblyTypeName: HandMenuInfoHandler, Assembly-CSharp
+        m_MethodName: DisableManipulation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   Events:
   - Event:
       m_PersistentCalls:
@@ -3641,7 +3653,6 @@ GameObject:
   - component: {fileID: 161541955646325668}
   - component: {fileID: 6721226836409528861}
   - component: {fileID: 1882448506349121077}
-  - component: {fileID: 8694798976777347559}
   m_Layer: 0
   m_Name: ManipulatePermission
   m_TagString: Untagged
@@ -3849,8 +3860,8 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8694798976777347559}
-        m_TargetAssemblyTypeName: AllowModelManipulation, Assembly-CSharp
+      - m_Target: {fileID: 1386283464346488581}
+        m_TargetAssemblyTypeName: HandMenuInfoHandler, Assembly-CSharp
         m_MethodName: AllowManipulation
         m_Mode: 1
         m_Arguments:
@@ -4159,18 +4170,6 @@ MonoBehaviour:
   defaultButtonQuadMaterial: {fileID: 2100000, guid: fa419ab56051229449e3b813df8f295f, type: 2}
   iconSet: {fileID: 11400000, guid: 8b386ef895f7c924f8c4b03d1d3ed683, type: 2}
   defaultIconSet: {fileID: 11400000, guid: 8b386ef895f7c924f8c4b03d1d3ed683, type: 2}
---- !u!114 &8694798976777347559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4669402569698778437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d08f3e52faf0d4a43bc0e54dedc54125, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4755065281148385599
 GameObject:
   m_ObjectHideFlags: 0
@@ -4827,7 +4826,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objToActivate: {fileID: 2470353850160765052, guid: 7b032fbdedcbe2b4b8d8f35892c0f8f4, type: 3}
-  toggleStudentList: {fileID: 0}
+  toggleStudentListInteractable: {fileID: 5187286570441151370}
+  toggleManipulateModelInteractable: {fileID: 4137907870096000585}
   menuModels: {fileID: 667332661068042732, guid: ad1d15377c808ae408c2ab23afec192b, type: 3}
 --- !u!114 &5419236699474153070
 MonoBehaviour:
