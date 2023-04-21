@@ -298,6 +298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6620524d467d564a969503cfd679b4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  number: 10
 --- !u!1 &2013471451529058339
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,6 +613,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 212903762359572567}
     m_Modifications:
+    - target: {fileID: 55890514239099587, guid: ca22e83c25dfc6246b9c557dada2788d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1720219760781501922, guid: ca22e83c25dfc6246b9c557dada2788d, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -664,6 +669,10 @@ PrefabInstance:
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1734194103266260787, guid: ca22e83c25dfc6246b9c557dada2788d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1986509162034104784, guid: ca22e83c25dfc6246b9c557dada2788d, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -676,6 +685,14 @@ PrefabInstance:
       propertyPath: objToActivate
       value: 
       objectReference: {fileID: 6542486707830336395}
+    - target: {fileID: 3363390381502281164, guid: ca22e83c25dfc6246b9c557dada2788d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3724510086362249482, guid: ca22e83c25dfc6246b9c557dada2788d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3906414203409886021, guid: ca22e83c25dfc6246b9c557dada2788d, type: 3}
       propertyPath: root
       value: 
@@ -764,6 +781,14 @@ PrefabInstance:
       propertyPath: objToActivate
       value: 
       objectReference: {fileID: 1931289922270778314}
+    - target: {fileID: 5337599279291360652, guid: ca22e83c25dfc6246b9c557dada2788d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5812515080525500838, guid: ca22e83c25dfc6246b9c557dada2788d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6439802296048337852, guid: ca22e83c25dfc6246b9c557dada2788d, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -879,6 +904,10 @@ PrefabInstance:
     - target: {fileID: 8236754791431211631, guid: ca22e83c25dfc6246b9c557dada2788d, type: 3}
       propertyPath: m_Name
       value: HandMenuAnatomy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8302475758620683503, guid: ca22e83c25dfc6246b9c557dada2788d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8984054733207827038, guid: ca22e83c25dfc6246b9c557dada2788d, type: 3}
       propertyPath: root

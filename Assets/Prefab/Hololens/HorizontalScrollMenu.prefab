@@ -916,8 +916,6 @@ GameObject:
   m_Component:
   - component: {fileID: 667332661185238096}
   - component: {fileID: 667332661185238100}
-  - component: {fileID: 667332661185238103}
-  - component: {fileID: 667332661185238102}
   - component: {fileID: 667332661185238097}
   m_Layer: 0
   m_Name: UIButtonCharIcon
@@ -988,22 +986,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &667332661185238103
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 667332661185238099}
-  m_Mesh: {fileID: 0}
---- !u!222 &667332661185238102
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 667332661185238099}
-  m_CullTransparentMesh: 0
 --- !u!114 &667332661185238097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12621,7 +12603,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &542671425825591103
 Transform:
   m_ObjectHideFlags: 0
@@ -15044,8 +15026,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1472439928983061076}
   - component: {fileID: 8198365938940038050}
-  - component: {fileID: 7305274720278040815}
-  - component: {fileID: 236628292558673711}
   - component: {fileID: 3541588373887190317}
   m_Layer: 0
   m_Name: UIButtonCharIcon
@@ -15116,22 +15096,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &7305274720278040815
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5698446441446152491}
-  m_Mesh: {fileID: 0}
---- !u!222 &236628292558673711
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5698446441446152491}
-  m_CullTransparentMesh: 0
 --- !u!114 &3541588373887190317
 MonoBehaviour:
   m_ObjectHideFlags: 0

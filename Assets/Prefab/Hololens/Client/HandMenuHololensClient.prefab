@@ -1577,7 +1577,6 @@ GameObject:
   - component: {fileID: 4089704195422001862}
   - component: {fileID: 2665064674893464175}
   - component: {fileID: 5977183044977766654}
-  - component: {fileID: 1084350350892784748}
   m_Layer: 0
   m_Name: QuestionBtn
   m_TagString: Untagged
@@ -2087,20 +2086,6 @@ MonoBehaviour:
   defaultButtonQuadMaterial: {fileID: 2100000, guid: fa419ab56051229449e3b813df8f295f, type: 2}
   iconSet: {fileID: 11400000, guid: 8b386ef895f7c924f8c4b03d1d3ed683, type: 2}
   defaultIconSet: {fileID: 11400000, guid: 8b386ef895f7c924f8c4b03d1d3ed683, type: 2}
---- !u!114 &1084350350892784748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4089704195422001863}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b372eab15d46c934daaa21c576418f6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  device: 1
-  btnDisabled: {fileID: 0}
 --- !u!1 &4089704195790394695
 GameObject:
   m_ObjectHideFlags: 0
@@ -2296,7 +2281,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5744274859696697353
 Transform:
   m_ObjectHideFlags: 0
@@ -3183,6 +3168,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  closeButton: {fileID: 0}
   facingCameraTrackingThreshold: 75
   requireFlatHand: 0
   flatHandThreshold: 45
@@ -3198,7 +3184,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6851697053149841563}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45b3eff181cc4244a8a14234096e62fd, type: 3}
   m_Name: 
@@ -3896,7 +3882,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2965036477014121404
 Transform:
   m_ObjectHideFlags: 0
