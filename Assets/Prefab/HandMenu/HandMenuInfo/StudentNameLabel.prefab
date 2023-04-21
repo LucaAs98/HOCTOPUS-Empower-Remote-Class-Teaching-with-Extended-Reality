@@ -399,7 +399,7 @@ MonoBehaviour:
   distanceSpaceMode: 1
   startPushDistance: -0.008
   maxPushDistance: 0.006
-  pressDistance: 0.0005
+  pressDistance: -0.004
   releaseDistanceDelta: 0.002
   returnSpeed: 25
   releaseOnTouchEnd: 1
@@ -2253,7 +2253,7 @@ MonoBehaviour:
   distanceSpaceMode: 1
   startPushDistance: -0.008
   maxPushDistance: 0.006
-  pressDistance: 0.0005
+  pressDistance: -0.004
   releaseDistanceDelta: 0.002
   returnSpeed: 25
   releaseOnTouchEnd: 1

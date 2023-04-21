@@ -228,8 +228,9 @@ GameObject:
   - component: {fileID: 9020968305771211922}
   - component: {fileID: 9020968305771211921}
   - component: {fileID: 9020968305771211920}
+  - component: {fileID: 4477473781585471413}
   m_Layer: 0
-  m_Name: Start
+  m_Name: AAAAAAAAAAAA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -427,13 +428,13 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4838002727547708647}
-        m_TargetAssemblyTypeName: ChangeMenu, Assembly-CSharp
-        m_MethodName: GoToMenu
-        m_Mode: 2
+      - m_Target: {fileID: 4477473781585471413}
+        m_TargetAssemblyTypeName: ProvaStampa, Assembly-CSharp
+        m_MethodName: Stampa
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 667332661068042732, guid: ad1d15377c808ae408c2ab23afec192b, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -737,6 +738,18 @@ MonoBehaviour:
   defaultButtonQuadMaterial: {fileID: 2100000, guid: fa419ab56051229449e3b813df8f295f, type: 2}
   iconSet: {fileID: 11400000, guid: 8b386ef895f7c924f8c4b03d1d3ed683, type: 2}
   defaultIconSet: {fileID: 11400000, guid: 8b386ef895f7c924f8c4b03d1d3ed683, type: 2}
+--- !u!114 &4477473781585471413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9020968305771211934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f17bb76556efc7f4396674d2b760fb0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9020968305788039644
 GameObject:
   m_ObjectHideFlags: 0
@@ -1001,7 +1014,7 @@ MonoBehaviour:
   distanceSpaceMode: 1
   startPushDistance: -0.008
   maxPushDistance: 0.006
-  pressDistance: -0.004
+  pressDistance: 0.0005
   releaseDistanceDelta: 0.002
   returnSpeed: 25
   releaseOnTouchEnd: 1
@@ -1554,7 +1567,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Partecipa
+  m_text: BBBBBBBBBBBBBBBB
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6a84f857bec7e7345843ae29404c57ce, type: 2}
   m_sharedMaterial: {fileID: 21202819797275496, guid: 6a84f857bec7e7345843ae29404c57ce, type: 2}
@@ -1910,7 +1923,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Home
+  m_text: PROVAAAAAAA BOTTONIIIIIIIIIIIIII
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6a84f857bec7e7345843ae29404c57ce, type: 2}
   m_sharedMaterial: {fileID: 21202819797275496, guid: 6a84f857bec7e7345843ae29404c57ce, type: 2}
@@ -2031,8 +2044,9 @@ GameObject:
   - component: {fileID: 9020968306129793157}
   - component: {fileID: 9020968306129793156}
   - component: {fileID: 9020968306129793155}
+  - component: {fileID: 3827241867667906884}
   m_Layer: 0
-  m_Name: Join
+  m_Name: BBBBBBBBBBBB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2087,7 +2101,7 @@ MonoBehaviour:
   distanceSpaceMode: 1
   startPushDistance: -0.008
   maxPushDistance: 0.006
-  pressDistance: -0.004
+  pressDistance: 0.0005
   releaseDistanceDelta: 0.002
   returnSpeed: 25
   releaseOnTouchEnd: 1
@@ -2230,13 +2244,13 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4838002727547708647}
-        m_TargetAssemblyTypeName: ChangeMenu, Assembly-CSharp
-        m_MethodName: GoToMenu
-        m_Mode: 2
+      - m_Target: {fileID: 3827241867667906884}
+        m_TargetAssemblyTypeName: ProvaStampa, Assembly-CSharp
+        m_MethodName: Stampa
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 4863519666390800422, guid: fea29284483e06a478e3d3c6d789d688, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2540,6 +2554,18 @@ MonoBehaviour:
   defaultButtonQuadMaterial: {fileID: 2100000, guid: fa419ab56051229449e3b813df8f295f, type: 2}
   iconSet: {fileID: 11400000, guid: 8b386ef895f7c924f8c4b03d1d3ed683, type: 2}
   defaultIconSet: {fileID: 11400000, guid: 8b386ef895f7c924f8c4b03d1d3ed683, type: 2}
+--- !u!114 &3827241867667906884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9020968306129793153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f17bb76556efc7f4396674d2b760fb0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9020968306179777397
 GameObject:
   m_ObjectHideFlags: 0
@@ -3937,7 +3963,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Esci
+  m_text: CCCCCCCCCCCCCCCC
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6a84f857bec7e7345843ae29404c57ce, type: 2}
   m_sharedMaterial: {fileID: 21202819797275496, guid: 6a84f857bec7e7345843ae29404c57ce, type: 2}
@@ -4602,7 +4628,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Nuova Lezione
+  m_text: AAAAAAAAAAAAAA
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6a84f857bec7e7345843ae29404c57ce, type: 2}
   m_sharedMaterial: {fileID: 21202819797275496, guid: 6a84f857bec7e7345843ae29404c57ce, type: 2}
@@ -7200,8 +7226,9 @@ GameObject:
   - component: {fileID: 9020968307595176168}
   - component: {fileID: 9020968307595175959}
   - component: {fileID: 9020968307595175958}
+  - component: {fileID: 5806550925275470024}
   m_Layer: 0
-  m_Name: Exit
+  m_Name: CCCCCCCCCCC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7256,7 +7283,7 @@ MonoBehaviour:
   distanceSpaceMode: 1
   startPushDistance: -0.008
   maxPushDistance: 0.006
-  pressDistance: -0.004
+  pressDistance: 0.0005
   releaseDistanceDelta: 0.002
   returnSpeed: 25
   releaseOnTouchEnd: 1
@@ -7399,9 +7426,9 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8458540462215917484}
-        m_TargetAssemblyTypeName: ExitApp, Assembly-CSharp
-        m_MethodName: EndApplication
+      - m_Target: {fileID: 5806550925275470024}
+        m_TargetAssemblyTypeName: ProvaStampa, Assembly-CSharp
+        m_MethodName: Stampa
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7709,6 +7736,18 @@ MonoBehaviour:
   defaultButtonQuadMaterial: {fileID: 2100000, guid: fa419ab56051229449e3b813df8f295f, type: 2}
   iconSet: {fileID: 11400000, guid: 8b386ef895f7c924f8c4b03d1d3ed683, type: 2}
   defaultIconSet: {fileID: 11400000, guid: 8b386ef895f7c924f8c4b03d1d3ed683, type: 2}
+--- !u!114 &5806550925275470024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9020968307595175956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f17bb76556efc7f4396674d2b760fb0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9020968307649017285
 GameObject:
   m_ObjectHideFlags: 0
@@ -8080,7 +8119,7 @@ GameObject:
   - component: {fileID: 4838002727547708647}
   - component: {fileID: 8458540462215917484}
   m_Layer: 0
-  m_Name: StartingGenericCanvas
+  m_Name: StartingButtonChanged
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
