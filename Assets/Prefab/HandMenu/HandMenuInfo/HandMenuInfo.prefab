@@ -4825,7 +4825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fde024298008b5459b85f732a8529d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objToActivate: {fileID: 2470353850160765052, guid: 7b032fbdedcbe2b4b8d8f35892c0f8f4, type: 3}
+  objToActivate: {fileID: 7397285325869326033, guid: 3684777dcd79e2d4f99ebb1f54ab6928, type: 3}
   toggleStudentListInteractable: {fileID: 5187286570441151370}
   toggleManipulateModelInteractable: {fileID: 4137907870096000585}
   menuModels: {fileID: 667332661068042732, guid: ad1d15377c808ae408c2ab23afec192b, type: 3}

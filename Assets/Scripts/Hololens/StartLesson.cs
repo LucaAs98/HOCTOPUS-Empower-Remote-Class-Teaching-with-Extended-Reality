@@ -14,7 +14,8 @@ public class StartLesson : MonoBehaviour
     [SerializeField] private Transform handMenuInfo;
 
     //ClientID --> Nome, Ha alzato la mano, Non può più alzare la mano (bloccato)
-    private Dictionary<ulong, Tuple<string, bool, bool>> studentList = new Dictionary<ulong, Tuple<string, bool, bool>>();
+    private Dictionary<ulong, Tuple<string, bool, bool>> studentList =
+        new Dictionary<ulong, Tuple<string, bool, bool>>();
 
     // Function where we spawn the object that corresponds to the selected card 
     public async void CreateClass(Transform modelToSpawn, Transform loadingBalls, Vector3 position,
@@ -60,7 +61,7 @@ public class StartLesson : MonoBehaviour
     {
         studentList.Add(clientID, new Tuple<string, bool, bool>(studentName, false, false));
 
-        GameObject studentListObj = GameObject.Find("StudentList(Clone)");
+        GameObject studentListObj = GameObject.FindGameObjectWithTag("StudentList");
         if (studentListObj != null)
         {
             studentListObj.GetComponent<ManageStudentList>().UpdateStudentListSpecific(clientID, studentList[clientID]);
@@ -71,7 +72,7 @@ public class StartLesson : MonoBehaviour
     {
         bool removedOK = studentList.Remove(clientID);
 
-        GameObject studentListObj = GameObject.Find("StudentList(Clone)");
+        GameObject studentListObj = GameObject.FindGameObjectWithTag("StudentList");
         if (studentListObj != null)
         {
             studentListObj.GetComponent<ManageStudentList>().RemoveStudentSpecific(clientID);
@@ -82,7 +83,7 @@ public class StartLesson : MonoBehaviour
     {
         string clientName = studentList[clientID].Item1;
         studentList[clientID] = Tuple.Create(clientName, armRaised, studentList[clientID].Item3);
-        GameObject studentListObj = GameObject.Find("StudentList(Clone)");
+        GameObject studentListObj = GameObject.FindGameObjectWithTag("StudentList");
 
         if (studentListObj != null)
         {
