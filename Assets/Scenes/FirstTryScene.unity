@@ -529,16 +529,6 @@ MonoBehaviour:
     Radius: 0
     Transform: {fileID: 0}
     Colliders: []
-  - Name: RaiseArmNotification (5)
-    Offset: {x: 0, y: 0}
-    Radius: 0
-    Transform: {fileID: 0}
-    Colliders: []
-  - Name: RaiseArmNotification (6)
-    Offset: {x: 0, y: 0}
-    Radius: 0
-    Transform: {fileID: 0}
-    Colliders: []
   ignoreInactiveTransforms: 1
   sortType: 0
   surfaceType: 1
@@ -554,7 +544,7 @@ MonoBehaviour:
   rows: 3
   columns: 3
   cellWidth: 0.5
-  cellHeight: 0.03
+  cellHeight: 0.075
   assetVersion: 1
 --- !u!1 &765461512
 GameObject:

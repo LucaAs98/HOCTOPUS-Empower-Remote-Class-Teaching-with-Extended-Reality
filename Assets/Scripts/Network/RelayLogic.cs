@@ -23,6 +23,13 @@ public class RelayLogic : MonoBehaviour
 
     public async Task<string> CreateRelay()
     {
+        //We check if is already server. If it's true means that we want to change model and that is not the first time of our connection
+        if (NetworkManager.Singleton.IsServer)
+        {
+            //If we want to change model we have to shutdown the old server
+            NetworkManager.Singleton.Shutdown();
+        }
+
         try
         {
             //We take the lesson code

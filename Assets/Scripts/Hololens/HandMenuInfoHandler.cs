@@ -1,5 +1,6 @@
 using Microsoft.MixedReality.Toolkit.Input;
 using Microsoft.MixedReality.Toolkit.UI;
+using Unity.Netcode;
 using UnityEngine;
 
 public class HandMenuInfoHandler : MonoBehaviour
@@ -66,11 +67,19 @@ public class HandMenuInfoHandler : MonoBehaviour
 
     public void ChooseOtherModel()
     {
+        //We disconnect all the clients and we destroy the model and the studentList
+        model.GetComponent<SendInfoClient>().ClientDisconnectionClientRpc();
+
         Destroy(model);
 
         if (studentList != null)
             Destroy(studentList.gameObject);
 
+        //Just for pc, NOT IMPORTANT
+        GameObject.Find("MainCanvasHololens").SetActive(false);
+
+        //We shutdown the server when we are going to spawn the new model
+        //Now we just spawn the menu to select the new model
         this.GetComponent<ChangeMenu>().GoToMenu(menuModels);
     }
 

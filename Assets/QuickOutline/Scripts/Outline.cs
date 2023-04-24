@@ -249,22 +249,25 @@ public class Outline : MonoBehaviour
         // Clear UV3 on skinned mesh renderers
         foreach (var skinnedMeshRenderer in skinnedMeshRenderers)
         {
-            // Skip if UV3 has already been reset
-            if (!registeredMeshes.Add(skinnedMeshRenderer.sharedMesh))
+            if (skinnedMeshRenderer != null)
             {
-                continue;
+                // Skip if UV3 has already been reset
+                if (!registeredMeshes.Add(skinnedMeshRenderer.sharedMesh))
+                {
+                    continue;
+                }
+
+                if (registeredMeshes.Add(skinnedMeshRenderer.sharedMesh))
+                {
+                    return;
+                }
+
+                // Clear UV3
+                skinnedMeshRenderer.sharedMesh.uv4 = new Vector2[skinnedMeshRenderer.sharedMesh.vertexCount];
+
+                // Combine submeshes
+                CombineSubmeshes(skinnedMeshRenderer.sharedMesh, skinnedMeshRenderer.sharedMaterials);
             }
-
-            if (registeredMeshes.Add(skinnedMeshRenderer.sharedMesh))
-            {
-                return;
-            }
-
-            // Clear UV3
-            skinnedMeshRenderer.sharedMesh.uv4 = new Vector2[skinnedMeshRenderer.sharedMesh.vertexCount];
-
-            // Combine submeshes
-            CombineSubmeshes(skinnedMeshRenderer.sharedMesh, skinnedMeshRenderer.sharedMaterials);
         }
     }
 
