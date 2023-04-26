@@ -29,11 +29,16 @@ public class InitModelPosition : NetworkBehaviour
 
         if (initRotation)
         {
-            Vector3 relativePos = cameraScene.transform.position - model.transform.position;
-            relativePos.y = 0;
-
-            Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
-            model.transform.rotation = rotation;
+            ResetRotationClient();
         }
+    }
+
+    public void ResetRotationClient()
+    {
+        Vector3 relativePos = cameraScene.transform.position - model.transform.position;
+        relativePos.y = 0;
+
+        Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
+        model.transform.rotation = rotation;
     }
 }

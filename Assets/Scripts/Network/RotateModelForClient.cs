@@ -30,12 +30,33 @@ public class RotateModelForClient : NetworkBehaviour
     void RepeatedCall()
     {
         Quaternion finalRotation = this.transform.rotation;
-        
+
         if (finalRotation != startingRotation)
         {
             relRot = Quaternion.Inverse(startingRotation) * finalRotation;
             startingRotation = finalRotation;
             RotateForClientRpc(relRot.x, relRot.y, relRot.z, relRot.w, this.name);
+        }
+    }
+
+    public void ResetStartingRotation()
+    {
+        startingRotation = this.transform.rotation;
+        ClientResetRotClientRpc();
+    }
+
+    [ClientRpc]
+    void ClientResetRotClientRpc()
+    {
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            GameObject student = NetworkManager.Singleton.LocalClient.PlayerObject.gameObject;
+            if (student != null)
+                student.GetComponent<InitModelPosition>().ResetRotationClient();
+        }
+        else
+        {
+            this.gameObject.GetComponent<ResetModelPosition>().RepositionModel(true);
         }
     }
 }

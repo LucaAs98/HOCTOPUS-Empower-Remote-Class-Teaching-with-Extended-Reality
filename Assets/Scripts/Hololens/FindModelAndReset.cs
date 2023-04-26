@@ -8,8 +8,8 @@ public class FindModelAndReset : MonoBehaviour
         GameObject model = GameObject.FindGameObjectWithTag("SpawnedModel");
         if (model != null)
         {
-            bool isTeacher = NetworkManager.Singleton.IsServer;
-            model.GetComponent<ResetModelPosition>().RepositionModel(isTeacher);
+            bool isToRotate = NetworkManager.Singleton.IsServer;
+            model.GetComponent<ResetModelPosition>().RepositionModel(isToRotate);
         }
         else
         {
