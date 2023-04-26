@@ -4,10 +4,14 @@ using UnityEngine;
 public class RotateModelForClient : NetworkBehaviour
 {
     private Camera mainCamera;
+    private Quaternion startingRotation;
+    Quaternion relRot;
 
     void Start()
     {
         if (IsClient) return;
+
+        startingRotation = this.transform.rotation;
         mainCamera = Camera.main;
         InvokeRepeating("RepeatedCall", 0, 2.0f);
     }
@@ -18,18 +22,20 @@ public class RotateModelForClient : NetworkBehaviour
         //We need to take the model and the camera here, because the clientRpc cannot see other variables
         mainCamera = Camera.main;
 
-        Quaternion rotation = new Quaternion(x, y, z, w);
+        Quaternion relativeRotation = new Quaternion(x, y, z, w);
 
-        this.transform.rotation = mainCamera.transform.rotation * rotation;
-
-        Debug.Log("Chiamata! -------- " + rotation + " ------- " + nomeModello);
+        this.transform.rotation = this.transform.rotation * relativeRotation;
     }
 
     void RepeatedCall()
     {
-        Quaternion relativeRotation;
-        relativeRotation = Quaternion.Inverse(mainCamera.transform.rotation) * this.transform.rotation;
-        RotateForClientRpc(relativeRotation.x, relativeRotation.y, relativeRotation.z, relativeRotation.w,
-            this.name);
+        Quaternion finalRotation = this.transform.rotation;
+        
+        if (finalRotation != startingRotation)
+        {
+            relRot = Quaternion.Inverse(startingRotation) * finalRotation;
+            startingRotation = finalRotation;
+            RotateForClientRpc(relRot.x, relRot.y, relRot.z, relRot.w, this.name);
+        }
     }
 }

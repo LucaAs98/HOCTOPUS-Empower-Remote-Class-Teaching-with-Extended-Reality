@@ -8,7 +8,6 @@ public class SendInfoClient : NetworkBehaviour
     [ClientRpc]
     public void RemoveNotificationClientRpc(ClientRpcParams clientRpcParams = default)
     {
-        //GameObject student = GameObject.Find("Student(Clone)");
         GameObject student = NetworkManager.Singleton.LocalClient.PlayerObject.gameObject;
         if (student != null)
             student.GetComponent<ClientHandler>().CallRaiseArm(false);
@@ -17,7 +16,6 @@ public class SendInfoClient : NetworkBehaviour
     [ClientRpc]
     public void EnableDisableClientRpc(bool enable, ClientRpcParams clientRpcParams = default)
     {
-        //GameObject student = GameObject.Find("Student(Clone)");
         GameObject student = NetworkManager.Singleton.LocalClient.PlayerObject.gameObject;
         if (student != null)
             student.GetComponent<ClientHandler>().EnableDisableNotificationButton(enable);
@@ -26,7 +24,6 @@ public class SendInfoClient : NetworkBehaviour
     [ClientRpc]
     public void ClientDisconnectionClientRpc()
     {
-        //GameObject student = GameObject.Find("Student(Clone)");
         GameObject student = NetworkManager.Singleton.LocalClient.PlayerObject.gameObject;
         if (student != null)
             student.GetComponent<ClientHandler>().Exit();
