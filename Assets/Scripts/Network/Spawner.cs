@@ -6,6 +6,7 @@ public class Spawner : NetworkBehaviour
 {
     [SerializeField] public List<GameObject> listClientPrefabs;
 
+
     [ServerRpc(RequireOwnership = false)]
     public void JoinServerRpc(ulong clientId, int platform)
     {

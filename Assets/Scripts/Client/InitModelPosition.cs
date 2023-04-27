@@ -7,6 +7,7 @@ public class InitModelPosition : NetworkBehaviour
     private GameObject model; //Contains the model to observe in scene
     private Camera cameraScene; //Client's main camera
     private Vector3 startingModelScale; //Starting scale of the model, we save it for reset when needed
+    private Quaternion diffRotation;
     private float heightDiff = 0.2f;
     private int forwardDiff = 2;
 
@@ -15,7 +16,7 @@ public class InitModelPosition : NetworkBehaviour
         cameraScene = Camera.main;
         model = GameObject.FindGameObjectWithTag("SpawnedModel");
         startingModelScale = model.transform.localScale;
-
+        diffRotation = model.gameObject.GetComponent<InitNetworkVariables>().GetDiffRotation();
         RepositionModel(true);
     }
 
@@ -27,9 +28,11 @@ public class InitModelPosition : NetworkBehaviour
         model.transform.position = new Vector3(model.transform.position.x, model.transform.position.y - heightDiff,
             model.transform.position.z);
 
+        //We do this only the first time, we set the body looking at the camera, then we rotate it like the hololens
         if (initRotation)
         {
             ResetRotationClient();
+            model.transform.rotation *= diffRotation;
         }
     }
 

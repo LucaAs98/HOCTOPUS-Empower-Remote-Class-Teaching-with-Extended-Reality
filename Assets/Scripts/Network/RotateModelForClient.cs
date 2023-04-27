@@ -19,12 +19,9 @@ public class RotateModelForClient : NetworkBehaviour
     [ClientRpc]
     void RotateForClientRpc(float x, float y, float z, float w, string nomeModello)
     {
-        //We need to take the model and the camera here, because the clientRpc cannot see other variables
-        mainCamera = Camera.main;
-
         Quaternion relativeRotation = new Quaternion(x, y, z, w);
 
-        this.transform.rotation = this.transform.rotation * relativeRotation;
+        this.transform.rotation *= relativeRotation;
     }
 
     void RepeatedCall()
@@ -35,6 +32,7 @@ public class RotateModelForClient : NetworkBehaviour
         {
             relRot = Quaternion.Inverse(startingRotation) * finalRotation;
             startingRotation = finalRotation;
+            this.GetComponent<InitNetworkVariables>().SetModelDiffRotat(relRot);
             RotateForClientRpc(relRot.x, relRot.y, relRot.z, relRot.w, this.name);
         }
     }
