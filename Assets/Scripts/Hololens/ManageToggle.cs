@@ -22,7 +22,7 @@ public class ManageToggle : NetworkBehaviour
 
     //Code executed in every client
     [ClientRpc]
-    private void ActivateToggleClientRpc(bool isToggle, int objIndex)
+    public void ActivateToggleClientRpc(bool isToggle, int objIndex, ClientRpcParams clientRpcParams = default)
     {
         //It calls the main function directly
         ActivateDeactivate(isToggle, objIndex);
@@ -34,6 +34,21 @@ public class ManageToggle : NetworkBehaviour
         //We take the true obj from the serialized list and we activate/deactivate it
         GameObject obj = GetObjFromIndex(objIndex);
         obj.gameObject.SetActive(isToggle);
+    }
+
+
+    public void ActivateToggleSpecificClient(bool isToggle, GameObject objToActivate, ulong clientID)
+    {
+        //We need to take the index because we cant pass the gameobj to the clientrpc function
+        int objIndex = GetIndexFromObj(objToActivate);
+        //We execute the code in every client
+        ActivateToggleClientRpc(isToggle, objIndex, new ClientRpcParams
+        {
+            Send = new ClientRpcSendParams
+            {
+                TargetClientIds = new ulong[] { clientID },
+            }
+        });
     }
 
 

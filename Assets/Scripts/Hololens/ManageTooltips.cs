@@ -29,10 +29,32 @@ public class ManageTooltips : NetworkBehaviour
 
     //Code excecuted in every client
     [ClientRpc]
-    private void ActivateToggleClientRpc(int objIndex, bool wasActive)
+    private void ActivateToggleClientRpc(int objIndex, bool wasActive, ClientRpcParams clientRpcParams = default)
     {
         //It calls the main function directly
         ActivateDeactivateBase(objIndex, wasActive);
+    }
+
+    public void ActivateToggleSpecificClient(ulong clientID)
+    {
+        foreach (var objWithTooltip in listOfObjWithTooltips)
+        {
+            Transform tooltip = objWithTooltip.transform.Find("Tooltips");
+            if (tooltip.gameObject.activeSelf)
+            {
+                //We need to take the index because we cant pass the gameobj to the clientrpc function
+                int objIndex = GetIndexFromObj(objWithTooltip);
+
+                //We execute the code in every client
+                ActivateToggleClientRpc(objIndex, false, new ClientRpcParams
+                {
+                    Send = new ClientRpcSendParams
+                    {
+                        TargetClientIds = new ulong[] { clientID },
+                    }
+                });
+            }
+        }
     }
 
     //Check if the tooltips are enabled or not

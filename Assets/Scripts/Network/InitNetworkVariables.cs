@@ -1,31 +1,53 @@
 using System.Collections;
 using System.Collections.Generic;
+using Microsoft.MixedReality.Toolkit.UI;
 using Unity.Netcode;
 using UnityEngine;
 
 public class InitNetworkVariables : NetworkBehaviour
 {
-    private GameObject model;
+    [SerializeField] private GameObject toggleContainer;
+
     private NetworkVariable<Quaternion> diffRotation = new NetworkVariable<Quaternion>(Quaternion.identity);
 
     private void Start()
     {
-        model = GameObject.FindGameObjectWithTag("SpawnedModel");
+        if (!IsServer) return;
+
+        NetworkManager.Singleton.OnClientConnectedCallback += (clientID) =>
+        {
+            InitToggles(clientID);
+            ManageSlider manageSliderComponent = this.GetComponent<ManageSlider>();
+
+            if (manageSliderComponent != null)
+                manageSliderComponent.ChangeColor();
+
+            InitLabels(clientID);
+        };
     }
 
-    public override void OnNetworkSpawn()
+    private void InitToggles(ulong clientID)
     {
-        if (IsServer) return;
-
-        diffRotation.OnValueChanged += (Quaternion previousValue, Quaternion newValue) =>
+        foreach (Transform toggle in toggleContainer.transform)
         {
-            Debug.Log(OwnerClientId + "; DiffRotationIsChanged: " + diffRotation.Value);
-        };
+            bool isToggle = toggle.GetComponent<Interactable>().IsToggled;
+            ActivateToggle activateToggle = toggle.GetComponent<ActivateToggle>();
+
+            if (!isToggle && activateToggle != null)
+            {
+                GameObject objToActivate = activateToggle.GetObjToActivate();
+                this.GetComponent<ManageToggle>().ActivateToggleSpecificClient(isToggle, objToActivate, clientID);
+            }
+        }
+    }
+
+    private void InitLabels(ulong clientID)
+    {
+        this.GetComponent<ManageTooltips>().ActivateToggleSpecificClient(clientID);
     }
 
     public void SetModelDiffRotat(Quaternion newRotationToShare)
     {
-        Debug.Log("---------------------------------- DiffRotationIsSetted: " + newRotationToShare);
         diffRotation.Value *= newRotationToShare;
     }
 

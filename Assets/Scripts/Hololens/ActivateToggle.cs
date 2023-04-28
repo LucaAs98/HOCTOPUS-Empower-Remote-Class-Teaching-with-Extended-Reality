@@ -1,4 +1,5 @@
 using Microsoft.MixedReality.Toolkit.UI;
+using Unity.Netcode;
 using UnityEngine;
 
 public class ActivateToggle : MonoBehaviour
@@ -14,4 +15,9 @@ public class ActivateToggle : MonoBehaviour
         bool isToggle = toggle.GetComponent<Interactable>().IsToggled;
         root.GetComponent<ManageToggle>().ActiveDeactivateObj(isToggle, objToActivate);
     }
+    public GameObject GetObjToActivate()
+    {
+        return objToActivate;
+    }
 }
+

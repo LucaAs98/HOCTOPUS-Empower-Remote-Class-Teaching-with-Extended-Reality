@@ -324,6 +324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b383b76f9dfac443af4f6713ae6ed8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toggleContainer: {fileID: 304976363874158984}
 --- !u!1 &2013471451529058339
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,6 +944,11 @@ PrefabInstance:
     - {fileID: 8984054733207827038, guid: ca22e83c25dfc6246b9c557dada2788d, type: 3}
     - {fileID: 3906414203409886021, guid: ca22e83c25dfc6246b9c557dada2788d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ca22e83c25dfc6246b9c557dada2788d, type: 3}
+--- !u!1 &304976363874158984 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3163404412573316264, guid: ca22e83c25dfc6246b9c557dada2788d, type: 3}
+  m_PrefabInstance: {fileID: 3449148110461861152}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1343318452013907181 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4429775037839294925, guid: ca22e83c25dfc6246b9c557dada2788d, type: 3}
