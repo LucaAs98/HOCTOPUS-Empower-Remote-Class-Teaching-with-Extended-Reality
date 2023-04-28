@@ -25,6 +25,6 @@ public class ChangeMenu : MonoBehaviour
 
     public void GoToMenuFromButton(GameObject menuToSpawn)
     {
-        GoToMenu(menuToSpawn, this.gameObject.transform.root.gameObject);
+        GoToMenu(menuToSpawn, this.gameObject);
     }
 }
