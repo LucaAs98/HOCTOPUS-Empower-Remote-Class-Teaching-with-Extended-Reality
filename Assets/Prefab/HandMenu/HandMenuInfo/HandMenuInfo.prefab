@@ -4512,7 +4512,6 @@ GameObject:
   - component: {fileID: 5950293677189966133}
   - component: {fileID: 5950293677189966131}
   - component: {fileID: 1386283464346488581}
-  - component: {fileID: 5419236699474153070}
   m_Layer: 0
   m_Name: HandMenuInfo
   m_TagString: Untagged
@@ -4829,18 +4828,6 @@ MonoBehaviour:
   toggleStudentListInteractable: {fileID: 5187286570441151370}
   toggleManipulateModelInteractable: {fileID: 4137907870096000585}
   menuModels: {fileID: 667332661068042732, guid: ad1d15377c808ae408c2ab23afec192b, type: 3}
---- !u!114 &5419236699474153070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4985192763540225682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18a8f84ee58a2b2479973a7d9016e983, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4985192763649644769
 GameObject:
   m_ObjectHideFlags: 0

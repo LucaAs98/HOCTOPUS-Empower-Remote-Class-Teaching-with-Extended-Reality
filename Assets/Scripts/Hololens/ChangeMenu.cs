@@ -3,7 +3,7 @@ using UnityEngine;
 //Used for changing menu
 public class ChangeMenu : MonoBehaviour
 {
-    public void GoToMenu(GameObject menuToSpawn)
+    public void GoToMenu(GameObject menuToSpawn, GameObject menuToDestroy, bool isToDestroy = true)
     {
         //Root where we want to spawn our menus
         GameObject root = GameObject.Find("UIHololens");
@@ -19,6 +19,12 @@ public class ChangeMenu : MonoBehaviour
         menu.transform.RotateAround(menu.transform.position, menu.transform.up, 180f);
 
         //We destroy the menu that called this function
-        Destroy(gameObject);
+        if (isToDestroy)
+            Destroy(menuToDestroy);
+    }
+
+    public void GoToMenuFromButton(GameObject menuToSpawn)
+    {
+        GoToMenu(menuToSpawn, this.gameObject.transform.root.gameObject);
     }
 }

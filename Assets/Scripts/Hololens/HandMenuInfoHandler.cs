@@ -80,7 +80,7 @@ public class HandMenuInfoHandler : MonoBehaviour
 
         //We shutdown the server when we are going to spawn the new model
         //Now we just spawn the menu to select the new model
-        this.GetComponent<ChangeMenu>().GoToMenu(menuModels);
+        NetworkManager.Singleton.GetComponent<ChangeMenu>().GoToMenu(menuModels, this.gameObject);
     }
 
     public void CloseMenuButtonClicked()

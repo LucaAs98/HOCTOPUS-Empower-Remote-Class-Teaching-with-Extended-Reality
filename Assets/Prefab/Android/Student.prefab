@@ -726,7 +726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerName: 
-  androidCanvas: {fileID: 4579287304573392231, guid: 810a299c5c04ca4449153ddcc231c3d5, type: 3}
+  startingMenu: {fileID: 4579287304573392231, guid: 810a299c5c04ca4449153ddcc231c3d5, type: 3}
   raiseArmButton: {fileID: 1889524381174937104}
   device: 0
   labelButton: {fileID: 5361335600254067457}

@@ -429,7 +429,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4838002727547708647}
         m_TargetAssemblyTypeName: ChangeMenu, Assembly-CSharp
-        m_MethodName: GoToMenu
+        m_MethodName: GoToMenuFromButton
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 667332661068042732, guid: ad1d15377c808ae408c2ab23afec192b, type: 3}
@@ -2232,7 +2232,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4838002727547708647}
         m_TargetAssemblyTypeName: ChangeMenu, Assembly-CSharp
-        m_MethodName: GoToMenu
+        m_MethodName: GoToMenuFromButton
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 4863519666390800422, guid: fea29284483e06a478e3d3c6d789d688, type: 3}

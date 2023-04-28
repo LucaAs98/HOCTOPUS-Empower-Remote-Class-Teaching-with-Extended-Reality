@@ -13,7 +13,7 @@ public class ClientHandler : NetworkBehaviour
     }
 
     public string playerName; //Client's name
-    [SerializeField] private GameObject androidCanvas; //Android canvas we want to instantiate when user disconnects 
+    [SerializeField] private GameObject startingMenu; //Starting menu we want to instantiate when user disconnects 
     [SerializeField] private GameObject raiseArmButton; //Button that client uses for making a question
     [SerializeField] private Devices device; //Client device
     [SerializeField] private TextMeshProUGUI labelButton; //Content text of raiseArmButton
@@ -76,8 +76,16 @@ public class ClientHandler : NetworkBehaviour
         //We delete the user from server "connected user list" and we disconnect it
         DeleteStudentServerRpc(OwnerClientId);
 
-        //Then we instantiate again the canvas of the client. Now is ready to put again the name and the lesson code
-        Instantiate(androidCanvas);
+        if (device == Devices.Android)
+        {
+            //Then we instantiate again the canvas of the client. Now is ready to put again the name and the lesson code
+            Instantiate(startingMenu);
+        }
+        else if (device == Devices.Hololens)
+        {
+            //If we are on Hololens we use the ChangeMenu function
+            NetworkManager.Singleton.GetComponent<ChangeMenu>().GoToMenu(startingMenu, null, false);
+        }
     }
 
     [ServerRpc]
