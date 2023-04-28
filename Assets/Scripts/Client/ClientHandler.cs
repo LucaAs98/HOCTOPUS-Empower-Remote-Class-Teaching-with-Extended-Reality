@@ -28,9 +28,12 @@ public class ClientHandler : NetworkBehaviour
         else
         {
             //On start we want to add user to the "connected user list" in server side
-            CallAddUserServerRpc(OwnerClientId, playerName);
-            raiseArmButton.GetComponent<Image>().color = new Color32(43, 180, 45, 255);
-            raisedArm = false;
+            
+            
+            
+            // CallAddUserServerRpc(OwnerClientId, playerName);
+            // raiseArmButton.GetComponent<Image>().color = new Color32(43, 180, 45, 255);
+            // raisedArm = false;
         }
     }
 

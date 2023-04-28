@@ -465,7 +465,7 @@ MonoBehaviour:
   codeObj: {fileID: 612353271361669343}
   errorImage: {fileID: 7356377578426441788}
   placeholder: {fileID: 612353271816287118}
-  namePlayer: {fileID: 7676484698210539663}
+  namePlayer: {fileID: 7676484698219415705}
   studentPrefab: {fileID: 2680061765043983910, guid: 78eafb145f42832438f4415a604a0c68, type: 3}
 --- !u!1 &997029419479477987
 GameObject:
@@ -5447,13 +5447,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4daceed0c4c3c09468897226b8717688, type: 3}
---- !u!1 &7676484698210539663 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2093565322100020845, guid: 4daceed0c4c3c09468897226b8717688, type: 3}
-  m_PrefabInstance: {fileID: 8612444585145568994}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &7676484698219415704 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2093565322073310842, guid: 4daceed0c4c3c09468897226b8717688, type: 3}
+  m_PrefabInstance: {fileID: 8612444585145568994}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7676484698219415705 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2093565322073310843, guid: 4daceed0c4c3c09468897226b8717688, type: 3}
   m_PrefabInstance: {fileID: 8612444585145568994}
   m_PrefabAsset: {fileID: 0}

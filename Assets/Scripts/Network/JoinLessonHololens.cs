@@ -15,6 +15,7 @@ public class JoinLessonHololens : MonoBehaviour
     async public void Join()
     {
         GameObject playerPrefab = studentPrefab;
+        Debug.Log(namePlayer.GetComponent<MRTKTMPInputField>().text);
         playerPrefab.GetComponent<ClientHandler>().playerName = namePlayer.GetComponent<MRTKTMPInputField>().text;
 
         bool connectionOK = await NetworkManager.Singleton.GetComponent<RelayLogic>()
@@ -22,6 +23,7 @@ public class JoinLessonHololens : MonoBehaviour
 
         if (connectionOK)
         {
+
             canvasHol.gameObject.SetActive(false);
         }
         else
