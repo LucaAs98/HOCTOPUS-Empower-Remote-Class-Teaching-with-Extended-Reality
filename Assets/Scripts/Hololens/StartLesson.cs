@@ -107,7 +107,7 @@ public class StartLesson : MonoBehaviour
         return studentList;
     }
 
-    private Transform FindDeepChild(Transform parent, string name)
+    public Transform FindDeepChild(Transform parent, string name)
     {
         Transform child = parent.Find(name);
         if (child != null)

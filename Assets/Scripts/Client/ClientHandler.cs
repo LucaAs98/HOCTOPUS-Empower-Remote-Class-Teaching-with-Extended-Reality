@@ -16,8 +16,11 @@ public class ClientHandler : NetworkBehaviour
     [SerializeField] private GameObject startingMenu; //Starting menu we want to instantiate when user disconnects 
     [SerializeField] private GameObject raiseArmButton; //Button that client uses for making a question
     [SerializeField] private Devices device; //Client device
-    [SerializeField] private TextMeshProUGUI labelButton; //Content text of raiseArmButton
+    [SerializeField] private GameObject labelButton; //Content text of raiseArmButton
     private bool raisedArm; //Check if arm is reised or not
+    [SerializeField] private Material greenMaterialHololens;
+    [SerializeField] private Material yellowMaterialHololens;
+    private MeshRenderer childRaiseArmButton;
 
     void Start()
     {
@@ -28,12 +31,15 @@ public class ClientHandler : NetworkBehaviour
         else
         {
             //On start we want to add user to the "connected user list" in server side
-            
-            
-            
-            // CallAddUserServerRpc(OwnerClientId, playerName);
-            // raiseArmButton.GetComponent<Image>().color = new Color32(43, 180, 45, 255);
-            // raisedArm = false;
+            CallAddUserServerRpc(OwnerClientId, playerName);
+            if (device == Devices.Android)
+                raiseArmButton.GetComponent<Image>().color = new Color32(43, 180, 45, 255);
+            else { 
+                childRaiseArmButton = NetworkManager.Singleton.GetComponent<StartLesson>().FindDeepChild(raiseArmButton.transform, "Quad").GetComponent<MeshRenderer>();
+                childRaiseArmButton.material = greenMaterialHololens;
+            }
+
+            raisedArm = false;
         }
     }
 
@@ -41,23 +47,30 @@ public class ClientHandler : NetworkBehaviour
     {
         raisedArm = !raisedArm;
 
-        if (device == Devices.Android)
+        if (raisedArm)
         {
-            if (raisedArm)
+            if (device == Devices.Android)
             {
                 raiseArmButton.GetComponent<Image>().color = new Color32(227, 224, 50, 255);
-                labelButton.text = "Ritira";
+                labelButton.GetComponent<TextMeshProUGUI>().text = "Ritira";
             }
-            else
-            {
-                raiseArmButton.GetComponent<Image>().color = new Color32(43, 180, 45, 255);
-                labelButton.text = "Domanda";
+            else {
+                childRaiseArmButton.material = yellowMaterialHololens;
+                labelButton.GetComponent<TextMeshPro>().text = "Ritira";
             }
         }
         else
         {
-            //Disattiva hololens button -------------------------------------- TO_DO ------------------------------------
-        }
+            if (device == Devices.Android)
+            {
+                raiseArmButton.GetComponent<Image>().color = new Color32(43, 180, 45, 255);
+                labelButton.GetComponent<TextMeshProUGUI>().text = "Domanda";
+            }
+            else {
+                childRaiseArmButton.material = greenMaterialHololens;
+                labelButton.GetComponent<TextMeshPro>().text = "Domanda";
+            }
+        }        
 
         if (flagCall)
             RaiseArmServerRpc(OwnerClientId, raisedArm);
