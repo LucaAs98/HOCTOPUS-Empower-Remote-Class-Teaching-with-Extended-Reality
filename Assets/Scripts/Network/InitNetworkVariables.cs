@@ -46,9 +46,14 @@ public class InitNetworkVariables : NetworkBehaviour
         this.GetComponent<ManageTooltips>().ActivateToggleSpecificClient(clientID);
     }
 
-    public void SetModelDiffRotat(Quaternion newRotationToShare)
+    public void AddDiffRotat(Quaternion newRotationToShare)
     {
         diffRotation.Value *= newRotationToShare;
+    }
+
+    public void SetDiffRotat(Quaternion newDiffRotation)
+    {
+        diffRotation.Value = newDiffRotation;
     }
 
     public Quaternion GetDiffRotation()

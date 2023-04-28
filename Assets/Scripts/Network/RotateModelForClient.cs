@@ -32,7 +32,7 @@ public class RotateModelForClient : NetworkBehaviour
         {
             relRot = Quaternion.Inverse(startingRotation) * finalRotation;
             startingRotation = finalRotation;
-            this.GetComponent<InitNetworkVariables>().SetModelDiffRotat(relRot);
+            this.GetComponent<InitNetworkVariables>().AddDiffRotat(relRot);
             RotateForClientRpc(relRot.x, relRot.y, relRot.z, relRot.w, this.name);
         }
     }
@@ -40,6 +40,7 @@ public class RotateModelForClient : NetworkBehaviour
     public void ResetStartingRotation()
     {
         startingRotation = this.transform.rotation;
+        this.GetComponent<InitNetworkVariables>().SetDiffRotat(Quaternion.identity);
         ClientResetRotClientRpc();
     }
 
@@ -50,7 +51,7 @@ public class RotateModelForClient : NetworkBehaviour
         {
             GameObject student = NetworkManager.Singleton.LocalClient.PlayerObject.gameObject;
             if (student != null)
-                student.GetComponent<InitModelPosition>().ResetRotationClient();
+                student.GetComponent<InitModelPosition>().ResetRotationClient(Quaternion.identity);
         }
         else
         {

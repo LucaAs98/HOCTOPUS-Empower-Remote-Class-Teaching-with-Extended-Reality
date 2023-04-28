@@ -16,32 +16,29 @@ public class InitModelPosition : NetworkBehaviour
         cameraScene = Camera.main;
         model = GameObject.FindGameObjectWithTag("SpawnedModel");
         startingModelScale = model.transform.localScale;
-        diffRotation = model.gameObject.GetComponent<InitNetworkVariables>().GetDiffRotation();
-        RepositionModel(true);
+        RepositionModel();
     }
 
     //Reset position and scale of the model. We put it in front of the client's camera, looking at him. 
-    public void RepositionModel(bool initRotation = false)
+    public void RepositionModel()
     {
         model.transform.localScale = startingModelScale;
         model.transform.position = cameraScene.transform.position + cameraScene.transform.forward * forwardDiff;
         model.transform.position = new Vector3(model.transform.position.x, model.transform.position.y - heightDiff,
             model.transform.position.z);
 
+        diffRotation = model.gameObject.GetComponent<InitNetworkVariables>().GetDiffRotation();
         //We do this only the first time, we set the body looking at the camera, then we rotate it like the hololens
-        if (initRotation)
-        {
-            ResetRotationClient();
-            model.transform.rotation *= diffRotation;
-        }
+        ResetRotationClient(diffRotation);
     }
 
-    public void ResetRotationClient()
+    public void ResetRotationClient(Quaternion diffRotation)
     {
         Vector3 relativePos = cameraScene.transform.position - model.transform.position;
         relativePos.y = 0;
 
         Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
         model.transform.rotation = rotation;
+        model.transform.rotation *= diffRotation;
     }
 }
