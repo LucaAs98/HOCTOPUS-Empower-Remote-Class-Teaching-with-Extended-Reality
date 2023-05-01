@@ -11,6 +11,8 @@ public class ManageOutline : NetworkBehaviour
     //Called from "AddOutline" or from "RemoveOutline"
     private void EnableDisableComponent(GameObject objToOutline, bool activate)
     {
+        if (!IsServer) return;
+
         int index = GetIndexFromObj(objToOutline);
         EnableDisableBase(index, activate);
         EnableDisableClientRpc(index, activate);

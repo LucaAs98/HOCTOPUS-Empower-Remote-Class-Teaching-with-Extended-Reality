@@ -34,8 +34,11 @@ public class ClientHandler : NetworkBehaviour
             CallAddUserServerRpc(OwnerClientId, playerName);
             if (device == Devices.Android)
                 raiseArmButton.GetComponent<Image>().color = new Color32(43, 180, 45, 255);
-            else { 
-                childRaiseArmButton = NetworkManager.Singleton.GetComponent<StartLesson>().FindDeepChild(raiseArmButton.transform, "Quad").GetComponent<MeshRenderer>();
+            else
+            {
+                childRaiseArmButton = NetworkManager.Singleton.GetComponent<StartLesson>()
+                    .FindDeepChild(raiseArmButton.transform, "BackgroundQuestionBtn").GetComponent<MeshRenderer>();
+
                 childRaiseArmButton.material = greenMaterialHololens;
             }
 
@@ -54,7 +57,8 @@ public class ClientHandler : NetworkBehaviour
                 raiseArmButton.GetComponent<Image>().color = new Color32(227, 224, 50, 255);
                 labelButton.GetComponent<TextMeshProUGUI>().text = "Ritira";
             }
-            else {
+            else
+            {
                 childRaiseArmButton.material = yellowMaterialHololens;
                 labelButton.GetComponent<TextMeshPro>().text = "Ritira";
             }
@@ -66,11 +70,12 @@ public class ClientHandler : NetworkBehaviour
                 raiseArmButton.GetComponent<Image>().color = new Color32(43, 180, 45, 255);
                 labelButton.GetComponent<TextMeshProUGUI>().text = "Domanda";
             }
-            else {
+            else
+            {
                 childRaiseArmButton.material = greenMaterialHololens;
                 labelButton.GetComponent<TextMeshPro>().text = "Domanda";
             }
-        }        
+        }
 
         if (flagCall)
             RaiseArmServerRpc(OwnerClientId, raisedArm);

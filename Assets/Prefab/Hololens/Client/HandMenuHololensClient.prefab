@@ -5555,7 +5555,7 @@ GameObject:
   - component: {fileID: 8812754901226831355}
   - component: {fileID: 4612400427726990193}
   m_Layer: 0
-  m_Name: Quad
+  m_Name: BackgroundQuestionBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
