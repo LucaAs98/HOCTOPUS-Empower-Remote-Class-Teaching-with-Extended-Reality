@@ -47,15 +47,8 @@ public class RotateModelForClient : NetworkBehaviour
     [ClientRpc]
     void ClientResetRotClientRpc()
     {
-        if (Application.platform == RuntimePlatform.Android)
-        {
-            GameObject student = NetworkManager.Singleton.LocalClient.PlayerObject.gameObject;
-            if (student != null)
-                student.GetComponent<InitModelPosition>().ResetRotationClient(Quaternion.identity);
-        }
-        else
-        {
-            this.gameObject.GetComponent<ResetModelPosition>().RepositionModel(true);
-        }
+        GameObject student = NetworkManager.Singleton.LocalClient.PlayerObject.gameObject;
+        if (student != null)
+            student.GetComponent<InitModelPosition>().ResetRotationClient(Quaternion.identity);
     }
 }
