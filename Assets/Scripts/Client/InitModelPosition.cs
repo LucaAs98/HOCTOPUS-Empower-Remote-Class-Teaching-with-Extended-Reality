@@ -1,7 +1,6 @@
 using Unity.Netcode;
 using UnityEngine;
 
-
 public class InitModelPosition : NetworkBehaviour
 {
     private GameObject model; //Contains the model to observe in scene
@@ -13,6 +12,8 @@ public class InitModelPosition : NetworkBehaviour
 
     void Start()
     {
+        if (!IsOwner) return;
+
         cameraScene = Camera.main;
         model = GameObject.FindGameObjectWithTag("SpawnedModel");
         startingModelScale = model.transform.localScale;
@@ -28,7 +29,6 @@ public class InitModelPosition : NetworkBehaviour
             model.transform.position.z);
 
         diffRotation = model.gameObject.GetComponent<InitNetworkVariables>().GetDiffRotation();
-        //We do this only the first time, we set the body looking at the camera, then we rotate it like the hololens
         ResetRotationClient(diffRotation);
     }
 

@@ -23,8 +23,7 @@ public class JoinLessonHololens : MonoBehaviour
 
         if (connectionOK)
         {
-
-            canvasHol.gameObject.SetActive(false);
+            Destroy(canvasHol.gameObject);
         }
         else
         {
