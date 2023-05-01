@@ -1,3 +1,6 @@
+using Microsoft.MixedReality.Toolkit.Input;
+using Microsoft.MixedReality.Toolkit.UI;
+using Microsoft.MixedReality.Toolkit.Utilities;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
@@ -36,9 +39,20 @@ public class ClientHandler : NetworkBehaviour
                 raiseArmButton.GetComponent<Image>().color = new Color32(43, 180, 45, 255);
             else
             {
+                //Allow manipulation of the model
+                GameObject model = GameObject.FindGameObjectWithTag("SpawnedModel");
+                if (model != null)
+                {
+                    model.GetComponent<NearInteractionGrabbable>().enabled = true;
+                    model.GetComponent<ObjectManipulator>().enabled = true;
+                    model.GetComponent<CursorContextObjectManipulator>().enabled = true;
+                    model.GetComponent<ObjectManipulator>().TwoHandedManipulationType = TransformFlags.Move | TransformFlags.Scale;
+                }
+
+
+                //Init RaiseArmButton
                 childRaiseArmButton = NetworkManager.Singleton.GetComponent<StartLesson>()
                     .FindDeepChild(raiseArmButton.transform, "BackgroundQuestionBtn").GetComponent<MeshRenderer>();
-
                 childRaiseArmButton.material = greenMaterialHololens;
             }
 
