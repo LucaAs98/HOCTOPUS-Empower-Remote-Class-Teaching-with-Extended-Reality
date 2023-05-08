@@ -97,7 +97,6 @@ public class Outline : MonoBehaviour
             renderers[0] = GetComponent<Renderer>();
         }
 
-
         // Instantiate outline materials
         outlineMaskMaterial = Instantiate(Resources.Load<Material>(@"Materials/OutlineMask"));
         outlineFillMaterial = Instantiate(Resources.Load<Material>(@"Materials/OutlineFill"));
@@ -183,7 +182,7 @@ public class Outline : MonoBehaviour
 
         foreach (var meshFilter in GetComponentsInChildren<MeshFilter>())
         {
-            //Skip duplicates
+            // Skip duplicates
             if (!bakedMeshes.Add(meshFilter.sharedMesh))
             {
                 continue;
@@ -215,9 +214,9 @@ public class Outline : MonoBehaviour
         foreach (var meshFilter in meshFilters)
         {
             // Skip if smooth normals have already been adopted
-            if (registeredMeshes.Add(meshFilter.sharedMesh))
+            if (!registeredMeshes.Add(meshFilter.sharedMesh))
             {
-                return;
+                continue;
             }
 
             // Retrieve or generate smooth normals
@@ -235,6 +234,7 @@ public class Outline : MonoBehaviour
                 CombineSubmeshes(meshFilter.sharedMesh, renderer.sharedMaterials);
             }
         }
+
 
         if (recursive)
         {
@@ -257,20 +257,15 @@ public class Outline : MonoBehaviour
                     continue;
                 }
 
-                if (registeredMeshes.Add(skinnedMeshRenderer.sharedMesh))
-                {
-                    return;
-                }
-
                 // Clear UV3
                 skinnedMeshRenderer.sharedMesh.uv4 = new Vector2[skinnedMeshRenderer.sharedMesh.vertexCount];
+
 
                 // Combine submeshes
                 CombineSubmeshes(skinnedMeshRenderer.sharedMesh, skinnedMeshRenderer.sharedMaterials);
             }
         }
     }
-
 
     List<Vector3> SmoothNormals(Mesh mesh)
     {
