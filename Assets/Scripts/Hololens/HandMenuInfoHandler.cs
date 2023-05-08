@@ -67,10 +67,17 @@ public class HandMenuInfoHandler : MonoBehaviour
 
     public void ChooseOtherModel()
     {
-        //We disconnect all the clients and we destroy the model and the studentList
+        //We disconnect all the clients and we destroy the model and the studentList and all the menu
         model.GetComponent<SendInfoClient>().ClientDisconnectionClientRpc();
-
+                
         Destroy(model);
+
+        Transform parentUIHololens = GameObject.Find("UIHololens").transform;
+
+        foreach(Transform i in parentUIHololens) { 
+        
+            Destroy(i.gameObject);
+        }
 
         if (studentList != null)
             Destroy(studentList.gameObject);

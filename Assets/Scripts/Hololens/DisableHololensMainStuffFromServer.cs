@@ -11,5 +11,10 @@ public class DisableHololensMainStuffFromServer : NetworkBehaviour
         {
             handMenuToggles.SetActive(false);
         }
+        else {
+
+            Transform parentUIHololens = GameObject.Find("UIHololens").transform;
+            handMenuToggles.transform.SetParent(parentUIHololens, true);
+        }
     }
 }
