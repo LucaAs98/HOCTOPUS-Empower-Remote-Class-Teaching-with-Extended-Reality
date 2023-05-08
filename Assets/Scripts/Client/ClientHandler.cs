@@ -46,6 +46,7 @@ public class ClientHandler : NetworkBehaviour
                     model.GetComponent<NearInteractionGrabbable>().enabled = true;
                     model.GetComponent<ObjectManipulator>().enabled = true;
                     model.GetComponent<CursorContextObjectManipulator>().enabled = true;
+                    model.GetComponent<ObjectManipulator>().ManipulationType = ManipulationHandFlags.TwoHanded;
                     model.GetComponent<ObjectManipulator>().TwoHandedManipulationType = TransformFlags.Move | TransformFlags.Scale;
                 }
 
