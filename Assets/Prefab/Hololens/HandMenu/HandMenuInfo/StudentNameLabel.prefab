@@ -1472,7 +1472,7 @@ MonoBehaviour:
           m_Calls: []
       Options: []
   resetOnDestroy: 0
-  enabledOnStart: 1
+  enabledOnStart: 0
 --- !u!82 &5348120815487552116
 AudioSource:
   m_ObjectHideFlags: 0
