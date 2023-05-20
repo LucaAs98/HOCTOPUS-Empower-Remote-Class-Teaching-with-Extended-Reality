@@ -14,11 +14,6 @@ public class TouchInteractableOutline : MonoBehaviour, IMixedRealityTouchHandler
 
     #endregion
 
-
-    private void Start()
-    {
-    }
-
     //We remove the outline when we finish to touch the model
     void IMixedRealityTouchHandler.OnTouchCompleted(HandTrackingInputEventData eventData)
     {
@@ -36,6 +31,5 @@ public class TouchInteractableOutline : MonoBehaviour, IMixedRealityTouchHandler
     void IMixedRealityTouchHandler.OnTouchUpdated(HandTrackingInputEventData eventData)
     {
         OnTouchUpdated.Invoke(eventData);
-        Debug.Log("Sto toccando: " + this.gameObject.name);
     }
 }

@@ -11,7 +11,7 @@ public class ManageNotification : MonoBehaviour
     public void AddNotification(string studentName)
     {
         //Set notification text
-        notificationPrefab.GetComponentInChildren<TextMeshPro>().text = studentName + " vuole fare una domanda!";
+        notificationPrefab.GetComponentInChildren<TextMeshPro>().text = studentName + " has a question!";
 
         //We instatiate the notification
         GameObject objSpawned = Instantiate(notificationPrefab, notificationGroup.transform);

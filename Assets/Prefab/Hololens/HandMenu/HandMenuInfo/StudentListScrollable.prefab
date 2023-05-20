@@ -401,7 +401,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 963315677619474580}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963315676915627679
 GameObject:
@@ -429,16 +429,16 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963315676915627679}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.0055616493}
-  m_LocalScale: {x: 0.0064073736, y: 0.006407373, z: 0.0064073745}
+  m_LocalPosition: {x: 0, y: 0, z: -1.5000085}
+  m_LocalScale: {x: 0.0153973065, y: 0.15165384, z: 1.8202769}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 963315677619474580}
-  m_RootOrder: 1
+  m_Father: {fileID: 963315677752958816}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.09148728, y: -0.0103935}
+  m_AnchoredPosition: {x: -0.05789999, y: -0.24900006}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &963315676915627674
@@ -503,7 +503,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Studenti collegati
+  m_text: Connected students
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6a84f857bec7e7345843ae29404c57ce, type: 2}
   m_sharedMaterial: {fileID: 21202819797275496, guid: 6a84f857bec7e7345843ae29404c57ce, type: 2}
@@ -611,7 +611,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2296968291649769977}
-  - {fileID: 963315676915627678}
   - {fileID: 963315676698803471}
   - {fileID: 1183118382099575567}
   - {fileID: 3047566887069619171}
@@ -1129,7 +1128,7 @@ Transform:
   - {fileID: 963315677619474580}
   - {fileID: 963315677500937315}
   m_Father: {fileID: 963315677752958816}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &963315677289896561
 MonoBehaviour:
@@ -1467,6 +1466,7 @@ Transform:
   m_LocalScale: {x: 0.30454743, y: 0.030920498, z: 0.0025760983}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 963315676915627678}
   - {fileID: 963315677289896563}
   - {fileID: 7137107501361136221}
   m_Father: {fileID: 2625582734681954862}
@@ -3007,7 +3007,7 @@ Transform:
   m_Children:
   - {fileID: 963315677770652148}
   m_Father: {fileID: 963315677619474580}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3190449376296993186
 GameObject:
@@ -5092,7 +5092,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 963315677752958816}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7908965772207138561
 MeshFilter:
@@ -5276,7 +5276,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Numero studenti collegati: 0'
+  m_text: 'Number of students connected: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6a84f857bec7e7345843ae29404c57ce, type: 2}
   m_sharedMaterial: {fileID: 21202819797275496, guid: 6a84f857bec7e7345843ae29404c57ce, type: 2}
@@ -5303,8 +5303,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.1
-  m_fontSizeBase: 0.1
+  m_fontSize: 0.09
+  m_fontSizeBase: 0.09
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6431,5 +6431,5 @@ Transform:
   - {fileID: 1478556312520991098}
   - {fileID: 77172016512855000}
   m_Father: {fileID: 963315677619474580}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

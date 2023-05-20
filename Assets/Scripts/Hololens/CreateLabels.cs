@@ -117,7 +117,6 @@ public class CreateLabels : MonoBehaviour
         var sortedChilds = maxList.OrderBy(t => Mathf.Abs(t.position.x));
         var selectedChilds = sortedChilds.Take(n);
 
-        // Esegui un'azione su ciascun elemento selezionato
         foreach (Transform t in selectedChilds)
         {
             maxList.Remove(t);

@@ -15,12 +15,6 @@ public class StudentLabelHandler : MonoBehaviour
     [SerializeField] Material materialWhite;
     [SerializeField] Material materialGrey;
 
-    // // Start is called before the first frame update
-    // void Start()
-    // {
-    //     handButton.GetComponent<Interactable>().IsEnabled = false;
-    // }
-
     public void SetClientID(ulong id)
     {
         clientID = id;
@@ -36,11 +30,6 @@ public class StudentLabelHandler : MonoBehaviour
         handButton.GetComponent<Interactable>().IsEnabled = true;
         iconMeshRendererHand.material = materialYellow;
         backPlateHandButton.material = materialGreen;
-    }
-
-    void Update()
-    {
-        Debug.Log("IS ENABLE ------> " + handButton.GetComponent<Interactable>().IsEnabled);
     }
 
     public void RemoveNotification(bool flagSend = true)

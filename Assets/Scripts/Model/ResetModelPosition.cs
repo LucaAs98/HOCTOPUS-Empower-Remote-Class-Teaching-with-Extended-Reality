@@ -23,7 +23,7 @@ public class ResetModelPosition : MonoBehaviour
 
         if (isToRotate)
         {
-            Debug.Log("Sono un professore!!!!");
+            Debug.Log("I'm a teacher!");
 
             Vector3 relativePos = cameraScene.transform.position - this.transform.position;
             relativePos.y = 0;

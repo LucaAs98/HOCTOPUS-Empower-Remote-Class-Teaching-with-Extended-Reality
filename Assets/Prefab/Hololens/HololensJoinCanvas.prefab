@@ -2339,7 +2339,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Entra nella lezione
+  m_text: Enter the lesson
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6a84f857bec7e7345843ae29404c57ce, type: 2}
   m_sharedMaterial: {fileID: 21202819797275496, guid: 6a84f857bec7e7345843ae29404c57ce, type: 2}
@@ -2870,7 +2870,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Entra nella lezione
+  m_Text: Enter the lesson
 --- !u!1 &5254199291973868721
 GameObject:
   m_ObjectHideFlags: 0
@@ -4393,7 +4393,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Codice lezione:'
+  m_text: 'Join code:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6a84f857bec7e7345843ae29404c57ce, type: 2}
   m_sharedMaterial: {fileID: 21202819797275496, guid: 6a84f857bec7e7345843ae29404c57ce, type: 2}
@@ -4741,7 +4741,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Nome studente:'
+  m_text: 'Name:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 6a84f857bec7e7345843ae29404c57ce, type: 2}
   m_sharedMaterial: {fileID: 21202819797275496, guid: 6a84f857bec7e7345843ae29404c57ce, type: 2}
@@ -5098,7 +5098,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2093565321186540844, guid: 4daceed0c4c3c09468897226b8717688, type: 3}
       propertyPath: m_text
-      value: Inserisci il codice...
+      value: Insert join code
       objectReference: {fileID: 0}
     - target: {fileID: 2093565321186540844, guid: 4daceed0c4c3c09468897226b8717688, type: 3}
       propertyPath: m_fontSize
@@ -5331,7 +5331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2093565321186540844, guid: 4daceed0c4c3c09468897226b8717688, type: 3}
       propertyPath: m_text
-      value: Inserisci il nome...
+      value: Insert you name
       objectReference: {fileID: 0}
     - target: {fileID: 2093565321186540844, guid: 4daceed0c4c3c09468897226b8717688, type: 3}
       propertyPath: m_fontSize

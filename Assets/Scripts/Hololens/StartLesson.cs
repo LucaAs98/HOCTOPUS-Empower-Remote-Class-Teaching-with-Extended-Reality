@@ -33,14 +33,14 @@ public class StartLesson : MonoBehaviour
             Destroy(floorFinder);
             Destroy(loadingBalls.gameObject);
             SpawnObject(modelToSpawn, position);
-            lobbyCodeText.text = "Codice: " + joinCode;
+            lobbyCodeText.text = "Code: " + joinCode;
             Transform codeText = FindDeepChild(handMenuInfo, "Code");
-            codeText.GetComponent<TextMeshPro>().text = "CODICE: " + joinCode;
+            codeText.GetComponent<TextMeshPro>().text = "CODE: " + joinCode;
             Instantiate(handMenuInfo);
         }
         else
         {
-            lobbyCodeText.text = "Errore nella creazione del relay";
+            lobbyCodeText.text = "Connection error! Join code NULL!";
         }
     }
 
