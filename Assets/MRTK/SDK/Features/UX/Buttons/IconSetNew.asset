@@ -18,6 +18,8 @@ MonoBehaviour:
   - {fileID: 2800000, guid: bd30f98596e69f7469fda20a47760dd1, type: 3}
   - {fileID: 2800000, guid: 559e1da0e65611c4f93ec931e1e6a8a2, type: 3}
   - {fileID: 2800000, guid: 55e2d053d3258104bb6895b5db581e32, type: 3}
+  - {fileID: 2800000, guid: 72cd4ba1f531b824f8b59e74fa27c343, type: 3}
+  - {fileID: 2800000, guid: 286f121bc0fec5948b1864fa3d0c022c, type: 3}
   spriteIcons: []
   charIconFont: {fileID: 0}
   charIcons:
