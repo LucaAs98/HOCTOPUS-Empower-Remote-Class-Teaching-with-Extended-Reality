@@ -28,4 +28,14 @@ public class SendInfoClient : NetworkBehaviour
         if (student != null)
             student.GetComponent<ClientHandler>().Exit();
     }
+
+    [ClientRpc]
+    public void GrantPermissionClientRpc(bool enable, ClientRpcParams clientRpcParams = default)
+    {
+        GameObject student = NetworkManager.Singleton.LocalClient.PlayerObject.gameObject;
+        if (student != null)
+            student.GetComponent<ClientHandler>().Permission(enable);
+
+    }
+
 }

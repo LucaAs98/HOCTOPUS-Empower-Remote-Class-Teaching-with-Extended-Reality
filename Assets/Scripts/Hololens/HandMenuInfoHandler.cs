@@ -75,7 +75,6 @@ public class HandMenuInfoHandler : MonoBehaviour
         Transform parentUIHololens = GameObject.Find("UIHololens").transform;
 
         foreach(Transform i in parentUIHololens) { 
-        
             Destroy(i.gameObject);
         }
 

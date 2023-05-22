@@ -124,6 +124,14 @@ public class ClientHandler : NetworkBehaviour
         }
     }
 
+    public void Permission(bool enable) { 
+        
+        //Logica da scrivere
+        
+    
+    }
+
+
     [ServerRpc]
     private void RaiseArmServerRpc(ulong playerID, bool flagRaisedArm)
     {

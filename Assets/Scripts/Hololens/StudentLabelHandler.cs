@@ -14,6 +14,13 @@ public class StudentLabelHandler : MonoBehaviour
     [SerializeField] Material materialGreen;
     [SerializeField] Material materialWhite;
     [SerializeField] Material materialGrey;
+    SendInfoClient modelSendInfo;
+    bool flagPermit = false;
+
+    private void Start()
+    {
+        modelSendInfo = GameObject.FindGameObjectWithTag("SpawnedModel").GetComponent<SendInfoClient>();
+    }
 
     public void SetClientID(ulong id)
     {
@@ -24,6 +31,24 @@ public class StudentLabelHandler : MonoBehaviour
     {
         return clientID;
     }
+
+    public void GrantPermission() {
+
+        flagPermit = !flagPermit;
+
+
+        modelSendInfo.GetComponent<SendInfoClient>().GrantPermissionClientRpc(flagPermit, new ClientRpcParams
+        {
+            Send = new ClientRpcSendParams
+            {
+                TargetClientIds = new ulong[] { clientID },
+            }
+        });
+
+
+    }
+
+
 
     public void EnableHandButton()
     {
@@ -39,8 +64,7 @@ public class StudentLabelHandler : MonoBehaviour
         if (flagSend)
         {
             NetworkManager.Singleton.GetComponent<StartLesson>().ModifyUserArm(clientID, false);
-            GameObject model = GameObject.FindGameObjectsWithTag("SpawnedModel")[0];
-            model.GetComponent<SendInfoClient>().RemoveNotificationClientRpc(new ClientRpcParams
+            modelSendInfo.GetComponent<SendInfoClient>().RemoveNotificationClientRpc(new ClientRpcParams
             {
                 Send = new ClientRpcSendParams
                 {
@@ -64,8 +88,7 @@ public class StudentLabelHandler : MonoBehaviour
         if (flagSend)
         {
             NetworkManager.Singleton.GetComponent<StartLesson>().ModifyUserBlock(clientID);
-            GameObject model = GameObject.FindGameObjectsWithTag("SpawnedModel")[0];
-            model.GetComponent<SendInfoClient>().EnableDisableClientRpc(enable, new ClientRpcParams
+            modelSendInfo.GetComponent<SendInfoClient>().EnableDisableClientRpc(enable, new ClientRpcParams
             {
                 Send = new ClientRpcSendParams
                 {

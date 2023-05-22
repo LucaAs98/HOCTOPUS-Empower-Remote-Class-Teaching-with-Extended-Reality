@@ -69,32 +69,32 @@ public class CreateLabels : MonoBehaviour
         childsLeft = new List<Transform>();
         childsRight = new List<Transform>();
 
-        if (!recursive)
+        /*if (!recursive)
+        {*/
+        foreach (Transform child in childrens)
         {
-            foreach (Transform child in childrens)
+            if (child.localPosition.x >= 0)
             {
-                if (child.localPosition.x >= 0)
-                {
-                    childsRight.Add(child);
-                }
-                else
-                {
-                    childsLeft.Add(child);
-                }
+                childsRight.Add(child);
             }
-
-            int dif = Mathf.Abs(childsRight.Count - childsLeft.Count);
-
-            if (dif > 1)
+            else
             {
-                List<Transform> auxMax = childsRight.Count > childsLeft.Count ? childsRight : childsLeft;
-                List<Transform> auxMin = childsRight.Count < childsLeft.Count ? childsRight : childsLeft;
-                FixChildsList(auxMax, auxMin, dif / 2);
+                childsLeft.Add(child);
             }
-
-            childsRight.Sort(YPositionComparison);
-            childsLeft.Sort(YPositionComparison);
         }
+
+        int dif = Mathf.Abs(childsRight.Count - childsLeft.Count);
+
+        if (dif > 1)
+        {
+            List<Transform> auxMax = childsRight.Count > childsLeft.Count ? childsRight : childsLeft;
+            List<Transform> auxMin = childsRight.Count < childsLeft.Count ? childsRight : childsLeft;
+            FixChildsList(auxMax, auxMin, dif / 2);
+        }
+
+        childsRight.Sort(YPositionComparison);
+        childsLeft.Sort(YPositionComparison);
+        /*}
         else
         {
             childrens.Sort(YPositionComparison);
@@ -109,7 +109,7 @@ public class CreateLabels : MonoBehaviour
 
                 aux++;
             }
-        }
+        }*/
     }
 
     private void FixChildsList(List<Transform> maxList, List<Transform> minList, int n)
@@ -195,8 +195,10 @@ public class CreateLabels : MonoBehaviour
         foreach (Transform child in parent)
         {
             if (!child.name.Equals("Tooltips") && !child.name.Equals("Useless"))
-            {
-                aux.Add(child);
+            {   
+                if(child.tag != "Container")
+                    aux.Add(child);
+
                 //If we need to recursively enter children's children, recursive will be True
                 if (recursive && child.childCount > 0)
                 {

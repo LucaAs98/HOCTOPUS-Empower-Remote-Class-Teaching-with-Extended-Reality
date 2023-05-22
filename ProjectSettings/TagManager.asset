@@ -9,6 +9,7 @@ TagManager:
   - SpawnedModel
   - HandMenuCode
   - StudentList
+  - Container
   layers:
   - Default
   - TransparentFX
