@@ -23,7 +23,13 @@ public class ClientHandler : NetworkBehaviour
     private bool raisedArm; //Check if arm is reised or not
     [SerializeField] private Material greenMaterialHololens;
     [SerializeField] private Material yellowMaterialHololens;
+
     private MeshRenderer childRaiseArmButton;
+
+    [SerializeField] private GameObject selectPartPanel;
+    [SerializeField] private Transform choosePartBtn;
+    [SerializeField] private GameObject exitBtn;
+    [SerializeField] private GameObject repositionBtn;
 
     void Start()
     {
@@ -47,7 +53,8 @@ public class ClientHandler : NetworkBehaviour
                     model.GetComponent<ObjectManipulator>().enabled = true;
                     model.GetComponent<CursorContextObjectManipulator>().enabled = true;
                     model.GetComponent<ObjectManipulator>().ManipulationType = ManipulationHandFlags.TwoHanded;
-                    model.GetComponent<ObjectManipulator>().TwoHandedManipulationType = TransformFlags.Move | TransformFlags.Scale;
+                    model.GetComponent<ObjectManipulator>().TwoHandedManipulationType =
+                        TransformFlags.Move | TransformFlags.Scale;
                 }
 
 
@@ -70,12 +77,12 @@ public class ClientHandler : NetworkBehaviour
             if (device == Devices.Android)
             {
                 raiseArmButton.GetComponent<Image>().color = new Color32(227, 224, 50, 255);
-                labelButton.GetComponent<TextMeshProUGUI>().text = "Ritira";
+                labelButton.GetComponent<TextMeshProUGUI>().text = "Hand down";
             }
             else
             {
                 childRaiseArmButton.material = yellowMaterialHololens;
-                labelButton.GetComponent<TextMeshPro>().text = "Ritira";
+                labelButton.GetComponent<TextMeshPro>().text = "Hand down";
             }
         }
         else
@@ -83,12 +90,12 @@ public class ClientHandler : NetworkBehaviour
             if (device == Devices.Android)
             {
                 raiseArmButton.GetComponent<Image>().color = new Color32(43, 180, 45, 255);
-                labelButton.GetComponent<TextMeshProUGUI>().text = "Domanda";
+                labelButton.GetComponent<TextMeshProUGUI>().text = "Raise arm";
             }
             else
             {
                 childRaiseArmButton.material = greenMaterialHololens;
-                labelButton.GetComponent<TextMeshPro>().text = "Domanda";
+                labelButton.GetComponent<TextMeshPro>().text = "Raise arm";
             }
         }
 
@@ -106,7 +113,7 @@ public class ClientHandler : NetworkBehaviour
         return playerName;
     }
 
-    //Disconnect client ------------------------ TO_DO FOR HOLOLENS -----------------------------------------------
+
     public void Exit()
     {
         //We delete the user from server "connected user list" and we disconnect it
@@ -124,11 +131,36 @@ public class ClientHandler : NetworkBehaviour
         }
     }
 
-    public void Permission(bool enable) { 
-        
-        //Logica da scrivere
-        
-    
+    public void Permission(bool enable)
+    {
+        exitBtn.SetActive(!enable);
+        repositionBtn.SetActive(!enable);
+        choosePartBtn.gameObject.SetActive(enable);
+
+        if (enable)
+        {
+        }
+        else
+        {
+        }
+    }
+
+
+    //Every time we click the "ChoosePartBtn"
+    public void ChoosePartClick()
+    {
+        if (!selectPartPanel.activeSelf)
+        {
+            selectPartPanel.SetActive(true);
+            choosePartBtn.GetComponent<Image>().color = Color.red;
+            choosePartBtn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Close";
+        }
+        else
+        {
+            selectPartPanel.SetActive(false);
+            choosePartBtn.GetComponent<Image>().color = new Color(0, 0.71f, 1);
+            choosePartBtn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Choose part";
+        }
     }
 
 
