@@ -2307,8 +2307,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1702675621054363673}
         m_TargetAssemblyTypeName: StudentLabelHandler, Assembly-CSharp
-        m_MethodName: RemoveNotification
-        m_Mode: 6
+        m_MethodName: GrantPermission
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2415,7 +2415,7 @@ MonoBehaviour:
           m_Calls: []
       Options: []
   resetOnDestroy: 0
-  enabledOnStart: 0
+  enabledOnStart: 1
 --- !u!82 &7244861683579933125
 AudioSource:
   m_ObjectHideFlags: 0

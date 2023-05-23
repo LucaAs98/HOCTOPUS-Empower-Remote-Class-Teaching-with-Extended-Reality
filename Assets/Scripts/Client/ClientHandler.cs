@@ -30,6 +30,8 @@ public class ClientHandler : NetworkBehaviour
     [SerializeField] private Transform choosePartBtn;
     [SerializeField] private GameObject exitBtn;
     [SerializeField] private GameObject repositionBtn;
+    [SerializeField] private GameObject removeOutlineBtn;
+    private string lastOutline = null;
 
     void Start()
     {
@@ -134,14 +136,15 @@ public class ClientHandler : NetworkBehaviour
     public void Permission(bool enable)
     {
         exitBtn.SetActive(!enable);
-        repositionBtn.SetActive(!enable);
+        raiseArmButton.SetActive(!enable);
         choosePartBtn.gameObject.SetActive(enable);
+        selectPartPanel.SetActive(false);
+        removeOutlineBtn.SetActive(false);
 
-        if (enable)
+        if (!enable)
         {
-        }
-        else
-        {
+            RemoveOutline();
+            ResetChoosePartBtn();
         }
     }
 
@@ -151,18 +154,78 @@ public class ClientHandler : NetworkBehaviour
     {
         if (!selectPartPanel.activeSelf)
         {
-            selectPartPanel.SetActive(true);
-            choosePartBtn.GetComponent<Image>().color = Color.red;
-            choosePartBtn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Close";
+            InitChoosePartBtn();
         }
         else
         {
-            selectPartPanel.SetActive(false);
-            choosePartBtn.GetComponent<Image>().color = new Color(0, 0.71f, 1);
-            choosePartBtn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Choose part";
+            ResetChoosePartBtn();
         }
     }
 
+    private void InitChoosePartBtn()
+    {
+        selectPartPanel.SetActive(true);
+
+        Transform container = selectPartPanel.transform.GetChild(1);
+        LayoutRebuilder.ForceRebuildLayoutImmediate(container.GetComponent<RectTransform>());
+
+        choosePartBtn.GetComponent<Image>().color = Color.red;
+        choosePartBtn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Close";
+    }
+
+    private void ResetChoosePartBtn()
+    {
+        selectPartPanel.SetActive(false);
+        choosePartBtn.GetComponent<Image>().color = new Color(0, 0.71f, 1);
+        choosePartBtn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Choose part";
+    }
+
+    public void ShowOutline(string partName)
+    {
+        //Check dell'ultimo outline attivato
+        if (lastOutline != null)
+        {
+            RemoveOutlineServerRpc(lastOutline);
+        }
+
+        lastOutline = partName;
+
+        removeOutlineBtn.SetActive(true);
+
+
+        //Aggiungi bottone per disabilitarla da android
+
+
+        //Chiediamo al server di mostrarla a tutti
+        ShowOutlineServerRpc(partName);
+    }
+
+    public void RemoveOutline()
+    {
+        if (lastOutline != null)
+        {
+            RemoveOutlineServerRpc(lastOutline);
+            lastOutline = null;
+            removeOutlineBtn.SetActive(false);
+        }
+    }
+
+    [ServerRpc]
+    private void ShowOutlineServerRpc(string partName)
+    {
+        GameObject model = GameObject.FindGameObjectWithTag("SpawnedModel");
+        GameObject objToOutline = GameObject.Find(partName);
+
+        model.GetComponent<ManageOutline>().AddOutline(objToOutline);
+    }
+
+    [ServerRpc]
+    private void RemoveOutlineServerRpc(string partName)
+    {
+        GameObject model = GameObject.FindGameObjectWithTag("SpawnedModel");
+        GameObject objToOutline = GameObject.Find(partName);
+        model.GetComponent<ManageOutline>().RemoveOutline(objToOutline);
+    }
 
     [ServerRpc]
     private void RaiseArmServerRpc(ulong playerID, bool flagRaisedArm)

@@ -32,8 +32,8 @@ public class StudentLabelHandler : MonoBehaviour
         return clientID;
     }
 
-    public void GrantPermission() {
-
+    public void GrantPermission()
+    {
         flagPermit = !flagPermit;
 
 
@@ -44,10 +44,7 @@ public class StudentLabelHandler : MonoBehaviour
                 TargetClientIds = new ulong[] { clientID },
             }
         });
-
-
     }
-
 
 
     public void EnableHandButton()

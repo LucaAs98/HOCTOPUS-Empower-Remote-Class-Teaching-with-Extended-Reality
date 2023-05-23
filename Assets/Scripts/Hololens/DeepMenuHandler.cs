@@ -20,6 +20,4 @@ public class DeepMenuHandler : MonoBehaviour
             thisTransform.RotateAround(thisTransform.position, thisTransform.up, 180f);
         }
     }
-
-
 }

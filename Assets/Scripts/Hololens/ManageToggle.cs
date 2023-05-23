@@ -26,6 +26,11 @@ public class ManageToggle : NetworkBehaviour
     {
         //It calls the main function directly
         ActivateDeactivate(isToggle, objIndex);
+
+
+        //Update specific parts menu
+        GameObject student = NetworkManager.Singleton.LocalClient.PlayerObject.gameObject;
+        student.GetComponent<CheckActiveParts>().UpdateSelectPanelParts();
     }
 
     //Base function for enabling and disabling the obj called from the server and also from the clients
