@@ -33,6 +33,8 @@ public class ClientHandler : NetworkBehaviour
     [SerializeField] private GameObject removeOutlineBtn;
     private string lastOutline = null;
 
+    private GameObject model;
+
     void Start()
     {
         if (!IsOwner)
@@ -48,7 +50,7 @@ public class ClientHandler : NetworkBehaviour
             else
             {
                 //Allow manipulation of the model
-                GameObject model = GameObject.FindGameObjectWithTag("SpawnedModel");
+                model = GameObject.FindGameObjectWithTag("SpawnedModel");
                 if (model != null)
                 {
                     model.GetComponent<NearInteractionGrabbable>().enabled = true;
@@ -166,11 +168,13 @@ public class ClientHandler : NetworkBehaviour
     {
         selectPartPanel.SetActive(true);
 
-        Transform container = selectPartPanel.transform.GetChild(1);
+        Transform container = selectPartPanel.transform.GetChild(1).transform.GetChild(0);
         LayoutRebuilder.ForceRebuildLayoutImmediate(container.GetComponent<RectTransform>());
 
         choosePartBtn.GetComponent<Image>().color = Color.red;
         choosePartBtn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Close";
+
+        this.GetComponent<MoveSpawnedObj>().enabled = false;
     }
 
     private void ResetChoosePartBtn()
@@ -178,6 +182,8 @@ public class ClientHandler : NetworkBehaviour
         selectPartPanel.SetActive(false);
         choosePartBtn.GetComponent<Image>().color = new Color(0, 0.71f, 1);
         choosePartBtn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Choose part";
+
+        this.GetComponent<MoveSpawnedObj>().enabled = true;
     }
 
     public void ShowOutline(string partName)

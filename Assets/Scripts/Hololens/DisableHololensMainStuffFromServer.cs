@@ -10,13 +10,14 @@ public class DisableHololensMainStuffFromServer : NetworkBehaviour
     {
         if (!IsOwner)
         {
+            //Guardare se sono da distruggere
             handMenuToggles.SetActive(false);
         }
         else {
 
             Transform parentUIHololens = GameObject.Find("UIHololens").transform;
             handMenuToggles.transform.SetParent(parentUIHololens, true);
-            menuDeepSkeleton.transform.SetParent(parentUIHololens, true);
+            menuDeepSkeleton.transform.SetParent(parentUIHololens, true);   
         }
     }
 }
