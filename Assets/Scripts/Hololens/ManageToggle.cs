@@ -10,6 +10,8 @@ public class ManageToggle : NetworkBehaviour
     //Called by server in ActivateToggle, we dont call it in client
     public void ActiveDeactivateObj(bool isToggle, GameObject objToActivate)
     {
+        RemoveOutlineIfPresent(objToActivate);
+
         //We need to take the index because we cant pass the gameobj to the clientrpc function
         int objIndex = GetIndexFromObj(objToActivate);
 
@@ -18,6 +20,27 @@ public class ManageToggle : NetworkBehaviour
 
         //We execute the code in every client
         ActivateToggleClientRpc(isToggle, objIndex);
+    }
+
+    private void RemoveOutlineIfPresent(GameObject objToCheck)
+    {
+        foreach (Transform specificPart in objToCheck.transform)
+        {
+            Outline outlineComponent = specificPart.GetComponent<Outline>();
+
+            if (outlineComponent != null && outlineComponent.enabled)
+            {
+                this.GetComponent<ManageOutline>().RemoveOutline(specificPart.gameObject);
+                RemoveOutlineIfPresentClientRpc();
+            }
+        }
+    }
+
+    [ClientRpc]
+    private void RemoveOutlineIfPresentClientRpc()
+    {
+        GameObject student = NetworkManager.Singleton.LocalClient.PlayerObject.gameObject;
+        student.GetComponent<ClientHandler>().RemoveOutline(true);
     }
 
     //Code executed in every client

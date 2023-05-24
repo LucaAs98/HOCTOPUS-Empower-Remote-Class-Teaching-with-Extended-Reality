@@ -14,6 +14,8 @@ public class CheckActiveParts : MonoBehaviour
     [SerializeField] private GameObject rootPartPrefab;
     [SerializeField] private GameObject buttonSpecificPartPrefab;
 
+    private bool permissions = false;
+
     void Start()
     {
         //body = GameObject.FindGameObjectWithTag("SpawnedModel");
@@ -22,9 +24,12 @@ public class CheckActiveParts : MonoBehaviour
 
     public void UpdateSelectPanelParts()
     {
-        activePartsList = GetActiveParts();
-        DestroyAllChildren();
-        AddNewChildren();
+        if (permissions)
+        {
+            activePartsList = GetActiveParts();
+            DestroyAllChildren();
+            AddNewChildren();
+        }
     }
 
     private List<GameObject> GetActiveParts()
@@ -56,6 +61,7 @@ public class CheckActiveParts : MonoBehaviour
             GameObject newRoot = Instantiate(rootPartPrefab, containerSelectPartsPanel.transform);
             AddButtonsToRoot(newRoot, rootPart);
         }
+
         LayoutRebuilder.ForceRebuildLayoutImmediate(containerSelectPartsPanel.GetComponent<RectTransform>());
     }
 
@@ -66,6 +72,13 @@ public class CheckActiveParts : MonoBehaviour
             buttonSpecificPartPrefab.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = specificPart.name;
             Instantiate(buttonSpecificPartPrefab.gameObject, newRoot.transform.GetChild(1));
         }
-        
+    }
+
+    public void SetPermission(bool permission)
+    {
+        permissions = permission;
+
+        if (permissions)
+            UpdateSelectPanelParts();
     }
 }

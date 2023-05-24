@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Microsoft.MixedReality.Toolkit.Input;
 using Microsoft.MixedReality.Toolkit.UI;
 using Microsoft.MixedReality.Toolkit.Utilities;
@@ -142,6 +143,8 @@ public class ClientHandler : NetworkBehaviour
         choosePartBtn.gameObject.SetActive(enable);
         selectPartPanel.SetActive(false);
         removeOutlineBtn.SetActive(false);
+        this.GetComponent<TouchModelDetection>().enabled = enable;
+        this.GetComponent<CheckActiveParts>().SetPermission(enable);
 
         if (!enable)
         {
@@ -186,35 +189,48 @@ public class ClientHandler : NetworkBehaviour
         this.GetComponent<MoveSpawnedObj>().enabled = true;
     }
 
+    // public void IsStillActive(List<GameObject> activeParts)
+    // {
+    //     foreach (var part in activeParts)
+    //     {
+    //         foreach (Transform specificPart in part.transform)
+    //         {
+    //             Debug.Log("specificPart.name: " + specificPart.name + "------------ lastOutline: " + lastOutline);
+    //             if (specificPart.name == lastOutline)
+    //                 return;
+    //         }
+    //     }
+    //
+    //     Debug.Log("-------------RIMOSSA---------");
+    //     RemoveOutline();
+    // }
+
     public void ShowOutline(string partName)
     {
-        //Check dell'ultimo outline attivato
-        if (lastOutline != null)
+        if (lastOutline != null && lastOutline != partName)
         {
             RemoveOutlineServerRpc(lastOutline);
         }
 
-        lastOutline = partName;
-
         removeOutlineBtn.SetActive(true);
 
+        if (lastOutline != partName)
+            ShowOutlineServerRpc(partName);
 
-        //Aggiungi bottone per disabilitarla da android
-
-
-        //Chiediamo al server di mostrarla a tutti
-        ShowOutlineServerRpc(partName);
+        lastOutline = partName;
     }
 
-    public void RemoveOutline()
+    public void RemoveOutline(bool outlineLeft = false)
     {
         if (lastOutline != null)
         {
-            RemoveOutlineServerRpc(lastOutline);
+            if (!outlineLeft)
+                RemoveOutlineServerRpc(lastOutline);
             lastOutline = null;
             removeOutlineBtn.SetActive(false);
         }
     }
+
 
     [ServerRpc]
     private void ShowOutlineServerRpc(string partName)

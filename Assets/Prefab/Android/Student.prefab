@@ -443,7 +443,7 @@ GameObject:
   - component: {fileID: 8994967733737570993}
   - component: {fileID: 1245170317353866864}
   m_Layer: 5
-  m_Name: RaiseArm
+  m_Name: RaiseHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -916,6 +916,7 @@ GameObject:
   - component: {fileID: 3844138618683561924}
   - component: {fileID: 8937656996268009732}
   - component: {fileID: 8116045564939886812}
+  - component: {fileID: 8648235945745676363}
   m_Layer: 0
   m_Name: Student
   m_TagString: Untagged
@@ -1076,6 +1077,18 @@ MonoBehaviour:
   containerSelectPartsPanel: {fileID: 1108098210049592675}
   rootPartPrefab: {fileID: 4740230847243898713, guid: 13424b80050620f40863e5f27a517d42, type: 3}
   buttonSpecificPartPrefab: {fileID: 5325978313963579993, guid: 0115930da4f45034594449656ebdcedf, type: 3}
+--- !u!114 &8648235945745676363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2708028759898558109}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b1770a417411f4389691936cbf6f8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2872254554487243235
 GameObject:
   m_ObjectHideFlags: 0
@@ -1277,7 +1290,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Raise arm
+  m_text: Raise hand
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
