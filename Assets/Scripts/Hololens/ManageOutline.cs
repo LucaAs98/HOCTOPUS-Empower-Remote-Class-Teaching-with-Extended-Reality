@@ -16,8 +16,7 @@ public class ManageOutline : NetworkBehaviour
         int index = GetIndexFromObj(objToOutline);
         EnableDisableBase(index, activate);
         EnableDisableClientRpc(index, activate);
-    }
-
+    } 
     //We enable and disable the outline for all clients
     [ClientRpc]
     private void EnableDisableClientRpc(int index, bool activate)

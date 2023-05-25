@@ -189,22 +189,6 @@ public class ClientHandler : NetworkBehaviour
         this.GetComponent<MoveSpawnedObj>().enabled = true;
     }
 
-    // public void IsStillActive(List<GameObject> activeParts)
-    // {
-    //     foreach (var part in activeParts)
-    //     {
-    //         foreach (Transform specificPart in part.transform)
-    //         {
-    //             Debug.Log("specificPart.name: " + specificPart.name + "------------ lastOutline: " + lastOutline);
-    //             if (specificPart.name == lastOutline)
-    //                 return;
-    //         }
-    //     }
-    //
-    //     Debug.Log("-------------RIMOSSA---------");
-    //     RemoveOutline();
-    // }
-
     public void ShowOutline(string partName)
     {
         if (lastOutline != null && lastOutline != partName)
