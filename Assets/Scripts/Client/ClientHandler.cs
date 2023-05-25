@@ -171,8 +171,8 @@ public class ClientHandler : NetworkBehaviour
     {
         selectPartPanel.SetActive(true);
 
-        Transform container = selectPartPanel.transform.GetChild(1).transform.GetChild(0);
-        LayoutRebuilder.ForceRebuildLayoutImmediate(container.GetComponent<RectTransform>());
+        /*Transform container = selectPartPanel.transform.GetChild(1).transform.GetChild(0);
+        LayoutRebuilder.ForceRebuildLayoutImmediate(container.GetComponent<RectTransform>());*/
 
         choosePartBtn.GetComponent<Image>().color = Color.red;
         choosePartBtn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Close";
