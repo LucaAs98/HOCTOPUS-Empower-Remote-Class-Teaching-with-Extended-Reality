@@ -224,11 +224,13 @@ MonoBehaviour:
   iconMeshRendererHand: {fileID: 8790783281485836310}
   iconMeshRendererBlock: {fileID: 3524914759549991133}
   backPlateHandButton: {fileID: 3452188927835189779}
+  backPlateGrantPermissionButton: {fileID: 4325725958015742056}
   materialYellow: {fileID: 2100000, guid: 99ea55f806b585647b3e60be52747179, type: 2}
   materialRed: {fileID: 2100000, guid: c4b9b0011882103478368bf63844d795, type: 2}
   materialGreen: {fileID: 2100000, guid: ec9656987d5806d4bb57d3055c98b7cd, type: 2}
   materialWhite: {fileID: 2100000, guid: fa419ab56051229449e3b813df8f295f, type: 2}
   materialGrey: {fileID: 2100000, guid: 766cd7f21033bbb438eca1d93097d42a, type: 2}
+  materialRedButton: {fileID: 2100000, guid: 8aec05a17e99c6043810d34179caf151, type: 2}
 --- !u!65 &386147290341080941
 BoxCollider:
   m_ObjectHideFlags: 0
