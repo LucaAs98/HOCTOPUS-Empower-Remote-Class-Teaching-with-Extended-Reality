@@ -28,16 +28,13 @@ public class InitNetworkVariables : NetworkBehaviour
 
     private void InitToggles(ulong clientID)
     {
-        foreach (Transform toggle in toggleContainer.transform)
-        {
-            bool isToggle = toggle.GetComponent<Interactable>().IsToggled;
-            ActivateToggle activateToggle = toggle.GetComponent<ActivateToggle>();
+        List<GameObject> parts = this.GetComponent<ManageToggle>().GetParts();
 
-            if (!isToggle && activateToggle != null)
+        foreach (GameObject part in parts) {
+            if (!part.activeSelf)
             {
-                GameObject objToActivate = activateToggle.GetObjToActivate();
-                this.GetComponent<ManageToggle>().ActivateToggleSpecificClient(isToggle, objToActivate, clientID);
-            }
+                this.GetComponent<ManageToggle>().ActivateToggleSpecificClient(false, part, clientID);
+            }        
         }
     }
 

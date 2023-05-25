@@ -24,14 +24,21 @@ public class ManageToggle : NetworkBehaviour
 
     private void RemoveOutlineIfPresent(GameObject objToCheck)
     {
-        foreach (Transform specificPart in objToCheck.transform)
-        {
-            Outline outlineComponent = specificPart.GetComponent<Outline>();
-
-            if (outlineComponent != null && outlineComponent.enabled)
+        if (objToCheck.transform.tag == "Layer") {
+            foreach (Transform specificPart in objToCheck.transform) {
+                RemoveOutlineIfPresent(specificPart.gameObject);
+            }
+        }
+        else { 
+            foreach (Transform specificPart in objToCheck.transform)
             {
-                this.GetComponent<ManageOutline>().RemoveOutline(specificPart.gameObject);
-                RemoveOutlineIfPresentClientRpc();
+                Outline outlineComponent = specificPart.GetComponent<Outline>();
+
+                if (outlineComponent != null && outlineComponent.enabled)
+                {
+                    this.GetComponent<ManageOutline>().RemoveOutline(specificPart.gameObject);
+                    RemoveOutlineIfPresentClientRpc();
+                }
             }
         }
     }
@@ -89,5 +96,9 @@ public class ManageToggle : NetworkBehaviour
     private GameObject GetObjFromIndex(int index)
     {
         return listOfObjToActivate[index];
+    }
+
+    public List<GameObject> GetParts() {
+        return listOfObjToActivate;
     }
 }

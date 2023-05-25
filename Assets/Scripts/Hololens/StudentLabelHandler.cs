@@ -8,12 +8,14 @@ public class StudentLabelHandler : MonoBehaviour
     [SerializeField] MeshRenderer iconMeshRendererHand;
     [SerializeField] MeshRenderer iconMeshRendererBlock;
     [SerializeField] MeshRenderer backPlateHandButton;
+    [SerializeField] MeshRenderer backPlateGrantPermissionButton;
     private ulong clientID;
     [SerializeField] Material materialYellow;
     [SerializeField] Material materialRed;
     [SerializeField] Material materialGreen;
     [SerializeField] Material materialWhite;
     [SerializeField] Material materialGrey;
+    [SerializeField] Material materialRedButton;
     SendInfoClient modelSendInfo;
     bool flagPermit = false;
 
@@ -44,6 +46,9 @@ public class StudentLabelHandler : MonoBehaviour
                 TargetClientIds = new ulong[] { clientID },
             }
         });
+
+        backPlateGrantPermissionButton.material = flagPermit ? materialRedButton : materialGreen;           
+
     }
 
 

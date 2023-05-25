@@ -4295,6 +4295,11 @@ MonoBehaviour:
     Radius: 0
     Transform: {fileID: 0}
     Colliders: []
+  - Name: StudentNameLabel
+    Offset: {x: 0, y: 0}
+    Radius: 0
+    Transform: {fileID: 0}
+    Colliders: []
   ignoreInactiveTransforms: 1
   sortType: 1
   surfaceType: 1
