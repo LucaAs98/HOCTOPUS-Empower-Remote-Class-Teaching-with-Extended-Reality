@@ -11,7 +11,7 @@ public class CheckActiveParts : MonoBehaviour
     //private GameObject squeleton;
     GameObject model;
     private Dictionary<string, List<GameObject>> activePartsList = new();
-    [SerializeField] private GameObject scrollView;
+    [SerializeField] private GameObject containers;
     [SerializeField] private GameObject containerPartsPrefab;
     [SerializeField] private GameObject rootPartPrefab;
     [SerializeField] private GameObject buttonSpecificPartPrefab;
@@ -20,7 +20,7 @@ public class CheckActiveParts : MonoBehaviour
 
     void Start()
     {
-       model = GameObject.FindGameObjectWithTag("SpawnedModel");
+        model = GameObject.FindGameObjectWithTag("SpawnedModel");
         //squeleton = GameObject.Find("Squeleton");
     }
 
@@ -42,18 +42,15 @@ public class CheckActiveParts : MonoBehaviour
         {
             if (child.gameObject.activeSelf && child.tag == "Layer")
             {
-
                 foreach (Transform nephew in child)
                 {
                     if (nephew.gameObject.activeSelf && nephew.tag == "Container")
                     {
-
                         if (!dictParts.ContainsKey(child.name))
                             dictParts.Add(child.name, new List<GameObject>());
 
                         dictParts[child.name].Add(nephew.gameObject);
                     }
-
                 }
             }
         }
@@ -63,7 +60,7 @@ public class CheckActiveParts : MonoBehaviour
 
     private void DestroyAllChildren()
     {
-        foreach (Transform container in scrollView.transform)
+        foreach (Transform container in containers.transform)
         {
             Destroy(container.gameObject);
         }
@@ -71,23 +68,24 @@ public class CheckActiveParts : MonoBehaviour
 
     private void AddNewChildren()
     {
-
-        foreach (string nameLayer in activePartsList.Keys) {
-
-            GameObject container = Instantiate(containerPartsPrefab, scrollView.transform);
+        foreach (string nameLayer in activePartsList.Keys)
+        {
+            GameObject container = Instantiate(containerPartsPrefab, containers.transform);
             container.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = nameLayer;
 
             Transform containerButtons = container.transform.GetChild(1).transform;
 
-            foreach (GameObject c in activePartsList[nameLayer]) {
+            foreach (GameObject c in activePartsList[nameLayer])
+            {
                 GameObject newRoot = Instantiate(rootPartPrefab, containerButtons);
                 newRoot.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = c.name;
                 AddButtonsToRoot(newRoot, c);
             }
 
             LayoutRebuilder.ForceRebuildLayoutImmediate(container.GetComponent<RectTransform>());
-
         }
+
+        LayoutRebuilder.ForceRebuildLayoutImmediate(containers.GetComponent<RectTransform>());
     }
 
     private void AddButtonsToRoot(GameObject newRoot, GameObject rootPart)
