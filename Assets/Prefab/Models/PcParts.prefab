@@ -8884,7 +8884,7 @@ GameObject:
   - component: {fileID: 7680486331602246171}
   m_Layer: 0
   m_Name: RAM
-  m_TagString: Untagged
+  m_TagString: Container
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11031,7 +11031,7 @@ GameObject:
   - component: {fileID: 3608627115036576230}
   m_Layer: 0
   m_Name: SSD SATA
-  m_TagString: Untagged
+  m_TagString: Container
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25712,7 +25712,7 @@ GameObject:
   - component: {fileID: 2271044355814705299}
   m_Layer: 0
   m_Name: SSD M2
-  m_TagString: Untagged
+  m_TagString: Container
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46076,6 +46076,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handMenuToggles: {fileID: 8668686556302459057}
+  menuDeepSkeleton: {fileID: 0}
+  menuDeepOrgans: {fileID: 0}
 --- !u!114 &2149368254627849131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60975,7 +60977,7 @@ GameObject:
   - component: {fileID: 3561909607428562918}
   m_Layer: 0
   m_Name: Battery
-  m_TagString: Untagged
+  m_TagString: Container
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88297,7 +88299,7 @@ GameObject:
   - component: {fileID: 8231986500550462236}
   m_Layer: 0
   m_Name: MotherBoard
-  m_TagString: Untagged
+  m_TagString: Layer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -89378,7 +89380,7 @@ GameObject:
   - component: {fileID: 3880299677801207852}
   m_Layer: 0
   m_Name: CPU
-  m_TagString: Untagged
+  m_TagString: Container
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

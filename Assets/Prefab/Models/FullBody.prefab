@@ -4210,6 +4210,10 @@ PrefabInstance:
       propertyPath: center
       value: 
       objectReference: {fileID: 4424909216405176759}
+    - target: {fileID: 4332346356499444314, guid: 5815b68dd570e75428c9c9596a58e79a, type: 3}
+      propertyPath: recursive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5279720004311574797, guid: 5815b68dd570e75428c9c9596a58e79a, type: 3}
       propertyPath: m_Name
       value: Organs
