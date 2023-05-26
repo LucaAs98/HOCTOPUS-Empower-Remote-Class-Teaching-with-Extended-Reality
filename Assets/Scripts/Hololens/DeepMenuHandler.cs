@@ -6,7 +6,7 @@ public class DeepMenuHandler : MonoBehaviour
 {
     
     // Call the true function in the root-->manageToggle
-    public void ActivateToggleCall()
+    public void ActivateDeepMenu()
     {
 
         if (!this.gameObject.activeSelf)
