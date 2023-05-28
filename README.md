@@ -8,9 +8,9 @@
 
 | [GoodIT '23 Oral]([https://icec23.cs.unibo.it/](http://goodit.campusfc.unibo.it/)) | [paper](xxx) |
 
-<!-- <p align="center">
-  <img src="PlaneFisica/Images/aircraft.png" width="350">
-</p> -->
+<p align="center">
+  <img src="images/hoctopus_teaser.png" width="450">
+</p>
 
 ``` 
 
