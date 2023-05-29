@@ -28,7 +28,7 @@ public class ManageStudentList : MonoBehaviour
     public void UpdateStudentListSpecific(ulong studentKey, Tuple<string, bool, bool> studentValue)
     {
         studentCounter++;
-        studentCounterLabel.text = "Studenti collegati: " + studentCounter;
+        studentCounterLabel.text = "Connected students: " + studentCounter;
         studentNamePrefab.GetComponent<TextMeshPro>().text = studentValue.Item1;
         Transform obj = Instantiate(studentNamePrefab, studentListInMenu);
         obj.GetComponent<StudentLabelHandler>().SetClientID(studentKey);
