@@ -28,12 +28,12 @@ In practice, HOCTOPUS aims at supporting remote MR class teaching by streaming t
 * 
 * 
 ## Deployment Hololens 2
-1. Go to `File -> Build Settings`. Here change the platform by selecting `Universal Windows Platform` and pressing on `Switch platform`. Once you have changed the platform, make sure you have these settings:
+1. Go to `File -> Build Settings`. Here change the **platform** by selecting `Universal Windows Platform` and pressing on `Switch platform`. Once you have changed the platform, make sure you have these settings:
 <p align="center">
   <img src="images/DeployHololens/FirstSettings.png" width="450">
 </p>
 
-2.  Next go to `Player Settings`, make sure you are on the correct platform and scroll down until you find `Publishing Settings`. Here you will need to create a new certificate and select it for this project. At the end of the operation you will have a screen similar to this one:
+2.  Next go to `Player Settings`, make sure you are on the correct platform and scroll down until you find `Publishing Settings`. Here you will need to **create a new certificate** and **select it** for this project. At the end of the operation you will have a screen similar to this one:
 <p align="center">
   <img src="images/DeployHololens/Certificate.png" width="450">
 </p>
@@ -48,28 +48,29 @@ In practice, HOCTOPUS aims at supporting remote MR class teaching by streaming t
   <img src="images/DeployHololens/BuildWindowBuildSection.png" width="450">
 </p>
 
-Warning. Make sure the folder you are doing the build in is clean!
+⚠️**Warning**⚠️. Make sure the folder you are doing the build in is **clean**!
 Then click on `Build Unity Project`.
 
-5. Once the build is finished we go to the folder that was created automatically (`Builds --> WSAPlayer`) and with visual studio we open the .sln file. In the window on the right "Solution Explorer" open the file `Package.appxmanifest` directly from visual studio. Click on `Create Package`, and you will see a screen similar to this one:
+5. Once the build is finished we go to the folder that was created automatically (`Builds --> WSAPlayer`) and with visual studio we open the `.sln` file. In the window on the right `Solution Explorer` open the file `Package.appxmanifest` directly from **visual studio**. Click on `Create Package`, and you will see a screen similar to this one:
 <p align="center">
   <img src="images/DeployHololens/CreatePackage.png" width="450">
 </p>
-Here click on `Choose certificate...` and select the one you created earlier.
+Here click on `Choose certificate...` and select the one you created **earlier**.
 
-6. Now go back to `Solution Explorer` and right-click on the same file as before, which is `Package.appxmanifest -> Open with... -> XML Editor`.  Here you need to make sure that `PhoneProductId` and `PhonePublisherId` have the same code. Also go all the way down and make sure the `Capabilities` are configured like this:
+6. Now go back to `Solution Explorer` and right-click on the same file as before, which is `Package.appxmanifest -> Open with... -> XML Editor`.  Here you need to make sure that `PhoneProductId` and `PhonePublisherId` have the **same code**. Also go all the way down and make sure the `Capabilities` are configured like this:
 <p align="center">
   <img src="images/DeployHololens/Capabilities.png" width="450">
 </p>
+🔴**Important**❗🔴 Close Visual Studio, a warning will appear and you will need to **save**. ⚠️ **Do not skip this step.** ⚠️
 
-7. Now go back to Unity and in the `Build Window` section click on `Appx Build Options`. Put in the following settings:
+7. Now **go back to Unity** and in the `Build Window` section click on `Appx Build Options`. Put in the following settings:
 <p align="center">
   <img src="images/DeployHololens/Appx.png" width="450">
 </p>
 Finally click on `Build Appx`.
 
 8. Now you'll just go to `<<NameOfTheProject>>\Builds\WSAPlayer\AppPackages\ <<NameOfTheProject>>_1.0.1.0_ARM64_Test `.
-Here you will find the package (.appx) to install on the Hololens 2. We recommend that you use the device portal for installation.
+Here you will find the package (`.appx`) to install on the Hololens 2. We recommend that you use the **device portal** for installation.
 <p align="center">
   <img src="images/DeployHololens/ExplorerAppx.png" width="450">
 </p>
