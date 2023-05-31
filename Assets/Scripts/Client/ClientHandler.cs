@@ -176,7 +176,8 @@ public class ClientHandler : NetworkBehaviour
         choosePartBtn.GetComponent<Image>().color = Color.red;
         choosePartBtn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Close";
 
-        this.GetComponent<MoveSpawnedObj>().enabled = false;
+        this.GetComponent<MoveSpawnedObj>().enabled = false; 
+        this.GetComponent<TouchModelDetection>().enabled = false;
     }
 
     private void ResetChoosePartBtn()
@@ -186,6 +187,7 @@ public class ClientHandler : NetworkBehaviour
         choosePartBtn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Choose part";
 
         this.GetComponent<MoveSpawnedObj>().enabled = true;
+        this.GetComponent<TouchModelDetection>().enabled = true;
     }
 
     public void ShowOutline(string partName)
