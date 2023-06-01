@@ -40,7 +40,7 @@ In practice, HOCTOPUS aims at supporting remote MR class teaching by streaming t
 
 3.  Now go to `Mixed Reality -> Toolkit -> Utilities -> Build Window`. 
 <p align="center">
-  <img src="images/DeployHololens/BuildWindowBuildSection.png" width="600">
+  <img src="images/DeployHololens/BuildWindow.png" width="600">
 </p>
 
 4. In the window that will open, make sure you have the following settings:
