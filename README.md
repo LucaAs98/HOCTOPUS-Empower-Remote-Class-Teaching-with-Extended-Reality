@@ -25,8 +25,32 @@ In practice, HOCTOPUS aims at supporting remote MR class teaching by streaming t
 * Unity 2019.4.xx
 
 ## Features 
-* 
-* 
+### Hololens 2 - Teacher
+<p align="center">
+  <img src="images/UML/UML Use cases HOST-Host_Paper.drawio.png" width="400">
+</p>
+
+The hololens teacher application provide the following features: (a) loading 3D models for the objects the Teacher wants to use in its classes, (b) picking one object, (c) starting the remote class, (d) stream the manipulations made with the object, and (d) manage the connected students. The MR Teacher app exploits the Unity Relay Service (**UniRS**) by hosting the remote class session that the connecting clients will join (this aspect is used in features (c),(d), and (e)).
+
+_Start/End a Remote class._ Once the Teacher user runs the MR application on the Hololens 2, a simple menu is spawned, including two virtual buttons that allow one to exit the application or start a new remote class. Once the User clicks the "New Class" button, the system spawns a new Menu containing all the classes the teachers defined. 
+When the teacher picks the class s/he wants to teach, communication with the UniRS starts. The MR “Host” application sends a request to the Relay Allocation Service, which, based on the information received from the Host, spawns a Relay Server (**RS**) where the network session for the live remote class will be
+hosted. Once the RS is allocated, the Host requests a join code. This special code will be used by the connecting clients to join the same remote class.
+The Host MR application is also responsible for managing and updating the information about the 3D object state of the class to all the connected clients. To carry out this task, the MR system spawns a Netcode for GameObject (**NGO**) process that synchronizes the state of the class objects by broadcasting it to all the connected clients, exploiting the UniRS. Once the NGO process was spawned, the user is asked to watch the floor to place the spawned network 3D object in a comfortable position. At any moment, the MR host could close the remote class session by sending a disconnection signal to the UniRS. This action will disconnect all the connected clients from the session and will shut down the Allocated RS.
+
+_In-Class activities: 3D object Manipulation and Connected Students Management_. Once the teacher started the class, s/he has the chance to manipulate the spawned 3D Object and manage the connected students. To ease the interaction for those different features, we design a Hand-Menu. In practice, we exploit the Hand-Tracking system provided by the MRTK to spawn in the user’s **right hand**, a **general menu**, that is used to enable the aforementioned
+features. This menu provides the chance to: (a) visualize the connected student list,(b) manipulate the 3D model, (c) reset its position, and finally, (d) substitute it with another one.
+When the user interacts with the "Students list" button, a novel menu appears, showing the list of the connected clients. Per each client, the teacher can give the student permission to remotely manipulate the 3D model for the question, accept a student’s question, or remove s/he from the remote class session. When one of the students raises their hands to ask a question, the system will pop-up a notification with a virtual element in the teacher’s view. 
+The “Manipulate” button enables all the 3D object manipulation features. In particular, the teacher could move and rotate the object, show and hide the object components and correlated labels, and outline any visible components.
+The “Reset position” button allows to reset the model position to its original state. Finally, the “Change Model” let the teacher user change the utilized object.
+
+
+### Android - Student
+
+<p align="center">
+  <img src="images/UML/UML Use cases CLIENT-Student_Paper.drawio.png" width="400">
+</p>
+
+
 ## Deployment Hololens 2
 1. Go to `File -> Build Settings`. Here change the **platform** by selecting `Universal Windows Platform` and pressing on `Switch platform`. Once you have changed the platform, make sure you have these settings:
 <p align="center">
