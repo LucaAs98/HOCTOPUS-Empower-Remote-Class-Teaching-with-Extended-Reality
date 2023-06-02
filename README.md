@@ -1,5 +1,5 @@
 
-# [**HOCTOPUS: Empower Remote Class Teaching with Extended Reality**]()<br/>
+# [**HOCTOPUS: Empower Remote Class Teaching with Extended Reality**]()<br/> 🥽 + 📱 = 🐙
 
 
 [Lorenzo Stacchio](https://www.unibo.it/sitoweb/lorenzo.stacchio2)\*,
@@ -53,7 +53,9 @@ The student AR app exploits the UniRS to **connect to the hosted class** as conn
 <p align="center">
   <img src="images/Feature/Home.jpg" width="200" />
 </p>
-## Deployment Hololens 2
+
+## Deploy
+### Deployment Hololens 2
 1. Go to `File -> Build Settings`. Here change the **platform** by selecting `Universal Windows Platform` and pressing on `Switch platform`. Once you have changed the platform, make sure you have these settings:
 <p align="center">
   <img src="images/DeployHololens/FirstSettings.png" width="600">
@@ -105,7 +107,8 @@ Here you will find the package (`.appx`) to install on the Hololens 2. We recomm
   <img src="images/DeployHololens/ExplorerAppx.png" width="600">
 </p>
 
-## Deployment Android
+
+### Deployment Android
 As a reminder, at least **version 8.0 Oreo is required** for deployment on **Android**.
 The settings for deploying on Android are the **same** as for **any augmented reality application**.
 1. **Change the platform** to the Android platform;
