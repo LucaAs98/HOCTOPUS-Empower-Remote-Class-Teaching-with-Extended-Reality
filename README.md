@@ -79,7 +79,25 @@ Here you will find the package (`.appx`) to install on the Hololens 2. We recomm
   <img src="images/DeployHololens/ExplorerAppx.png" width="600">
 </p>
 
+## Deployment Android
+As a reminder, at least **version 8.0 Oreo is required** for deployment on **Android**.
+The settings for deploying on Android are the **same** as for **any augmented reality application**.
+1. **Change the platform** to the Android platform;
+2. Go to `Player Settings`;
+3. In the `Other settings` section make sure you have the **following settings**:
+<p align="center">
+  <img src="images/DeployAndroid/AndroidDeploy1.jpg" width="600">
+</p>
 
+<p align="center">
+  <img src="images/DeployAndroid/AndroidDeploy2.jpg" width="600">
+</p>
+
+<p align="center">
+  <img src="images/DeployAndroid/AndroidDeploy3.jpg" width="600">
+</p>
+
+⚠️**Before** building, **connect** your smartphone to your pc and make sure it has **usb debugging enabled**. At this point **you can build and deploy** to your smartphone.⚠️
 
 ## Demo
 
