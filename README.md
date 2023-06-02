@@ -26,27 +26,33 @@ In practice, HOCTOPUS aims at supporting remote MR class teaching by streaming t
 
 ## Features 
 ### Hololens 2 - Teacher
-The hololens teacher application provide the following features: 
+The hololens **teacher** application provide the **following features**: 
 
-1. loading 3D models for the objects the Teacher wants to use in its classes;
-2. picking one object;
-3. starting the remote class;
-4. stream the manipulations made with the object;
-5. manage the connected students.
+1. **Loading 3D models** for the objects the Teacher wants to use in its classes;
+2. **Picking** one object;
+3. Starting the **remote class**;
+4. **Stream the manipulations** made with the object;
+5. **Manage** the connected **students**.
 
-The MR Teacher app exploits the Unity Relay Service by hosting the remote class session that the connecting clients will join (this aspect is used in features (3),(4), and (5)).
+The MR Teacher app exploits the **Unity Relay Service** by **hosting** the remote class session that the connecting clients will **join** (this aspect is used in features (3),(4), and (5)).
 
+<p float="center">
+  <img src="images/Feature/ChooseLesson.jpg" width="450" />
+  <img src="images/Feature/DifferentFilters.jpg" width="450" />
+</p>
 
 ### Android - Student
-The AR student one was designed for smartphones (in particular, Android-based ones). The student application provide the following features: 
+The **AR student** one was designed for **smartphones** (in particular, Android-based ones). The student application provide the **following features**: 
 
-1. visualizing the current state of 3D models streamed by the teacher;
-2. asking questions related to the object;
-3. manipulating the object while doing a question to ease the comprehensive between teacher and student. 
+1. **Visualizing** the current state of 3D models streamed by the teacher;
+2. **Asking questions** related to the object;
+3. **Manipulating the object** while doing a question to ease the comprehensive between teacher and student. 
 
-The student AR app exploits the UniRS to connect to the hosted class as connected clients. We here state that all the AR-related features were developed with AR Foundation and AR core and that the system can be used with any Android smartphone with a version greater or equal to 8.0 (Oreo).
+The student AR app exploits the UniRS to **connect to the hosted class** as connected clients. We here state that all the AR-related features were developed with **AR Foundation** and **AR core** and that the system can be used with **any Android smartphone** with a version greater or equal to **8.0 (Oreo)**.
 
-
+<p align="center">
+  <img src="images/Feature/Home.jpg" width="200" />
+</p>
 ## Deployment Hololens 2
 1. Go to `File -> Build Settings`. Here change the **platform** by selecting `Universal Windows Platform` and pressing on `Switch platform`. Once you have changed the platform, make sure you have these settings:
 <p align="center">
