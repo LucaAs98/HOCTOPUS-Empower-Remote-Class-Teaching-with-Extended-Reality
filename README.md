@@ -56,6 +56,52 @@ The student AR app exploits the UniRS to **connect to the hosted class** as conn
   <img src="images/Feature/Home.jpg" width="200" />
 </p>
 
+
+
+## Setting Up a Server Relay Using Unity Gaming Services
+
+1. **Create a profile** on [Unity Gaming Services](https://dashboard.unity3d.com/gaming/login?redirectTo=L3JlbGF5 "Unity Gaming Services").
+
+2. After registering, **create a new project** and assign a preferred name to it.
+
+3. In the project interface, navigate to the **Multiplayer** section at the bottom-left corner.
+
+4. Select the **Relay** option to initiate the server relay configuration.
+
+<p align="center">
+  <img src="images/Relay configuration/UnityGamingServices.png" width="700" />
+</p>
+
+5. In the server relay screen, click on **Get started** to proceed.
+
+6. Follow the **provided instructions** carefully for setup in the Unity project:
+   - **Link Unity project**: 
+     1) Open your project in the Unity Editor and navigate to **Edit** > **Project Settings**;
+     2) From the Project Settings window, go to the **Services** tab;
+     3) Click on **Use an existing Unity project ID** and link to the following Dashboard project:
+          - **Organization**: \*\*Name of the organization\*\*;
+          - **Project**: \*\*Name of the project\*\*
+	 
+	 5) Once you see the *Project was linked successfully* banner appear at the top of the window, you will be **ready** to move on.
+   <p align="center">
+     <img src="images/Relay configuration/Services.png" width="400" />
+   </p>
+
+   - **Install package**: 
+     1) *In Unity*, navigate to **Window** > **Package Manager**;
+     2) From the Package Manager, search or scroll to find the **Relay** package within the Unity Registry;
+     3) Select the package and click the **Install** button.
+        <p align="center">
+         <img src="images/Relay configuration/RelayPackage.png" width="400" />
+       </p>
+
+Feel free to **skip the third step**, which suggests *Import a sample*. Instead,  just click on **Finish**. By following these steps, you'll be able to **successfully configure** the server relay within the Unity project  ✅ .
+
+
+
+
+
+
 ## Deploy
 ### Deployment Hololens 2
 1. Go to `File -> Build Settings`. Here change the **platform** by selecting `Universal Windows Platform` and pressing on `Switch platform`. Once you have changed the platform, make sure you have these settings:
