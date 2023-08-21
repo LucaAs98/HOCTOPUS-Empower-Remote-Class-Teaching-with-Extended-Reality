@@ -9,7 +9,7 @@
 
 \* Authors provided equal contributions.
 
-| [ISMAR 23 - 1st Joint Workshop on Cross Reality](https://cross-realities.org/) | [paper](xxx) | [video](https://youtu.be/Q2rpUImP1bM)
+| [ISMAR 23 - 1st Joint Workshop on Cross Reality](https://cross-realities.org/) | [paper](https://cross-realities.org/proceedings.php) | [video](https://youtu.be/Q2rpUImP1bM)
 
 <p align="center">
   <img src="images/hoctopus_teaser.png" width="450">
@@ -24,11 +24,18 @@ In practice, HOCTOPUS aims at supporting remote MR class teaching by streaming t
 ``` 
 
 ## Requirements
-* Unity 2019.4.xx
+* [Unity 2019.4.xx](https://unity.com/releases/editor/archive#download-archive-2019)
+* [Unity Relay Service](https://unity.com/products/relay)
+* [Unity Netcode for GameObjects](https://docs-multiplayer.unity3d.com/netcode/current/about/)
+
+#### Already included in this repository
+* [Object Outline](https://github.com/chrisnolet/QuickOutline.git)
+* [Floor Finder](https://github.com/LocalJoost/FloorFinder.git)
+
 
 ## Features 
 ### Hololens 2 - Teacher
-The hololens **teacher** application provide the **following features**: 
+The **Mixed Reality teacher** application was implemented with the Hololens 2 and provides the **following features**: 
 
 1. **Loading 3D models** for the objects the Teacher wants to use in its classes;
 2. **Picking** one object;
@@ -44,11 +51,11 @@ The MR Teacher app exploits the **Unity Relay Service** by **hosting** the remot
 </p>
 
 ### Android - Student
-The **AR student** one was designed for **smartphones** (in particular, Android-based ones). The student application provide the **following features**: 
+The **Mobile Augmented Reality student** one was designed for **smartphones** (in particular, Android-based ones). The student application provides the **following features**: 
 
 1. **Visualizing** the current state of 3D models streamed by the teacher;
 2. **Asking questions** related to the object;
-3. **Manipulating the object** while doing a question to ease the comprehensive between teacher and student. 
+3. **Manipulating the object** while doing a question to ease the comprehension between teacher and student. 
 
 The student AR app exploits the UniRS to **connect to the hosted class** as connected clients. We here state that all the AR-related features were developed with **AR Foundation** and **AR core** and that the system can be used with **any Android smartphone** with a version greater or equal to **8.0 (Oreo)**.
 
@@ -176,13 +183,6 @@ The settings for deploying on Android are the **same** as for **any augmented re
 
 ⚠️**Before** building, **connect** your smartphone to your pc and make sure it has **usb debugging enabled**. At this point **you can build and deploy** to your smartphone.⚠️
 
-## Demo
+## Main Unity Scene
 
-The demo is in the ...
-
-
-## References 
-* **Floor Finder** - https://github.com/LocalJoost/FloorFinder.git
-* **Outline** - https://github.com/chrisnolet/QuickOutline.git
-
-
+The main unity scene is in the [```Assets/Scenes/MainScene.unity```](Assets/Scenes/).
